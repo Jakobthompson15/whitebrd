@@ -37,13 +37,13 @@ export function ServicesSection() {
       ]
     },
     {
-      title: "Social Media",
-      description: "Build trust and showcase your work with strategic social media marketing that highlights your expertise and customer satisfaction.",
+      title: "PPC Advertising",
+      description: "Get immediate results with targeted pay-per-click campaigns that put your business in front of customers actively searching for HVAC and plumbing services.",
       features: [
-        "Facebook & Instagram Management",
-        "Before/After Project Posts",
-        "Customer Review Highlights",
-        "Emergency Service Promotion"
+        "Google Ads Management",
+        "Local Service Ads",
+        "Emergency Service Targeting",
+        "Bid Optimization & ROI Tracking"
       ]
     }
   ];
