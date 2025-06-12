@@ -54,7 +54,7 @@ export function Footer() {
                 onClick={() => scrollToSection('work')}
                 className="block text-gray-300 hover:text-white transition-colors duration-200"
               >
-                Case Studies
+                Our Story
               </button>
               <button 
                 onClick={() => scrollToSection('connect')}

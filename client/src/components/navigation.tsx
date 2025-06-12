@@ -49,7 +49,7 @@ export function Navigation() {
                 onClick={() => scrollToSection('work')}
                 className="hover:bg-black hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200"
               >
-                Our Work
+                Our Story
               </button>
               <button 
                 onClick={() => scrollToSection('connect')}
@@ -92,7 +92,7 @@ export function Navigation() {
               onClick={() => scrollToSection('work')}
               className="block w-full text-left px-3 py-2 text-base font-medium hover:bg-black hover:text-white transition-colors duration-200"
             >
-              Our Work
+              Our Story
             </button>
             <button 
               onClick={() => scrollToSection('connect')}
