@@ -71,7 +71,6 @@ export function Footer() {
               <p>Local SEO</p>
               <p>Google Ads</p>
               <p>Website Design</p>
-              <p>PPC Advertising</p>
               <p>Review Management</p>
               <p>Lead Generation</p>
             </div>

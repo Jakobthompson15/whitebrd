@@ -18,12 +18,12 @@ export function ServicesSection() {
     },
     {
       title: "Google Ads",
-      description: "Get immediate visibility with targeted Google Ads campaigns that reach customers actively searching for HVAC and plumbing services.",
+      description: "Get immediate results with targeted Google Ads campaigns that put your business in front of customers actively searching for HVAC and plumbing services.",
       features: [
-        "Search Ads Campaigns",
+        "Search Campaign Management",
         "Local Service Ads",
         "Emergency Service Targeting",
-        "Conversion Tracking"
+        "Bid Optimization & ROI Tracking"
       ]
     },
     {
@@ -36,16 +36,7 @@ export function ServicesSection() {
         "Customer Testimonials"
       ]
     },
-    {
-      title: "PPC Advertising",
-      description: "Get immediate results with targeted pay-per-click campaigns that put your business in front of customers actively searching for HVAC and plumbing services.",
-      features: [
-        "Google Ads Management",
-        "Local Service Ads",
-        "Emergency Service Targeting",
-        "Bid Optimization & ROI Tracking"
-      ]
-    }
+
   ];
 
   return (

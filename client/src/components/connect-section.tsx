@@ -116,7 +116,7 @@ export function ConnectSection() {
             animate={formsVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h3 className="font-marker-bold text-2xl mb-6 tracking-wide">Get Your Free Audit</h3>
+            <h3 className="text-2xl font-bold mb-6">Get Your Free Audit</h3>
             <p className="text-gray-600 mb-6">
               Fill out the form below and we'll analyze your current digital presence and show you exactly how to get more customers.
             </p>
