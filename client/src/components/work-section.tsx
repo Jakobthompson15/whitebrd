@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 import jamieImage from '@assets/image_1749697502488.png';
 import jakobEmilyImage from '@assets/Emily and Jakob Gallery_1749697525226.jpg';
+import logoPath from '@assets/ChatGPT Image Jun 9 2025 from Google Business_1749695415413.png';
 
 export function WorkSection() {
   const { ref: beliefsRef, isVisible: beliefsVisible } = useScrollAnimation();
@@ -26,21 +27,38 @@ export function WorkSection() {
           animate={beliefsVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-12 text-black">
-            What We Believe
-          </h2>
-          <div className="space-y-6">
-            {beliefs.map((belief, index) => (
-              <motion.div
-                key={index}
-                className="text-2xl sm:text-3xl font-bold text-black"
-                initial={{ opacity: 0, x: -20 }}
-                animate={beliefsVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
-              >
-                {belief}
-              </motion.div>
-            ))}
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left side - Beliefs */}
+            <div>
+              <h2 className="text-4xl sm:text-5xl font-bold mb-12 text-black">
+                What We Believe
+              </h2>
+              <div className="space-y-6">
+                {beliefs.map((belief, index) => (
+                  <motion.div
+                    key={index}
+                    className="text-2xl sm:text-3xl font-bold text-black"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={beliefsVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                    transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
+                  >
+                    {belief}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right side - Logo */}
+            <div className="flex justify-center lg:justify-end">
+              <motion.img 
+                src={logoPath} 
+                alt="Whitebrd Co." 
+                className="h-32 w-auto md:h-40 lg:h-48"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={beliefsVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+              />
+            </div>
           </div>
         </motion.div>
 
