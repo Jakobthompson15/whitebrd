@@ -92,7 +92,7 @@ export function ConnectSection() {
       <div className="max-w-4xl mx-auto">
         <motion.h2 
           ref={titleRef}
-          className="font-bebas text-4xl sm:text-5xl lg:text-6xl text-center mb-16 tracking-wide"
+          className="font-lato-bold text-4xl sm:text-5xl lg:text-6xl text-center mb-16 tracking-wide"
           initial={{ opacity: 0, y: 30 }}
           animate={titleVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -108,7 +108,7 @@ export function ConnectSection() {
             animate={formsVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h3 className="font-bebas text-2xl mb-6 tracking-wide">Start Your Project</h3>
+            <h3 className="font-lato-bold text-2xl mb-6 tracking-wide">Start Your Project</h3>
             <form onSubmit={contactForm.handleSubmit(onContactSubmit)} className="space-y-6">
               <div>
                 <Label htmlFor="name" className="block text-sm font-medium mb-2">Name</Label>
@@ -154,7 +154,7 @@ export function ConnectSection() {
             animate={formsVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           >
-            <h3 className="font-bebas text-2xl mb-6 tracking-wide">Stay Updated</h3>
+            <h3 className="font-lato-bold text-2xl mb-6 tracking-wide">Stay Updated</h3>
             <p className="text-gray-700 mb-6 leading-relaxed">
               Get exclusive insights, case studies, and digital marketing tips delivered to your inbox monthly.
             </p>

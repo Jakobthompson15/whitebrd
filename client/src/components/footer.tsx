@@ -15,7 +15,7 @@ export function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="font-bebas text-2xl mb-4 tracking-wide">Whitebrd Co.</h3>
+            <h3 className="font-lato-bold text-2xl mb-4 tracking-wide">Whitebrd Co.</h3>
             <p className="text-gray-300 leading-relaxed">
               Transforming blank canvases into digital masterpieces that drive growth and build lasting connections.
             </p>
