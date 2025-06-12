@@ -57,7 +57,7 @@ export function WorkSection() {
           <span className="text-sm font-semibold tracking-wider uppercase text-gray-600 mb-4 block">
             Proven Results
           </span>
-          <h2 className="font-lato-bold text-4xl sm:text-5xl lg:text-6xl mb-6 tracking-tight">
+          <h2 className="font-marker text-4xl sm:text-5xl lg:text-6xl mb-6 tracking-tight">
             Client Success Stories
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
@@ -75,7 +75,7 @@ export function WorkSection() {
               transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.1 }}
             >
               <div className="mb-6">
-                <h3 className="font-lato-bold text-2xl mb-2">{study.company}</h3>
+                <h3 className="font-marker-bold text-2xl mb-2">{study.company}</h3>
                 <p className="text-gray-600 text-sm font-medium">{study.service} • {study.location}</p>
               </div>
               

@@ -21,7 +21,7 @@ export function HeroSection() {
         </motion.div>
         
         <motion.h1 
-          className="font-lato-bold text-5xl sm:text-6xl lg:text-7xl mb-8 tracking-tight leading-tight"
+          className="font-marker text-5xl sm:text-6xl lg:text-7xl mb-8 tracking-tight leading-tight"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}

@@ -100,7 +100,7 @@ export function ConnectSection() {
           <span className="text-sm font-semibold tracking-wider uppercase text-gray-400 mb-4 block">
             Ready to Grow?
           </span>
-          <h2 className="font-lato-bold text-4xl sm:text-5xl lg:text-6xl mb-6 tracking-tight">
+          <h2 className="font-marker text-4xl sm:text-5xl lg:text-6xl mb-6 tracking-tight">
             Get Your Free Marketing Audit
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -116,7 +116,7 @@ export function ConnectSection() {
             animate={formsVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h3 className="font-lato-bold text-2xl mb-6 tracking-wide">Get Your Free Audit</h3>
+            <h3 className="font-marker-bold text-2xl mb-6 tracking-wide">Get Your Free Audit</h3>
             <p className="text-gray-600 mb-6">
               Fill out the form below and we'll analyze your current digital presence and show you exactly how to get more customers.
             </p>
