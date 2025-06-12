@@ -2,32 +2,78 @@ import { motion } from 'framer-motion';
 
 export function HeroSection() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16">
-      <div className="max-w-4xl mx-auto text-center">
+    <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 relative overflow-hidden">
+      {/* Background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-gradient-to-br from-black to-transparent"></div>
+      </div>
+      
+      <div className="max-w-6xl mx-auto text-center relative z-10">
+        <motion.div
+          className="mb-6"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <span className="text-sm font-semibold tracking-wider uppercase text-gray-600 mb-4 block">
+            Digital Marketing for Home Services
+          </span>
+        </motion.div>
+        
         <motion.h1 
-          className="font-lato-bold text-6xl sm:text-7xl lg:text-8xl mb-8 tracking-wider"
+          className="font-lato-bold text-5xl sm:text-6xl lg:text-7xl mb-8 tracking-tight leading-tight"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
         >
-          Whitebrd Co.
+          Dominate Your Local<br />
+          <span className="text-gray-700">HVAC & Plumbing</span><br />
+          Market
         </motion.h1>
+        
         <motion.p 
-          className="text-lg sm:text-xl lg:text-2xl mb-6 max-w-3xl mx-auto leading-relaxed"
+          className="text-xl lg:text-2xl mb-10 max-w-4xl mx-auto leading-relaxed text-gray-700"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
         >
-          We take your blank canvas and craft a digital presence that wins attention, trust, and growth.
+          We help HVAC and plumbing contractors generate more qualified leads, 
+          increase revenue, and grow their business with proven digital marketing strategies.
         </motion.p>
-        <motion.p 
-          className="text-lg sm:text-xl italic text-gray-700"
+        
+        <motion.div
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
         >
-          Start blank, grow bold.
-        </motion.p>
+          <button className="bg-black text-white px-8 py-4 text-lg font-semibold hover:bg-gray-800 transition-colors duration-200 border-2 border-black">
+            Get More Leads Now
+          </button>
+          <button className="bg-white text-black px-8 py-4 text-lg font-semibold hover:bg-black hover:text-white transition-colors duration-200 border-2 border-black">
+            View Case Studies
+          </button>
+        </motion.div>
+        
+        <motion.div
+          className="mt-16 flex justify-center items-center space-x-8 text-sm text-gray-600"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+        >
+          <div className="text-center">
+            <div className="font-bold text-2xl text-black">500+</div>
+            <div>Contractors Served</div>
+          </div>
+          <div className="text-center">
+            <div className="font-bold text-2xl text-black">$50M+</div>
+            <div>Revenue Generated</div>
+          </div>
+          <div className="text-center">
+            <div className="font-bold text-2xl text-black">98%</div>
+            <div>Client Retention</div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -3,66 +3,109 @@ import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 
 export function ServicesSection() {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
-  const { ref: seoRef, isVisible: seoVisible } = useScrollAnimation();
-  const { ref: ppcRef, isVisible: ppcVisible } = useScrollAnimation();
+  const { ref: servicesRef, isVisible: servicesVisible } = useScrollAnimation();
+
+  const services = [
+    {
+      title: "Local SEO",
+      description: "Dominate local search results when customers search for HVAC and plumbing services in your area. We optimize your Google Business Profile and local citations.",
+      features: [
+        "Google Business Profile Optimization",
+        "Local Citation Building",
+        "Review Management",
+        "Local Keyword Targeting"
+      ]
+    },
+    {
+      title: "Google Ads",
+      description: "Get immediate visibility with targeted Google Ads campaigns that reach customers actively searching for HVAC and plumbing services.",
+      features: [
+        "Search Ads Campaigns",
+        "Local Service Ads",
+        "Emergency Service Targeting",
+        "Conversion Tracking"
+      ]
+    },
+    {
+      title: "Website Design",
+      description: "Professional, mobile-optimized websites that convert visitors into customers. Built specifically for HVAC and plumbing contractors.",
+      features: [
+        "Mobile-First Design",
+        "Service Area Pages",
+        "Emergency Contact Forms",
+        "Customer Testimonials"
+      ]
+    },
+    {
+      title: "Social Media",
+      description: "Build trust and showcase your work with strategic social media marketing that highlights your expertise and customer satisfaction.",
+      features: [
+        "Facebook & Instagram Management",
+        "Before/After Project Posts",
+        "Customer Review Highlights",
+        "Emergency Service Promotion"
+      ]
+    }
+  ];
 
   return (
     <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-      <div className="max-w-6xl mx-auto">
-        <motion.h2 
+      <div className="max-w-7xl mx-auto">
+        <motion.div
           ref={titleRef}
-          className="font-lato-bold text-4xl sm:text-5xl lg:text-6xl text-center mb-16 tracking-wide"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={titleVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          Our Services
-        </motion.h2>
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
-          {/* SEO Service */}
-          <motion.div 
-            ref={seoRef}
-            className="service-card"
-            initial={{ opacity: 0, y: 30 }}
-            animate={seoVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <h3 className="font-lato-bold text-3xl lg:text-4xl mb-6 tracking-wide">SEO</h3>
-            <p className="text-gray-700 leading-relaxed text-lg mb-6">
-              We optimize your digital presence to dominate search results. Our strategic approach combines technical excellence with content mastery to ensure your brand appears exactly where your customers are looking.
-            </p>
-            <div className="pt-6 border-t border-gray-200">
-              <ul className="space-y-2 text-sm font-medium">
-                <li>• Technical SEO Audits</li>
-                <li>• Content Strategy & Optimization</li>
-                <li>• Keyword Research & Analytics</li>
-                <li>• Performance Monitoring</li>
+          <span className="text-sm font-semibold tracking-wider uppercase text-gray-600 mb-4 block">
+            What We Do
+          </span>
+          <h2 className="font-lato-bold text-4xl sm:text-5xl lg:text-6xl mb-6 tracking-tight">
+            Digital Marketing Services
+          </h2>
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            Comprehensive digital marketing solutions designed specifically for HVAC and plumbing contractors
+          </p>
+        </motion.div>
+        
+        <div ref={servicesRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {services.map((service, index) => (
+            <motion.div 
+              key={service.title}
+              className="bg-white p-8 border-2 border-black hover:shadow-xl transition-all duration-300 group"
+              initial={{ opacity: 0, y: 30 }}
+              animate={servicesVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.1 }}
+            >
+              <h3 className="font-lato-bold text-2xl mb-4 tracking-wide group-hover:text-gray-700 transition-colors">
+                {service.title}
+              </h3>
+              <p className="text-gray-700 leading-relaxed mb-6">
+                {service.description}
+              </p>
+              <ul className="space-y-2 text-sm">
+                {service.features.map((feature, featureIndex) => (
+                  <li key={featureIndex} className="flex items-center">
+                    <span className="w-2 h-2 bg-black mr-3 flex-shrink-0"></span>
+                    {feature}
+                  </li>
+                ))}
               </ul>
-            </div>
-          </motion.div>
-          
-          {/* PPC Service */}
-          <motion.div 
-            ref={ppcRef}
-            className="service-card"
-            initial={{ opacity: 0, y: 30 }}
-            animate={ppcVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          >
-            <h3 className="font-lato-bold text-3xl lg:text-4xl mb-6 tracking-wide">PPC</h3>
-            <p className="text-gray-700 leading-relaxed text-lg mb-6">
-              Precision-targeted advertising campaigns that deliver immediate results. We craft compelling ad experiences that convert browsers into buyers while maximizing your return on ad spend.
-            </p>
-            <div className="pt-6 border-t border-gray-200">
-              <ul className="space-y-2 text-sm font-medium">
-                <li>• Google Ads Management</li>
-                <li>• Social Media Advertising</li>
-                <li>• Campaign Optimization</li>
-                <li>• ROI Analysis & Reporting</li>
-              </ul>
-            </div>
-          </motion.div>
+            </motion.div>
+          ))}
         </div>
+        
+        <motion.div
+          className="text-center mt-16"
+          initial={{ opacity: 0 }}
+          animate={servicesVisible ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+        >
+          <button className="bg-black text-white px-8 py-4 text-lg font-semibold hover:bg-gray-800 transition-colors duration-200 border-2 border-black">
+            Get Your Free Strategy Session
+          </button>
+        </motion.div>
       </div>
     </section>
   );
