@@ -40,7 +40,7 @@ export function WorkSection() {
       <div className="max-w-6xl mx-auto">
         <motion.h2 
           ref={titleRef}
-          className="font-bebas text-4xl sm:text-5xl lg:text-6xl text-center mb-16 tracking-wide"
+          className="font-lato-bold text-4xl sm:text-5xl lg:text-6xl text-center mb-16 tracking-wide"
           initial={{ opacity: 0, y: 30 }}
           animate={titleVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -56,7 +56,7 @@ export function WorkSection() {
               animate={cardsVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.1 }}
             >
-              <h3 className="font-bebas text-2xl mb-3 tracking-wide">{project.title}</h3>
+              <h3 className="font-lato-bold text-2xl mb-3 tracking-wide">{project.title}</h3>
               <p className="text-sm mb-4 opacity-80">{project.subtitle}</p>
               <div className="space-y-2 text-sm">
                 {project.metrics.map((metric, metricIndex) => (

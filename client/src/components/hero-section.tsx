@@ -5,7 +5,7 @@ export function HeroSection() {
     <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16">
       <div className="max-w-4xl mx-auto text-center">
         <motion.h1 
-          className="font-bebas text-6xl sm:text-7xl lg:text-8xl mb-8 tracking-wider"
+          className="font-lato-bold text-6xl sm:text-7xl lg:text-8xl mb-8 tracking-wider"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}

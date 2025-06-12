@@ -11,7 +11,7 @@ export function ServicesSection() {
       <div className="max-w-6xl mx-auto">
         <motion.h2 
           ref={titleRef}
-          className="font-bebas text-4xl sm:text-5xl lg:text-6xl text-center mb-16 tracking-wide"
+          className="font-lato-bold text-4xl sm:text-5xl lg:text-6xl text-center mb-16 tracking-wide"
           initial={{ opacity: 0, y: 30 }}
           animate={titleVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -27,7 +27,7 @@ export function ServicesSection() {
             animate={seoVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h3 className="font-bebas text-3xl lg:text-4xl mb-6 tracking-wide">SEO</h3>
+            <h3 className="font-lato-bold text-3xl lg:text-4xl mb-6 tracking-wide">SEO</h3>
             <p className="text-gray-700 leading-relaxed text-lg mb-6">
               We optimize your digital presence to dominate search results. Our strategic approach combines technical excellence with content mastery to ensure your brand appears exactly where your customers are looking.
             </p>
@@ -49,7 +49,7 @@ export function ServicesSection() {
             animate={ppcVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           >
-            <h3 className="font-bebas text-3xl lg:text-4xl mb-6 tracking-wide">PPC</h3>
+            <h3 className="font-lato-bold text-3xl lg:text-4xl mb-6 tracking-wide">PPC</h3>
             <p className="text-gray-700 leading-relaxed text-lg mb-6">
               Precision-targeted advertising campaigns that deliver immediate results. We craft compelling ad experiences that convert browsers into buyers while maximizing your return on ad spend.
             </p>
