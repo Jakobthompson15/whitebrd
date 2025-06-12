@@ -65,7 +65,7 @@ export function WorkSection() {
                 <img 
                   src={jamieImage} 
                   alt="Jamie Thayne" 
-                  className="w-32 h-32 rounded-full object-cover mb-4"
+                  className="w-48 h-48 rounded-full object-cover mb-4"
                 />
                 <h3 className="text-xl font-bold text-black">Jamie Thayne</h3>
                 <p className="text-gray-600">Co-Founder</p>
@@ -82,7 +82,7 @@ export function WorkSection() {
                 <img 
                   src={jakobEmilyImage} 
                   alt="Jakob Thompson" 
-                  className="w-32 h-32 rounded-full object-cover mb-4"
+                  className="w-48 h-48 rounded-full object-cover mb-4"
                 />
                 <h3 className="text-xl font-bold text-black">Jakob Thompson</h3>
                 <p className="text-gray-600">Co-Founder</p>
