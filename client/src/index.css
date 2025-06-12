@@ -64,13 +64,13 @@
   }
 }
 
-/* Custom black marker cursor */
+/* Custom marker cursor using provided image */
 * {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="8" y="2" width="4" height="16" rx="2" fill="black"/><rect x="6" y="16" width="8" height="2" rx="1" fill="black"/></svg>') 10 18, auto;
+  cursor: url('@assets/image_1749696948986.png') 16 16, auto;
 }
 
 a, button, input, textarea, select {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="8" y="2" width="4" height="16" rx="2" fill="black"/><rect x="6" y="16" width="8" height="2" rx="1" fill="black"/><circle cx="10" cy="10" r="2" fill="white"/></svg>') 10 18, pointer;
+  cursor: url('@assets/image_1749696948986.png') 16 16, pointer;
 }
 
 /* Marker-style font classes */
