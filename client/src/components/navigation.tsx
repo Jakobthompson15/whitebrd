@@ -8,7 +8,7 @@ export function Navigation() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offsetTop = element.offsetTop - 64; // Account for fixed nav
+      const offsetTop = element.offsetTop - 80; // Account for fixed nav
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'
@@ -20,13 +20,13 @@ export function Navigation() {
   return (
     <nav className="fixed top-0 left-0 right-0 bg-white border-b border-black z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <img 
               src={logoPath} 
               alt="Whitebrd Co." 
-              className="h-8 w-auto"
+              className="h-12 w-auto md:h-16"
             />
           </div>
           
