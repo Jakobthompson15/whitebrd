@@ -27,25 +27,23 @@ export function WorkSection() {
           animate={beliefsVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-12 text-black">
+            What We Believe
+          </h2>
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Left side - Beliefs */}
-            <div>
-              <h2 className="text-4xl sm:text-5xl font-bold mb-12 text-black">
-                What We Believe
-              </h2>
-              <div className="space-y-6">
-                {beliefs.map((belief, index) => (
-                  <motion.div
-                    key={index}
-                    className="text-2xl sm:text-3xl font-bold text-black"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={beliefsVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                    transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
-                  >
-                    {belief}
-                  </motion.div>
-                ))}
-              </div>
+            <div className="space-y-6">
+              {beliefs.map((belief, index) => (
+                <motion.div
+                  key={index}
+                  className="text-2xl sm:text-3xl font-bold text-black"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={beliefsVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                  transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
+                >
+                  {belief}
+                </motion.div>
+              ))}
             </div>
 
             {/* Right side - Logo */}
