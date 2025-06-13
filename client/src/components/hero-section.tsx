@@ -27,7 +27,7 @@ export function HeroSection() {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
         >
           Dominate Your Local<br />
-          <span className="text-gray-700">HVAC & Plumbing</span><br />
+          <span className="text-gray-700">HVAC, Plumbing & Roofing</span><br />
           Market
         </motion.h1>
         
@@ -37,7 +37,7 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
         >
-          We help HVAC and plumbing contractors generate more qualified leads, 
+          We help HVAC, plumbing, and roofing contractors generate more qualified leads, 
           increase revenue, and grow their business with proven digital marketing strategies.
         </motion.p>
         
