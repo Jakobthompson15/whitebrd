@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 import { insertContactSchema, insertNewsletterSchema, type InsertContact, type InsertNewsletter } from '@shared/schema';
+import { z } from 'zod';
 import { apiRequest } from '@/lib/queryClient';
 import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
@@ -43,15 +44,15 @@ export function ConnectSection() {
     },
     onSuccess: (data) => {
       toast({
-        title: "Success!",
-        description: data.message,
+        title: "Audit Request Received!",
+        description: "We'll analyze your digital presence and contact you within 24 hours with your personalized report.",
       });
       contactForm.reset();
     },
     onError: (error) => {
       toast({
-        title: "Error",
-        description: error.message,
+        title: "Submission Failed",
+        description: "Please check your information and try again, or email us directly.",
         variant: "destructive",
       });
     }
@@ -122,41 +123,75 @@ export function ConnectSection() {
             </p>
             <form onSubmit={contactForm.handleSubmit(onContactSubmit)} className="space-y-6">
               <div>
-                <Label htmlFor="name" className="block text-sm font-medium mb-2">Business Name</Label>
+                <Label htmlFor="name" className="block text-sm font-medium mb-2">Business Name *</Label>
                 <Input
                   id="name"
                   type="text"
                   placeholder="Your Company Name"
-                  {...contactForm.register('name')}
-                  className="w-full px-4 py-3 border-2 border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                  {...contactForm.register('name', { 
+                    required: "Business name is required",
+                    minLength: { value: 2, message: "Business name must be at least 2 characters" }
+                  })}
+                  className={`w-full px-4 py-3 border-2 bg-white text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent ${
+                    contactForm.formState.errors.name ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 />
+                {contactForm.formState.errors.name && (
+                  <p className="text-red-500 text-sm mt-1">{contactForm.formState.errors.name.message}</p>
+                )}
               </div>
               <div>
-                <Label htmlFor="email" className="block text-sm font-medium mb-2">Email Address</Label>
+                <Label htmlFor="email" className="block text-sm font-medium mb-2">Email Address *</Label>
                 <Input
                   id="email"
                   type="email"
                   placeholder="your@email.com"
-                  {...contactForm.register('email')}
-                  className="w-full px-4 py-3 border-2 border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                  {...contactForm.register('email', { 
+                    required: "Email is required",
+                    pattern: {
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                      message: "Please enter a valid email address"
+                    }
+                  })}
+                  className={`w-full px-4 py-3 border-2 bg-white text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent ${
+                    contactForm.formState.errors.email ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 />
+                {contactForm.formState.errors.email && (
+                  <p className="text-red-500 text-sm mt-1">{contactForm.formState.errors.email.message}</p>
+                )}
               </div>
               <div>
-                <Label htmlFor="message" className="block text-sm font-medium mb-2">Tell us about your business</Label>
+                <Label htmlFor="message" className="block text-sm font-medium mb-2">Tell us about your business *</Label>
                 <Textarea
                   id="message"
                   rows={4}
                   placeholder="What services do you offer? What's your biggest challenge with getting new customers?"
-                  {...contactForm.register('message')}
-                  className="w-full px-4 py-3 border-2 border-gray-300 bg-white text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent resize-none"
+                  {...contactForm.register('message', { 
+                    required: "Please tell us about your business",
+                    minLength: { value: 10, message: "Please provide more details (at least 10 characters)" }
+                  })}
+                  className={`w-full px-4 py-3 border-2 bg-white text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent resize-none ${
+                    contactForm.formState.errors.message ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 />
+                {contactForm.formState.errors.message && (
+                  <p className="text-red-500 text-sm mt-1">{contactForm.formState.errors.message.message}</p>
+                )}
               </div>
               <Button 
                 type="submit" 
-                className="w-full bg-black text-white py-4 text-lg font-semibold hover:bg-gray-800 transition-colors duration-200 border-2 border-black"
+                className="w-full bg-black text-white py-4 text-lg font-semibold hover:bg-gray-800 transition-all duration-200 border-2 border-black disabled:opacity-50 disabled:cursor-not-allowed"
                 disabled={contactMutation.isPending}
               >
-                {contactMutation.isPending ? 'Sending...' : 'Get My Free Audit'}
+                {contactMutation.isPending ? (
+                  <div className="flex items-center justify-center">
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                    Sending Your Request...
+                  </div>
+                ) : (
+                  'Get My Free Audit'
+                )}
               </Button>
             </form>
           </motion.div>
