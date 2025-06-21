@@ -21,15 +21,23 @@ export function HeroSection() {
         </motion.div>
         
         <motion.h1 
-          className="font-marker text-5xl sm:text-6xl lg:text-7xl mb-8 tracking-tight leading-tight"
+          className="font-marker text-5xl sm:text-6xl lg:text-7xl mb-6 tracking-tight leading-tight"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
         >
           Dominate Your Local<br />
-          <span className="text-gray-700">HVAC, Plumbing & Roofing</span><br />
-          Market
+          Home Services Market
         </motion.h1>
+        
+        <motion.h2 
+          className="text-2xl sm:text-3xl lg:text-4xl mb-8 text-gray-600 font-bold"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+        >
+          HVAC, Plumbing, Roofing, and Pest Control Markets
+        </motion.h2>
         
         <motion.p 
           className="text-xl lg:text-2xl mb-10 max-w-4xl mx-auto leading-relaxed text-gray-700"
@@ -37,7 +45,7 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
         >
-          We help HVAC, plumbing, and roofing contractors generate more qualified leads, 
+          We help HVAC, plumbing, roofing, and pest control contractors generate more qualified leads, 
           increase revenue, and grow their business with proven digital marketing strategies.
         </motion.p>
         

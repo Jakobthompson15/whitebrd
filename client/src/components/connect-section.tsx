@@ -105,7 +105,7 @@ export function ConnectSection() {
             Get Your Free Marketing Audit
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Discover exactly how to dominate your local market and generate more qualified leads for your HVAC, plumbing, or roofing business
+            Discover exactly how to dominate your local market and generate more qualified leads for your HVAC, plumbing, roofing, or pest control business
           </p>
         </motion.div>
         

@@ -8,7 +8,7 @@ export function ServicesSection() {
   const services = [
     {
       title: "Local SEO",
-      description: "Dominate local search results when customers search for HVAC, plumbing, and roofing services in your area. We optimize your Google Business Profile and local citations.",
+      description: "Dominate local search results when customers search for HVAC, plumbing, roofing, and pest control services in your area. We optimize your Google Business Profile and local citations.",
       features: [
         "Google Business Profile Optimization",
         "Local Citation Building",
@@ -18,7 +18,7 @@ export function ServicesSection() {
     },
     {
       title: "Google Ads",
-      description: "Get immediate results with targeted Google Ads campaigns that put your business in front of customers actively searching for HVAC, plumbing, and roofing services.",
+      description: "Get immediate results with targeted Google Ads campaigns that put your business in front of customers actively searching for HVAC, plumbing, roofing, and pest control services.",
       features: [
         "Search Campaign Management",
         "Local Service Ads",
@@ -28,7 +28,7 @@ export function ServicesSection() {
     },
     {
       title: "Website Design",
-      description: "Professional, mobile-optimized websites that convert visitors into customers. Built specifically for HVAC, plumbing, and roofing contractors.",
+      description: "Professional, mobile-optimized websites that convert visitors into customers. Built specifically for HVAC, plumbing, roofing, and pest control contractors.",
       features: [
         "Mobile-First Design",
         "Service Area Pages",
