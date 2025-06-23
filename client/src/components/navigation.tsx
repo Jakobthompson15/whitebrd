@@ -26,7 +26,7 @@ export function Navigation() {
             <img 
               src={logoPath} 
               alt="Whitebrd Co." 
-              className="h-12 w-auto md:h-16"
+              className="h-16 w-auto md:h-20"
             />
           </div>
           
