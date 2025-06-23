@@ -1,6 +1,28 @@
 import { motion } from 'framer-motion';
 
 export function HeroSection() {
+  const scrollToConnect = () => {
+    const element = document.getElementById('connect');
+    if (element) {
+      const offsetTop = element.offsetTop - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const scrollToWork = () => {
+    const element = document.getElementById('work');
+    if (element) {
+      const offsetTop = element.offsetTop - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 relative overflow-hidden">
       {/* Background pattern */}
@@ -55,12 +77,47 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
         >
-          <button className="bg-black text-white px-8 py-4 text-lg font-semibold hover:bg-gray-800 transition-colors duration-200 border-2 border-black">
-            Get More Leads Now
-          </button>
-          <button className="bg-white text-black px-8 py-4 text-lg font-semibold hover:bg-black hover:text-white transition-colors duration-200 border-2 border-black">
-            View Case Studies
-          </button>
+          <motion.button 
+            onClick={scrollToConnect}
+            className="bg-black text-white px-8 py-4 text-lg font-semibold border-2 border-black relative overflow-hidden group cursor-pointer"
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: "0 10px 25px rgba(0,0,0,0.2)"
+            }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
+              Get More Leads Now
+            </span>
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-gray-800 to-black"
+              initial={{ x: "-100%" }}
+              whileHover={{ x: "0%" }}
+              transition={{ duration: 0.3 }}
+            />
+          </motion.button>
+          
+          <motion.button 
+            onClick={scrollToWork}
+            className="bg-white text-black px-8 py-4 text-lg font-semibold border-2 border-black relative overflow-hidden group cursor-pointer"
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: "0 10px 25px rgba(0,0,0,0.1)"
+            }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          >
+            <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
+              Our Story
+            </span>
+            <motion.div
+              className="absolute inset-0 bg-black"
+              initial={{ x: "-100%" }}
+              whileHover={{ x: "0%" }}
+              transition={{ duration: 0.3 }}
+            />
+          </motion.button>
         </motion.div>
         
         <motion.div
