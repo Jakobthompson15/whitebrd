@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import logoPath from '@assets/ChatGPT Image Jun 9 2025 from Google Business_1749695415413.png';
+import logoPath from '@assets/ChatGPT Image Jun 23 2025_1750696864790.png';
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
