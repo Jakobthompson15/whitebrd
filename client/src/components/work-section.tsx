@@ -88,6 +88,10 @@ export function WorkSection() {
                 <h3 className="text-xl font-bold text-black">Jakob Thompson</h3>
                 <p className="text-gray-600">Co-Founder</p>
               </div>
+              
+              <blockquote className="text-lg sm:text-xl leading-relaxed text-black">
+                "Whitebrd is created so we can help make your canvas of ideas come to life. We make it impossible not to choose your home service and bring the digital handshake of marketing to life."
+              </blockquote>
             </div>
           </div>
         </motion.div>
