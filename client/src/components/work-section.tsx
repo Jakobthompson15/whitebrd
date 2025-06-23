@@ -27,21 +27,60 @@ export function WorkSection() {
           animate={beliefsVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-12 text-black">
-            What We Believe
-          </h2>
-          <div className="space-y-6">
-            {beliefs.map((belief, index) => (
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Left side - Beliefs */}
+            <div>
+              <h2 className="text-4xl sm:text-5xl font-bold mb-12 text-black">
+                What We Believe
+              </h2>
+              <div className="space-y-6">
+                {beliefs.map((belief, index) => (
+                  <motion.div
+                    key={index}
+                    className="text-2xl sm:text-3xl font-bold text-black"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={beliefsVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                    transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
+                  >
+                    {belief}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right side - Statistics */}
+            <div className="space-y-8">
               <motion.div
-                key={index}
-                className="text-2xl sm:text-3xl font-bold text-black"
-                initial={{ opacity: 0, x: -20 }}
-                animate={beliefsVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
+                className="text-center lg:text-left"
+                initial={{ opacity: 0, x: 20 }}
+                animate={beliefsVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
               >
-                {belief}
+                <div className="space-y-6">
+                  <div className="border-2 border-black p-6">
+                    <div className="text-4xl font-bold text-black mb-2">150%</div>
+                    <div className="text-lg text-gray-600">Average Lead Increase</div>
+                    <div className="text-sm text-gray-500 mt-1">Typical results within 6 months*</div>
+                  </div>
+                  
+                  <div className="border-2 border-black p-6">
+                    <div className="text-4xl font-bold text-black mb-2">24hrs</div>
+                    <div className="text-lg text-gray-600">Response Time</div>
+                    <div className="text-sm text-gray-500 mt-1">Free audit delivered</div>
+                  </div>
+                  
+                  <div className="border-2 border-black p-6">
+                    <div className="text-4xl font-bold text-black mb-2">50+</div>
+                    <div className="text-lg text-gray-600">Home Service Clients</div>
+                    <div className="text-sm text-gray-500 mt-1">Across all markets</div>
+                  </div>
+                </div>
+                
+                <div className="text-xs text-gray-400 mt-6">
+                  *Results based on industry benchmarks and typical performance metrics
+                </div>
               </motion.div>
-            ))}
+            </div>
           </div>
         </motion.div>
 
