@@ -17,13 +17,13 @@ export function ServicesSection() {
       ]
     },
     {
-      title: "Google Ads",
-      description: "Get immediate results with targeted Google Ads campaigns that put your business in front of customers actively searching for HVAC, plumbing, roofing, and pest control services.",
+      title: "National SEO",
+      description: "Expand your reach beyond local markets with national SEO strategies that help your business compete across multiple states and regions for high-value commercial contracts.",
       features: [
-        "Search Campaign Management",
-        "Local Service Ads",
-        "Emergency Service Targeting",
-        "Bid Optimization & ROI Tracking"
+        "Multi-Location SEO Strategy",
+        "Commercial Keyword Targeting",
+        "Enterprise Client Acquisition",
+        "National Brand Authority Building"
       ]
     },
     {
