@@ -28,12 +28,12 @@ export function ServicesSection() {
     },
     {
       title: "Website Design",
-      description: "Professional, mobile-optimized websites that convert visitors into customers. Built specifically for HVAC, plumbing, roofing, and pest control contractors.",
+      description: "Professional, mobile-optimized websites engineered for maximum SEO performance and lead conversion. Built specifically to drive organic search success for home service companies.",
       features: [
-        "Mobile-First Design",
-        "Service Area Pages",
-        "Emergency Contact Forms",
-        "Customer Testimonials"
+        "SEO-Optimized Architecture",
+        "Service Area Landing Pages",
+        "Conversion-Focused Design",
+        "Mobile-First Performance"
       ]
     },
 
