@@ -1,47 +1,42 @@
-import { pgTable, text, serial, timestamp } from "drizzle-orm/pg-core";
-import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-export const contacts = pgTable("contacts", {
-  id: serial("id").primaryKey(),
-  name: text("name").notNull(),
-  email: text("email").notNull(),
-  message: text("message").notNull(),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
+// Contact schema
+export const insertContactSchema = z.object({
+  name: z.string().min(1),
+  email: z.string().email(),
+  message: z.string().min(1),
 });
 
-export const newsletters = pgTable("newsletters", {
-  id: serial("id").primaryKey(),
-  email: text("email").notNull().unique(),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
+export const contactSchema = insertContactSchema.extend({
+  id: z.number(),
+  createdAt: z.date(),
 });
 
-export const insertContactSchema = createInsertSchema(contacts).omit({
-  id: true,
-  createdAt: true,
+// Newsletter schema
+export const insertNewsletterSchema = z.object({
+  email: z.string().email(),
 });
 
-export const insertNewsletterSchema = createInsertSchema(newsletters).omit({
-  id: true,
-  createdAt: true,
+export const newsletterSchema = insertNewsletterSchema.extend({
+  id: z.number(),
+  subscribedAt: z.date(),
 });
 
+// Type exports
 export type InsertContact = z.infer<typeof insertContactSchema>;
-export type Contact = typeof contacts.$inferSelect;
+export type Contact = z.infer<typeof contactSchema>;
 export type InsertNewsletter = z.infer<typeof insertNewsletterSchema>;
-export type Newsletter = typeof newsletters.$inferSelect;
+export type Newsletter = z.infer<typeof newsletterSchema>;
 
-// Keep existing user schema
-export const users = pgTable("users", {
-  id: serial("id").primaryKey(),
-  username: text("username").notNull().unique(),
-  password: text("password").notNull(),
+// User schema (keeping for compatibility but not used without DB)
+export const insertUserSchema = z.object({
+  username: z.string().min(1),
+  password: z.string().min(1),
 });
 
-export const insertUserSchema = createInsertSchema(users).pick({
-  username: true,
-  password: true,
+export const userSchema = insertUserSchema.extend({
+  id: z.number(),
 });
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
-export type User = typeof users.$inferSelect;
+export type User = z.infer<typeof userSchema>;
