@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { VideoBackground } from './video-background';
 
 export function HeroSection() {
   const scrollToConnect = () => {
@@ -25,10 +26,8 @@ export function HeroSection() {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 relative overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-gradient-to-br from-black to-transparent"></div>
-      </div>
+      {/* Video Background */}
+      <VideoBackground />
       
       <div className="max-w-6xl mx-auto text-center relative z-10">
         <motion.div
@@ -37,13 +36,13 @@ export function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <span className="text-sm font-semibold tracking-wider uppercase text-gray-600 mb-4 block">
+          <span className="text-sm font-semibold tracking-wider uppercase text-white mb-4 block">
             Digital Marketing for Home Services
           </span>
         </motion.div>
         
         <motion.h1 
-          className="font-marker text-5xl sm:text-6xl lg:text-7xl mb-6 tracking-tight leading-tight"
+          className="font-marker text-5xl sm:text-6xl lg:text-7xl mb-6 tracking-tight leading-tight text-white"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
@@ -53,7 +52,7 @@ export function HeroSection() {
         </motion.h1>
         
         <motion.h2 
-          className="text-2xl sm:text-3xl lg:text-4xl mb-8 text-gray-600 font-bold"
+          className="text-2xl sm:text-3xl lg:text-4xl mb-8 text-gray-200 font-bold"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
@@ -62,7 +61,7 @@ export function HeroSection() {
         </motion.h2>
         
         <motion.p 
-          className="text-xl lg:text-2xl mb-10 max-w-4xl mx-auto leading-relaxed text-gray-700"
+          className="text-xl lg:text-2xl mb-10 max-w-4xl mx-auto leading-relaxed text-gray-100"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
@@ -121,21 +120,21 @@ export function HeroSection() {
         </motion.div>
         
         <motion.div
-          className="mt-16 flex justify-center items-center space-x-8 text-sm text-gray-600"
+          className="mt-16 flex justify-center items-center space-x-8 text-sm text-gray-200"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.7 }}
         >
           <div className="text-center">
-            <div className="font-bold text-2xl text-black">500+</div>
+            <div className="font-bold text-2xl text-white">500+</div>
             <div>Contractors Served</div>
           </div>
           <div className="text-center">
-            <div className="font-bold text-2xl text-black">$50M+</div>
+            <div className="font-bold text-2xl text-white">$50M+</div>
             <div>Revenue Generated</div>
           </div>
           <div className="text-center">
-            <div className="font-bold text-2xl text-black">98%</div>
+            <div className="font-bold text-2xl text-white">98%</div>
             <div>Client Retention</div>
           </div>
         </motion.div>

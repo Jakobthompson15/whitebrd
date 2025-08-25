@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useLocation } from 'wouter';
 import logoPath from '@assets/ChatGPT Image Jun 23 2025_1750696864790.png';
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [location, setLocation] = useLocation();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -14,6 +16,11 @@ export function Navigation() {
         behavior: 'smooth'
       });
     }
+    setIsMenuOpen(false);
+  };
+
+  const handleNavigation = (path: string) => {
+    setLocation(path);
     setIsMenuOpen(false);
   };
 
@@ -34,25 +41,31 @@ export function Navigation() {
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               <button 
-                onClick={() => scrollToSection('home')}
+                onClick={() => location === '/' ? scrollToSection('home') : handleNavigation('/')}
                 className="hover:bg-black hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200"
               >
                 Home
               </button>
               <button 
-                onClick={() => scrollToSection('services')}
+                onClick={() => location === '/' ? scrollToSection('services') : handleNavigation('/')}
                 className="hover:bg-black hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200"
               >
                 Our Services
               </button>
               <button 
-                onClick={() => scrollToSection('work')}
+                onClick={() => location === '/' ? scrollToSection('work') : handleNavigation('/')}
                 className="hover:bg-black hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200"
               >
                 Our Story
               </button>
               <button 
-                onClick={() => scrollToSection('connect')}
+                onClick={() => handleNavigation('/blog')}
+                className="hover:bg-black hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200"
+              >
+                Blog
+              </button>
+              <button 
+                onClick={() => location === '/' ? scrollToSection('connect') : handleNavigation('/')}
                 className="hover:bg-black hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200"
               >
                 Let's Connect
@@ -77,25 +90,31 @@ export function Navigation() {
         <div className="md:hidden border-t border-black">
           <div className="px-2 pt-2 pb-3 space-y-1">
             <button 
-              onClick={() => scrollToSection('home')}
+              onClick={() => location === '/' ? scrollToSection('home') : handleNavigation('/')}
               className="block w-full text-left px-3 py-2 text-base font-medium hover:bg-black hover:text-white transition-colors duration-200"
             >
               Home
             </button>
             <button 
-              onClick={() => scrollToSection('services')}
+              onClick={() => location === '/' ? scrollToSection('services') : handleNavigation('/')}
               className="block w-full text-left px-3 py-2 text-base font-medium hover:bg-black hover:text-white transition-colors duration-200"
             >
               Our Services
             </button>
             <button 
-              onClick={() => scrollToSection('work')}
+              onClick={() => location === '/' ? scrollToSection('work') : handleNavigation('/')}
               className="block w-full text-left px-3 py-2 text-base font-medium hover:bg-black hover:text-white transition-colors duration-200"
             >
               Our Story
             </button>
             <button 
-              onClick={() => scrollToSection('connect')}
+              onClick={() => handleNavigation('/blog')}
+              className="block w-full text-left px-3 py-2 text-base font-medium hover:bg-black hover:text-white transition-colors duration-200"
+            >
+              Blog
+            </button>
+            <button 
+              onClick={() => location === '/' ? scrollToSection('connect') : handleNavigation('/')}
               className="block w-full text-left px-3 py-2 text-base font-medium hover:bg-black hover:text-white transition-colors duration-200"
             >
               Let's Connect

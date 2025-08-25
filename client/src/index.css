@@ -1,4 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Permanent+Marker&display=swap');
+@font-face {
+  font-family: 'BoardMarker';
+  src: url('/fonts/BoardMarker.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
@@ -55,8 +61,8 @@
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground;
-    font-family: 'Kalam', cursive;
+    @apply antialiased bg-background text-foreground;
+    font-family: 'BoardMarker', cursive;
   }
 
   html {
@@ -75,11 +81,11 @@ a, button, input, textarea, select {
 
 /* Marker-style font classes */
 .font-marker {
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'BoardMarker', cursive;
 }
 
 .font-marker-bold {
-  font-family: 'Kalam', cursive;
+  font-family: 'BoardMarker', cursive;
   font-weight: 700;
 }
 
