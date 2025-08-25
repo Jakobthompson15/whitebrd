@@ -58,7 +58,8 @@ app.use((req, res, next) => {
 
   // Use PORT from environment or default to 5000
   const port = process.env.PORT || 5000;
-  server.listen(Number(port), "127.0.0.1", () => {
-    log(`serving on http://localhost:${port}`);
+  const host = process.env.NODE_ENV === 'production' ? '0.0.0.0' : '127.0.0.1';
+  server.listen(Number(port), host, () => {
+    log(`serving on http://${host === '0.0.0.0' ? '0.0.0.0' : 'localhost'}:${port}`);
   });
 })();
