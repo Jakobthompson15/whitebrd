@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -6,96 +6,9 @@ import { Input } from '@/components/ui/input';
 import { Navigation } from '@/components/navigation';
 import { Footer } from '@/components/footer';
 import { Calendar, Clock, Search, ArrowRight, User } from 'lucide-react';
+import { allBlogPosts as blogPosts, type BlogPost } from '@/data/blog-posts';
 
-interface BlogPost {
-  id: number;
-  title: string;
-  excerpt: string;
-  content: string;
-  author: string;
-  date: string;
-  readTime: string;
-  category: string;
-  image: string;
-  tags: string[];
-}
-
-const blogPosts: BlogPost[] = [
-  {
-    id: 1,
-    title: "The Future of Digital Marketing in 2025",
-    excerpt: "Explore the latest trends and strategies that are shaping the digital marketing landscape this year.",
-    content: "Full content here...",
-    author: "Sarah Johnson",
-    date: "January 15, 2025",
-    readTime: "5 min read",
-    category: "Marketing",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-    tags: ["Digital Marketing", "Strategy", "Trends"]
-  },
-  {
-    id: 2,
-    title: "Building Scalable Web Applications",
-    excerpt: "Learn the best practices for creating web applications that can grow with your business needs.",
-    content: "Full content here...",
-    author: "Mike Chen",
-    date: "January 10, 2025",
-    readTime: "8 min read",
-    category: "Development",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80",
-    tags: ["Web Development", "Architecture", "Best Practices"]
-  },
-  {
-    id: 3,
-    title: "The Power of Brand Storytelling",
-    excerpt: "Discover how compelling narratives can transform your brand and connect with your audience.",
-    content: "Full content here...",
-    author: "Emily Rodriguez",
-    date: "January 5, 2025",
-    readTime: "6 min read",
-    category: "Branding",
-    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&q=80",
-    tags: ["Branding", "Storytelling", "Marketing"]
-  },
-  {
-    id: 4,
-    title: "AI and Machine Learning in Business",
-    excerpt: "Understanding how artificial intelligence is revolutionizing business operations and decision-making.",
-    content: "Full content here...",
-    author: "David Park",
-    date: "December 28, 2024",
-    readTime: "7 min read",
-    category: "Technology",
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80",
-    tags: ["AI", "Machine Learning", "Innovation"]
-  },
-  {
-    id: 5,
-    title: "Creating Engaging User Experiences",
-    excerpt: "Tips and techniques for designing interfaces that users love and want to interact with.",
-    content: "Full content here...",
-    author: "Lisa Thompson",
-    date: "December 20, 2024",
-    readTime: "5 min read",
-    category: "Design",
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
-    tags: ["UX Design", "User Interface", "Design Thinking"]
-  },
-  {
-    id: 6,
-    title: "Remote Work Best Practices",
-    excerpt: "Maximize productivity and maintain work-life balance in the era of distributed teams.",
-    content: "Full content here...",
-    author: "John Williams",
-    date: "December 15, 2024",
-    readTime: "4 min read",
-    category: "Productivity",
-    image: "https://images.unsplash.com/photo-1521898284481-a5ec348cb555?w=800&q=80",
-    tags: ["Remote Work", "Productivity", "Team Management"]
-  }
-];
-
-const categories = ["All", "Marketing", "Development", "Branding", "Technology", "Design", "Productivity"];
+const categories = ["All", "HVAC Marketing", "Legal Marketing", "Real Estate Marketing", "Healthcare Marketing", "E-commerce Marketing", "General Marketing", "Case Studies"];
 
 export default function Blog() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -109,6 +22,37 @@ export default function Blog() {
     const matchesCategory = selectedCategory === "All" || post.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
+
+  // SEO Meta Tags Effect
+  useEffect(() => {
+    if (selectedPost) {
+      document.title = selectedPost.metaTitle || selectedPost.title;
+      
+      // Update meta description
+      let metaDescription = document.querySelector('meta[name="description"]');
+      if (!metaDescription) {
+        metaDescription = document.createElement('meta');
+        metaDescription.setAttribute('name', 'description');
+        document.head.appendChild(metaDescription);
+      }
+      metaDescription.setAttribute('content', selectedPost.metaDescription || selectedPost.excerpt);
+      
+      // Add keywords meta
+      let metaKeywords = document.querySelector('meta[name="keywords"]');
+      if (!metaKeywords) {
+        metaKeywords = document.createElement('meta');
+        metaKeywords.setAttribute('name', 'keywords');
+        document.head.appendChild(metaKeywords);
+      }
+      metaKeywords.setAttribute('content', selectedPost.keywords.join(', '));
+    } else {
+      document.title = "Digital Marketing Blog - Whitebrd Marketing Agency";
+      let metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) {
+        metaDescription.setAttribute('content', "Expert digital marketing insights, strategies, and tips for HVAC, legal, real estate, healthcare, and e-commerce businesses. Get more leads and grow your business.");
+      }
+    }
+  }, [selectedPost]);
 
   if (selectedPost) {
     return (
@@ -149,19 +93,10 @@ export default function Blog() {
               </div>
             </div>
             
-            <div className="prose prose-lg max-w-none">
-              <p className="text-xl text-gray-600 mb-8">{selectedPost.excerpt}</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <h2 className="text-2xl font-bold mt-8 mb-4">Key Insights</h2>
-              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-              <ul>
-                <li>Nemo enim ipsam voluptatem quia voluptas sit aspernatur</li>
-                <li>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet</li>
-                <li>Consectetur, adipisci velit, sed quia non numquam eius modi</li>
-              </ul>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
-            </div>
+            <div 
+              className="prose prose-lg max-w-none prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-p:mb-4 prose-ul:my-4 prose-li:mb-2"
+              dangerouslySetInnerHTML={{ __html: selectedPost.content }}
+            />
             
             <div className="flex gap-2 mt-8">
               {selectedPost.tags.map((tag) => (
