@@ -71,8 +71,8 @@ export function WorkSection() {
                   
                   <div className="border-2 border-black p-6">
                     <div className="text-4xl font-bold text-black mb-2">50+</div>
-                    <div className="text-lg text-gray-600">Home Service Clients</div>
-                    <div className="text-sm text-gray-500 mt-1">Across all markets</div>
+                    <div className="text-lg text-gray-600">Clients Served</div>
+                    <div className="text-sm text-gray-500 mt-1">Across sectors and markets</div>
                   </div>
                 </div>
                 
@@ -112,7 +112,7 @@ export function WorkSection() {
               </div>
               
               <blockquote className="text-lg sm:text-xl leading-relaxed text-black">
-                "Whitebrd Co. was created for businesses tired of templated marketing. We believe great digital work doesn't start with a formula — it starts with a conversation. You bring the vision — we bring the creative firepower to make it real."
+                "Whitebrd Co. was created for teams tired of templated marketing. Great digital work doesn’t start with a formula — it starts with a conversation. You bring the vision, we bring the creative firepower to make it real."
               </blockquote>
             </div>
 
@@ -129,7 +129,7 @@ export function WorkSection() {
               </div>
               
               <blockquote className="text-lg sm:text-xl leading-relaxed text-black">
-                "Whitebrd is created so we can help make your canvas of ideas come to life. We make it impossible not to choose your home service and bring the digital handshake of marketing to life."
+                "We help turn your canvas of ideas into growth — making it impossible not to choose your brand by bringing the digital handshake to life."
               </blockquote>
             </div>
           </div>

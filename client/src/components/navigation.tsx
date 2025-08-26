@@ -47,6 +47,12 @@ export function Navigation() {
                 Home
               </button>
               <button 
+                onClick={() => handleNavigation('/industries')}
+                className="hover:bg-black hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200"
+              >
+                Industries
+              </button>
+              <button 
                 onClick={() => location === '/' ? scrollToSection('services') : handleNavigation('/')}
                 className="hover:bg-black hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200"
               >
@@ -86,21 +92,27 @@ export function Navigation() {
       </div>
       
       {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden border-t border-black">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            <button 
-              onClick={() => location === '/' ? scrollToSection('home') : handleNavigation('/')}
-              className="block w-full text-left px-3 py-2 text-base font-medium hover:bg-black hover:text-white transition-colors duration-200"
-            >
-              Home
-            </button>
-            <button 
-              onClick={() => location === '/' ? scrollToSection('services') : handleNavigation('/')}
-              className="block w-full text-left px-3 py-2 text-base font-medium hover:bg-black hover:text-white transition-colors duration-200"
-            >
-              Our Services
-            </button>
+          {isMenuOpen && (
+            <div className="md:hidden border-t border-black">
+              <div className="px-2 pt-2 pb-3 space-y-1">
+                <button 
+                  onClick={() => location === '/' ? scrollToSection('home') : handleNavigation('/')}
+                  className="block w-full text-left px-3 py-2 text-base font-medium hover:bg-black hover:text-white transition-colors duration-200"
+                >
+                  Home
+                </button>
+                <button 
+                  onClick={() => handleNavigation('/industries')}
+                  className="block w-full text-left px-3 py-2 text-base font-medium hover:bg-black hover:text-white transition-colors duration-200"
+                >
+                  Industries
+                </button>
+                <button 
+                  onClick={() => location === '/' ? scrollToSection('services') : handleNavigation('/')}
+                  className="block w-full text-left px-3 py-2 text-base font-medium hover:bg-black hover:text-white transition-colors duration-200"
+                >
+                  Our Services
+                </button>
             <button 
               onClick={() => location === '/' ? scrollToSection('work') : handleNavigation('/')}
               className="block w-full text-left px-3 py-2 text-base font-medium hover:bg-black hover:text-white transition-colors duration-200"

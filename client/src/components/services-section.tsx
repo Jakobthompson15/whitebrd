@@ -8,7 +8,7 @@ export function ServicesSection() {
   const services = [
     {
       title: "Local SEO",
-      description: "Dominate local search results when customers search for HVAC, plumbing, roofing, and pest control services in your area. We optimize your Google Business Profile and local citations.",
+      description: "Own your backyard when customers search for businesses like yours. We optimize your Google Business Profile, local citations, and location pages to capture intent.",
       features: [
         "Google Business Profile Optimization",
         "Local Citation Building",
@@ -18,7 +18,7 @@ export function ServicesSection() {
     },
     {
       title: "National SEO",
-      description: "Expand your reach beyond local markets with national SEO strategies that help your business compete across multiple states and regions for high-value commercial contracts.",
+      description: "Expand reach beyond local markets with national SEO that scales across products, services, and regions while building authority and demand.",
       features: [
         "Multi-Location SEO Strategy",
         "Commercial Keyword Targeting",
@@ -28,7 +28,7 @@ export function ServicesSection() {
     },
     {
       title: "Website Design",
-      description: "Professional, mobile-optimized websites engineered for maximum SEO performance and lead conversion. Built specifically to drive organic search success for home service companies.",
+      description: "Fast, accessible, conversion-first websites engineered for performance, search, and brand credibility — designed to turn visitors into customers.",
       features: [
         "SEO-Optimized Architecture",
         "Service Area Landing Pages",
@@ -56,7 +56,7 @@ export function ServicesSection() {
             Digital Marketing Services
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Comprehensive digital marketing solutions designed specifically for HVAC and plumbing contractors
+            Comprehensive digital marketing solutions to acquire and retain customers across industries
           </p>
         </motion.div>
         

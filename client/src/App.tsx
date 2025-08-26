@@ -7,12 +7,18 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { LoadingScreen } from "@/components/loading-screen";
 import Home from "@/pages/home";
 import Blog from "@/pages/blog";
+import IndustriesIndex from "@/pages/industries";
+import IndustryPage from "@/pages/industry";
 import NotFound from "@/pages/not-found";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/industries" component={IndustriesIndex} />
+      <Route path="/industries/:slug">
+        {(params) => <IndustryPage slug={(params as { slug: string }).slug} />}
+      </Route>
       <Route path="/blog" component={Blog} />
       <Route component={NotFound} />
     </Switch>

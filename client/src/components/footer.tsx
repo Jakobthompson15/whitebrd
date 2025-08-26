@@ -17,7 +17,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <h3 className="font-lato-bold text-3xl mb-6 tracking-wide">Whitebrd Co.</h3>
             <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
-              We help HVAC and plumbing contractors dominate their local markets with proven digital marketing strategies that generate more leads and increase revenue.
+              We help businesses across industries grow with strategic SEO, conversion‑first websites, and content that turns attention into revenue.
             </p>
             <div className="space-y-2 text-gray-300">
               <p className="flex items-center">

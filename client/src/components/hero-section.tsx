@@ -37,7 +37,7 @@ export function HeroSection() {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <span className="text-sm font-semibold tracking-wider uppercase text-white mb-4 block">
-            Digital Marketing for Home Services
+            Strategic Digital Marketing for Growth
           </span>
         </motion.div>
         
@@ -47,8 +47,8 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
         >
-          Dominate Your Local<br />
-          Home Services Market
+          Dominate Your Market<br />
+          Online and Offline
         </motion.h1>
         
         <motion.h2 
@@ -57,7 +57,7 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
         >
-          HVAC, Plumbing, Roofing, and Pest Control Markets
+          Local, National, and E‑Commerce Growth Programs
         </motion.h2>
         
         <motion.p 
@@ -66,8 +66,8 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
         >
-          We help HVAC, plumbing, roofing, and pest control contractors generate more qualified leads, 
-          increase revenue, and grow their business with proven digital marketing strategies.
+          We help service businesses, professional firms, SaaS, retail, and e‑commerce brands generate qualified demand, 
+          increase revenue, and build durable growth with proven, data‑driven marketing.
         </motion.p>
         
         <motion.div
@@ -127,7 +127,7 @@ export function HeroSection() {
         >
           <div className="text-center">
             <div className="font-bold text-2xl text-white">500+</div>
-            <div>Contractors Served</div>
+            <div>Businesses Served</div>
           </div>
           <div className="text-center">
             <div className="font-bold text-2xl text-white">$50M+</div>
