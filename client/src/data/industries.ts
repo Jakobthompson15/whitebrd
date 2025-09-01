@@ -148,8 +148,7 @@ export const industries: Industry[] = [
     metaTitle: "Excursions & Tour Marketing Agency | Drive Direct Bookings",
     metaDescription:
       "Marketing for excursions and tours: kayaking, Jeep/ATV, boat & whale tours, zipline, snorkeling/diving, guided hikes. Win local search and fill time slots.",
-    heroImage:
-      "https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?w=1600&q=80",
+    heroImage: "/images/industries/excursions.png",
     heroImagePrompt: "Group of happy tourists on a guided kayak tour in crystal clear tropical waters with a professional guide leading, showcasing adventure and safety",
     seoContent: {
       title: "Excursion SEO That Captures Adventure Seekers & Reduces OTA Dependence",
@@ -261,7 +260,7 @@ export const industries: Industry[] = [
     cta: "Get a free plumbing audit",
     metaTitle: "Plumbing Marketing Agency | SEO & Web Design for Plumbers",
     metaDescription: "Dominate emergency plumbing searches, build trust with homeowners, and grow commercial contracts. Specialized digital marketing for plumbing businesses.",
-    heroImage: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=1600&q=80",
+    heroImage: "/images/industries/plumbing.png",
     heroImagePrompt: "Professional plumber in clean uniform working under a modern kitchen sink with organized tools, bright lighting, demonstrating expertise and professionalism",
     seoContent: {
       title: "Plumbing SEO That Dominates Emergency & Everyday Searches",
@@ -366,7 +365,7 @@ export const industries: Industry[] = [
     cta: "See your roofing opportunities",
     metaTitle: "Roofing Marketing Agency | Storm Damage to Full Replacements",
     metaDescription: "Digital marketing for roofing contractors. Dominate storm damage searches, win insurance claims, and build trust for high-ticket roof replacements.",
-    heroImage: "https://images.unsplash.com/photo-1562113530-57ba467cea38?w=1600&q=80",
+    heroImage: "/images/industries/roofing.png",
     heroImagePrompt: "Aerial view of professional roofers installing new architectural shingles on a residential home, safety equipment visible, clear blue sky background",
     seoContent: {
       title: "Roofing SEO That Captures Storms & Steady Replacements",
@@ -471,7 +470,7 @@ export const industries: Industry[] = [
     cta: "Request a pest control audit",
     metaTitle: "Pest Control Marketing Agency | SEO & Web Design for Exterminators",
     metaDescription: "Digital marketing for pest control companies. Dominate emergency pest searches, build recurring revenue, and establish trust as the local pest expert.",
-    heroImage: "https://images.unsplash.com/photo-1622210736351-e6a5e9a6f9f7?w=1600&q=80",
+    heroImage: "/images/industries/pest-control.png",
     heroImagePrompt: "Professional pest control technician in protective gear treating the exterior of a modern home, truck visible in background, conveying professionalism and safety",
     seoContent: {
       title: "Pest Control SEO That Captures Panic & Prevention Searches",
@@ -576,7 +575,7 @@ export const industries: Industry[] = [
     cta: "Audit my electrical marketing",
     metaTitle: "Electrical Contractor Marketing | SEO & Web Design for Electricians",
     metaDescription: "Digital marketing for electrical contractors. Dominate emergency electrical searches, showcase commercial capabilities, and build trust for high-value projects.",
-    heroImage: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1600&q=80",
+    heroImage: "/images/industries/electrical.png",
     heroImagePrompt: "Licensed electrician working on modern electrical panel with proper safety equipment, organized tools, demonstrating professionalism and expertise",
     seoContent: {
       title: "Electrical SEO That Sparks Residential Calls & Commercial Contracts",
@@ -676,7 +675,7 @@ export const industries: Industry[] = [
     cta: "Get my landscaping plan",
     metaTitle: "Landscaping Marketing Agency | SEO & Web Design for Landscapers",
     metaDescription: "Digital marketing for landscaping companies. Showcase stunning transformations, capture seasonal demand, and build recurring maintenance revenue.",
-    heroImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80",
+    heroImage: "/images/industries/landscaping.png",
     heroImagePrompt: "Beautiful professionally landscaped garden with stone pathways, water feature, and lush plantings, showing the transformation from design to completion",
     seoContent: {
       title: "Landscaping SEO That Captures Curb Appeal & Maintenance Searches",
@@ -776,7 +775,7 @@ export const industries: Industry[] = [
     cta: "See my cleaning opportunities",
     metaTitle: "Cleaning Service Marketing | SEO & Web Design for Cleaning Companies",
     metaDescription: "Digital marketing for cleaning services. Build recurring residential clients, win commercial contracts, and dominate local search for all cleaning needs.",
-    heroImage: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1600&q=80",
+    heroImage: "/images/industries/cleaning.png",
     heroImagePrompt: "Professional cleaning team in uniforms with equipment cart in modern bright office space, showing professionalism and attention to detail",
     seoContent: {
       title: "Cleaning Service SEO That Captures Homes & Offices",
@@ -881,7 +880,7 @@ export const industries: Industry[] = [
     cta: "Request a law firm audit",
     metaTitle: "Law Firm Marketing Agency | SEO & Web Design for Attorneys",
     metaDescription: "Digital marketing for law firms. Build authority in practice areas, attract qualified cases, and establish trust while maintaining bar compliance.",
-    heroImage: "https://images.unsplash.com/photo-1479142506502-19b3a3b7ff33?w=1600&q=80",
+    heroImage: "/images/industries/legal.png",
     heroImagePrompt: "Modern law office conference room with city skyline view, law books, professional atmosphere conveying success and authority",
     seoContent: {
       title: "Legal SEO That Attracts Cases Worth Taking",
@@ -981,7 +980,7 @@ export const industries: Industry[] = [
     cta: "Get my dental growth plan",
     metaTitle: "Dental Practice Marketing | SEO & Web Design for Dentists",
     metaDescription: "Digital marketing for dental practices. Attract new patients, showcase cosmetic capabilities, and build trust that overcomes dental anxiety.",
-    heroImage: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1600&q=80",
+    heroImage: "/images/industries/dental.png",
     heroImagePrompt: "Modern dental office with state-of-the-art equipment, bright clean environment, friendly dentist with patient, conveying comfort and professionalism",
     seoContent: {
       title: "Dental SEO That Attracts Patients Ready to Schedule",
@@ -1081,7 +1080,7 @@ export const industries: Industry[] = [
     cta: "See my market opportunities",
     metaTitle: "Real Estate Marketing | SEO & Web Design for Agents and Brokers",
     metaDescription: "Digital marketing for real estate professionals. Generate buyer and seller leads, showcase listings, and establish market authority that wins listings.",
-    heroImage: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=80",
+    heroImage: "/images/industries/real-estate.png",
     heroImagePrompt: "Professional real estate agent showing a beautiful modern home to excited clients, bright interior, conveying expertise and trustworthiness",
     seoContent: {
       title: "Real Estate SEO That Generates Buyers & Wins Listings",
@@ -1181,7 +1180,7 @@ export const industries: Industry[] = [
     cta: "Request an e‑commerce audit",
     metaTitle: "E-Commerce Marketing Agency | SEO & Conversion Optimization",
     metaDescription: "Data-driven e-commerce marketing. Scale organic traffic, improve product discovery, and optimize conversions without dependency on paid ads.",
-    heroImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1600&q=80",
+    heroImage: "/images/industries/ecommerce.png",
     heroImagePrompt: "Modern e-commerce dashboard showing analytics, product catalog, and conversion metrics on multiple screens, professional and data-driven atmosphere",
     seoContent: {
       title: "E-Commerce SEO That Scales Revenue, Not Just Traffic",
@@ -1281,7 +1280,7 @@ export const industries: Industry[] = [
     cta: "Get my SaaS growth audit",
     metaTitle: "SaaS Marketing Agency | SEO & Conversion for Software Companies",
     metaDescription: "B2B SaaS marketing that drives trials, demos, and paid conversions. Build organic growth engines that compound while reducing CAC.",
-    heroImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80",
+    heroImage: "/images/industries/saas.png",
     heroImagePrompt: "Modern SaaS dashboard interface displayed on multiple devices, showing analytics, features, and clean UI design",
     seoContent: {
       title: "SaaS SEO That Drives Trials, Not Just Traffic",
