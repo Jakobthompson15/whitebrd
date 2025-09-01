@@ -6,8 +6,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'boardmarker': ['BoardMarker', 'cursive'],
-        'sans': ['BoardMarker', 'system-ui', 'sans-serif'],
+        'marker': ['Permanent Marker', 'cursive'],
+        'hand': ['Patrick Hand', 'cursive'],
+        'sans': ['Patrick Hand', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",

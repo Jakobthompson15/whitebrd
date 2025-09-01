@@ -5,6 +5,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LoadingScreen } from "@/components/loading-screen";
+import { WhiteboardToggle } from "@/components/whiteboard-toggle";
 import Home from "@/pages/home";
 import Blog from "@/pages/blog";
 import IndustriesIndex from "@/pages/industries";
@@ -42,6 +43,7 @@ function App() {
         {isLoading && <LoadingScreen />}
         <div className={`transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
           <Toaster />
+          <WhiteboardToggle />
           <Router />
         </div>
       </TooltipProvider>

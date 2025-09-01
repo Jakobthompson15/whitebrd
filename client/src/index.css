@@ -1,10 +1,5 @@
-@font-face {
-  font-family: 'BoardMarker';
-  src: url('/fonts/BoardMarker.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+/* Google Fonts are loaded via HTML link tags */
+/* Permanent Marker for headings, Patrick Hand for body text */
 
 @tailwind base;
 @tailwind components;
@@ -62,7 +57,16 @@
 
   body {
     @apply antialiased bg-background text-foreground;
-    font-family: 'BoardMarker', cursive;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+  }
+  
+  /* All headings use Permanent Marker with text shadow */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Permanent Marker', cursive;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.03em;
   }
 
   html {
@@ -79,14 +83,73 @@ a, button, input, textarea, select {
   cursor: url('@assets/image_1749696948986.png') 16 16, pointer;
 }
 
-/* Marker-style font classes */
+/* Font utility classes */
 .font-marker {
-  font-family: 'BoardMarker', cursive;
+  font-family: 'Permanent Marker', cursive;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.font-hand {
+  font-family: 'Patrick Hand', cursive;
 }
 
 .font-marker-bold {
-  font-family: 'BoardMarker', cursive;
+  font-family: 'Permanent Marker', cursive;
   font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Whiteboard background styles */
+.whiteboard-bg {
+  background-color: #f8f8f6;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 39px,
+      #e5e5e3 39px,
+      #e5e5e3 40px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 39px,
+      #e5e5e3 39px,
+      #e5e5e3 40px
+    );
+  background-size: 40px 40px;
+  position: relative;
+}
+
+.whiteboard-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at top left, rgba(255,255,255,0.3), transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(0,0,0,0.02), transparent 50%);
+  pointer-events: none;
+}
+
+/* Whiteboard mode text adjustments */
+body.whiteboard-mode {
+  background-color: #f8f8f6;
+}
+
+body.whiteboard-mode .bg-white {
+  background-color: transparent;
+}
+
+body.whiteboard-mode h1,
+body.whiteboard-mode h2,
+body.whiteboard-mode h3,
+body.whiteboard-mode h4,
+body.whiteboard-mode h5,
+body.whiteboard-mode h6 {
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.08);
 }
 
 /* Custom animations */
