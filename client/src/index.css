@@ -74,13 +74,26 @@
   }
 }
 
-/* Custom marker cursor using provided image */
-* {
+/* Custom marker cursor using provided image - only when marker cursor is disabled */
+body:not(.marker-cursor-enabled) * {
   cursor: url('@assets/image_1749696948986.png') 16 16, auto;
 }
 
-a, button, input, textarea, select {
+body:not(.marker-cursor-enabled) a, 
+body:not(.marker-cursor-enabled) button, 
+body:not(.marker-cursor-enabled) input, 
+body:not(.marker-cursor-enabled) textarea, 
+body:not(.marker-cursor-enabled) select {
   cursor: url('@assets/image_1749696948986.png') 16 16, pointer;
+}
+
+/* When marker cursor is enabled, hide default cursor */
+body.marker-cursor-enabled {
+  cursor: none !important;
+}
+
+body.marker-cursor-enabled * {
+  cursor: none !important;
 }
 
 /* Font utility classes */

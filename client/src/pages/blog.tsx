@@ -7,6 +7,7 @@ import { Navigation } from '@/components/navigation';
 import { Footer } from '@/components/footer';
 import { Calendar, Clock, Search, ArrowRight, User } from 'lucide-react';
 import { allBlogPosts as blogPosts, type BlogPost } from '@/data/blog-posts';
+import { SEO, createArticleSchema } from '@/components/seo';
 
 const categories = ["All", "HVAC Marketing", "Legal Marketing", "Real Estate Marketing", "Healthcare Marketing", "E-commerce Marketing", "General Marketing", "Case Studies"];
 
@@ -23,40 +24,31 @@ export default function Blog() {
     return matchesSearch && matchesCategory;
   });
 
-  // SEO Meta Tags Effect
-  useEffect(() => {
-    if (selectedPost) {
-      document.title = selectedPost.metaTitle || selectedPost.title;
-      
-      // Update meta description
-      let metaDescription = document.querySelector('meta[name="description"]');
-      if (!metaDescription) {
-        metaDescription = document.createElement('meta');
-        metaDescription.setAttribute('name', 'description');
-        document.head.appendChild(metaDescription);
-      }
-      metaDescription.setAttribute('content', selectedPost.metaDescription || selectedPost.excerpt);
-      
-      // Add keywords meta
-      let metaKeywords = document.querySelector('meta[name="keywords"]');
-      if (!metaKeywords) {
-        metaKeywords = document.createElement('meta');
-        metaKeywords.setAttribute('name', 'keywords');
-        document.head.appendChild(metaKeywords);
-      }
-      metaKeywords.setAttribute('content', selectedPost.keywords.join(', '));
-    } else {
-      document.title = "Digital Marketing Blog - Whitebrd Marketing Agency";
-      let metaDescription = document.querySelector('meta[name="description"]');
-      if (metaDescription) {
-        metaDescription.setAttribute('content', "Expert digital marketing insights, strategies, and tips for HVAC, legal, real estate, healthcare, and e-commerce businesses. Get more leads and grow your business.");
-      }
-    }
-  }, [selectedPost]);
+  // Create structured data for articles
+  const getArticleSchema = (post: BlogPost) => createArticleSchema({
+    title: post.title,
+    description: post.excerpt,
+    author: post.author,
+    datePublished: new Date(post.date).toISOString(),
+    dateModified: new Date(post.date).toISOString(),
+    image: post.image,
+    url: window.location.href
+  });
 
   if (selectedPost) {
     return (
       <div className="min-h-screen bg-white">
+        <SEO
+          title={selectedPost.metaTitle || `${selectedPost.title} | Whitebrd Blog`}
+          description={selectedPost.metaDescription || selectedPost.excerpt}
+          keywords={selectedPost.keywords.join(', ')}
+          canonicalUrl={`https://whitebrd.com/blog/${selectedPost.slug}`}
+          ogTitle={selectedPost.title}
+          ogDescription={selectedPost.excerpt}
+          ogImage={selectedPost.image}
+          ogType="article"
+          structuredData={getArticleSchema(selectedPost)}
+        />
         <Navigation />
         <article className="pt-24 pb-16">
           <div className="container mx-auto px-4 max-w-4xl">
@@ -112,6 +104,14 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO
+        title="Digital Marketing Blog - Expert Insights | Whitebrd Co."
+        description="Expert digital marketing insights, strategies, and tips for HVAC, plumbing, roofing, legal, dental, real estate, SaaS, and e-commerce businesses. Get more leads and grow your business with proven marketing tactics."
+        keywords="digital marketing blog, SEO tips, web design insights, content marketing, lead generation, HVAC marketing, plumbing marketing, roofing marketing, legal marketing, dental marketing, real estate marketing, SaaS marketing, e-commerce marketing"
+        canonicalUrl="https://whitebrd.com/blog"
+        ogTitle="Digital Marketing Blog - Whitebrd Co."
+        ogDescription="Expert insights and strategies to grow your service business online"
+      />
       <Navigation />
       
       <section className="pt-24 pb-16">

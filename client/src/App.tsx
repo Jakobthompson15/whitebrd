@@ -6,6 +6,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LoadingScreen } from "@/components/loading-screen";
 import { WhiteboardToggle } from "@/components/whiteboard-toggle";
+import { MarkerCursorContinuous } from "@/components/marker-cursor";
+import { useMarkerCursor } from "@/hooks/use-marker-cursor";
 import Home from "@/pages/home";
 import Blog from "@/pages/blog";
 import IndustriesIndex from "@/pages/industries";
@@ -28,6 +30,7 @@ function Router() {
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const { isEnabled: isMarkerEnabled } = useMarkerCursor();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -44,6 +47,7 @@ function App() {
         <div className={`transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
           <Toaster />
           <WhiteboardToggle />
+          {isMarkerEnabled && <MarkerCursorContinuous />}
           <Router />
         </div>
       </TooltipProvider>

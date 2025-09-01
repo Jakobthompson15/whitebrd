@@ -2,12 +2,21 @@ import { Navigation } from '@/components/navigation';
 import { Footer } from '@/components/footer';
 import { industries } from '@/data/industries';
 import { useLocation } from 'wouter';
+import { SEO } from '@/components/seo';
 
 export default function IndustriesIndex() {
   const [, setLocation] = useLocation();
 
   return (
     <div className="min-h-screen bg-white text-black">
+      <SEO
+        title="Industries We Serve - Digital Marketing for Every Business | Whitebrd Co."
+        description="Specialized digital marketing solutions for HVAC, plumbing, roofing, electrical, landscaping, pest control, cleaning, dental, legal, real estate, SaaS, and e-commerce businesses. Industry-specific strategies that drive results."
+        keywords="HVAC marketing, plumbing marketing, roofing marketing, electrical marketing, landscaping marketing, pest control marketing, cleaning service marketing, dental marketing, legal marketing, real estate marketing, SaaS marketing, e-commerce marketing, local SEO, service business marketing"
+        canonicalUrl="https://whitebrd.com/industries"
+        ogTitle="Digital Marketing Solutions by Industry - Whitebrd Co."
+        ogDescription="Specialized marketing strategies for service businesses, SaaS companies, and e-commerce brands. Choose your industry for a tailored approach."
+      />
       <Navigation />
 
       <section className="pt-24 pb-12 px-4 sm:px-6 lg:px-8">

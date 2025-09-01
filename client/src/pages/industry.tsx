@@ -3,6 +3,7 @@ import { Navigation } from '@/components/navigation';
 import { Footer } from '@/components/footer';
 import { industryBySlug, industries } from '@/data/industries';
 import { useLocation } from 'wouter';
+import { SEO, createServiceSchema, createFAQSchema } from '@/components/seo';
 
 type Props = { slug: string };
 
@@ -16,21 +17,27 @@ export default function IndustryPage({ slug }: Props) {
     return null;
   }
 
-  // Basic SEO handling similar to blog page
-  useEffect(() => {
-    const fallbackTitle = `${ind.name} Marketing Agency | Whitebrd`;
-    const title = ind.metaTitle || fallbackTitle;
-    const description = ind.metaDescription || ind.description;
+  // Create structured data for the industry
+  const serviceSchema = createServiceSchema({
+    name: `${ind.name} Digital Marketing Services`,
+    description: ind.description,
+    provider: "Whitebrd Co.",
+    areaServed: "United States",
+    url: `https://whitebrd.com/industries/${slug}`
+  });
 
-    document.title = title;
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.setAttribute('content', description);
-  }, [ind]);
+  // Create FAQ schema if FAQs exist
+  const faqSchema = ind.faqs && ind.faqs.length > 0 
+    ? createFAQSchema(ind.faqs.map(faq => ({
+        question: faq.q,
+        answer: faq.a
+      })))
+    : null;
+
+  // Combine schemas
+  const combinedSchema = faqSchema 
+    ? [serviceSchema, faqSchema]
+    : serviceSchema;
 
   const defaultProcess = [
     'Discovery: goals, audience, and competitive landscape',
@@ -49,6 +56,16 @@ export default function IndustryPage({ slug }: Props) {
 
   return (
     <div className="min-h-screen bg-white text-black">
+      <SEO
+        title={ind.metaTitle || `${ind.name} Marketing Agency | Whitebrd Co.`}
+        description={ind.metaDescription || ind.description.slice(0, 160)}
+        keywords={`${ind.name.toLowerCase()} marketing, ${ind.name.toLowerCase()} SEO, ${ind.name.toLowerCase()} web design, ${ind.name.toLowerCase()} digital marketing, ${ind.keyServices.join(', ').toLowerCase()}, local SEO, lead generation, conversion optimization`}
+        canonicalUrl={`https://whitebrd.com/industries/${slug}`}
+        ogTitle={`${ind.heroTitle} | Whitebrd Co.`}
+        ogDescription={ind.heroSubtitle}
+        ogImage={ind.heroImage ? (ind.heroImage.startsWith('http') ? ind.heroImage : `https://whitebrd.com${ind.heroImage}`) : undefined}
+        structuredData={combinedSchema}
+      />
       <Navigation />
 
       <header className="pt-24 pb-10 px-4 sm:px-6 lg:px-8 bg-gray-50 border-b border-gray-200">
