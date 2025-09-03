@@ -62,6 +62,12 @@ export function Navigation() {
                 onClick={() => location === '/' ? scrollToSection('work') : handleNavigation('/')}
                 className="hover:bg-black hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200"
               >
+                Our Work
+              </button>
+              <button 
+                onClick={() => handleNavigation('/about')}
+                className="hover:bg-black hover:text-white px-3 py-2 text-sm font-medium transition-colors duration-200"
+              >
                 Our Story
               </button>
               <button 
@@ -115,6 +121,12 @@ export function Navigation() {
                 </button>
             <button 
               onClick={() => location === '/' ? scrollToSection('work') : handleNavigation('/')}
+              className="block w-full text-left px-3 py-2 text-base font-medium hover:bg-black hover:text-white transition-colors duration-200"
+            >
+              Our Work
+            </button>
+            <button 
+              onClick={() => handleNavigation('/about')}
               className="block w-full text-left px-3 py-2 text-base font-medium hover:bg-black hover:text-white transition-colors duration-200"
             >
               Our Story

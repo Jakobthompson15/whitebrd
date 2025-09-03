@@ -9,6 +9,7 @@ import { WhiteboardToggle } from "@/components/whiteboard-toggle";
 import { MarkerCursorContinuous } from "@/components/marker-cursor";
 import { useMarkerCursor } from "@/hooks/use-marker-cursor";
 import Home from "@/pages/home";
+import About from "@/pages/about";
 import Blog from "@/pages/blog";
 import IndustriesIndex from "@/pages/industries";
 import IndustryPage from "@/pages/industry";
@@ -18,6 +19,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/about" component={About} />
       <Route path="/industries" component={IndustriesIndex} />
       <Route path="/industries/:slug">
         {(params) => <IndustryPage slug={(params as { slug: string }).slug} />}

@@ -10,6 +10,13 @@
 
   <!-- Main Pages -->
   <url>
+    <loc>https://whitebrd.com/about</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
     <loc>https://whitebrd.com/industries</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
