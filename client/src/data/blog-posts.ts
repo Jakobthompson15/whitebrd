@@ -140,7 +140,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "7 min read",
     category: "Legal Marketing",
     industry: "Legal",
-    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1521791136064-5986c4eb7646?w=800&q=80",
     tags: ["Law Firm Marketing", "Personal Injury SEO", "Legal Lead Generation", "Attorney Marketing"],
     keywords: ["law firm marketing", "personal injury attorney marketing", "legal SEO", "attorney lead generation", "law firm advertising"],
     metaTitle: "Law Firm Marketing: How Personal Injury Attorneys Get 50+ Cases Monthly",
@@ -223,7 +223,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     category: "Real Estate Marketing",
     industry: "Real Estate", 
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
     tags: ["Real Estate Marketing", "Realtor Lead Generation", "Real Estate SEO", "Property Marketing"],
     keywords: ["real estate marketing", "realtor marketing", "real estate lead generation", "real estate agent marketing", "property marketing"],
     metaTitle: "Real Estate Marketing: Generate 100+ Qualified Leads Per Month",
@@ -292,7 +292,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "6 min read", 
     category: "Healthcare Marketing",
     industry: "Healthcare",
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&q=80",
     tags: ["Healthcare Marketing", "Medical SEO", "Patient Acquisition", "Medical Practice Growth"],
     keywords: ["medical practice marketing", "healthcare marketing", "medical SEO", "patient acquisition", "dental marketing"],
     metaTitle: "Medical Practice Marketing: Get 200+ New Patients Monthly",
@@ -375,7 +375,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     category: "E-commerce Marketing", 
     industry: "E-commerce",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&q=80",
     tags: ["E-commerce Marketing", "Online Retail", "Digital Commerce", "Sales Growth"],
     keywords: ["ecommerce marketing", "online store marketing", "ecommerce SEO", "digital commerce", "online retail growth"],
     metaTitle: "E-commerce Marketing: Scale Your Online Store to 7-Figures in 12 Months",
@@ -456,7 +456,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "12 min read",
     category: "General Marketing",
     industry: "General",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=800&q=80",
     tags: ["Local SEO", "Digital Marketing", "Small Business", "Search Marketing"],
     keywords: ["local SEO", "local search optimization", "Google Business Profile", "local marketing", "small business SEO"],
     metaTitle: "Local SEO Checklist: 15 Steps to Dominate Your Market in 2025",
@@ -559,7 +559,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read", 
     category: "Case Studies",
     industry: "Case Study",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
+    image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80",
     tags: ["Case Study", "Legal Marketing", "Lead Generation", "Digital Marketing Results"],
     keywords: ["law firm marketing case study", "legal marketing results", "personal injury lawyer marketing", "digital marketing success story"],
     metaTitle: "Case Study: How We Increased a Law Firm's Leads by 400% in 6 Months",
@@ -576,7 +576,7 @@ const generateAdditionalPosts = (): BlogPost[] => {
   for (let week = 2; week <= 4; week++) {
     industries.forEach((industry, dayIndex) => {
       const postId = blogPosts.length + additionalPosts.length + 1;
-      const date = new Date(2025, 8, (week - 1) * 7 + dayIndex + 3); // September 2025
+      const date = new Date(2025, 7, 20 + additionalPosts.length); // August 2025, ensuring no dates beyond Sep 4
       
       additionalPosts.push({
         id: postId,
@@ -754,26 +754,93 @@ const getAuthorByIndustry = (industry: string): string => {
 };
 
 const getImageByIndustry = (industry: string): string => {
-  const images: Record<string, string> = {
-    'HVAC': "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80",
-    'Legal': "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80",
-    'Real Estate': "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80", 
-    'Healthcare': "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80",
-    'E-commerce': "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
-    'Plumbing': "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800&q=80",
-    'Roofing': "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-    'Electrical': "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80",
-    'Landscaping': "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
-    'Pest Control': "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=80",
-    'Cleaning': "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80",
-    'Dental': "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=80",
-    'SaaS': "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-    'Excursions': "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
-    'General': "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-    'Case Study': "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
+  const images: Record<string, string[]> = {
+    'HVAC': [
+      "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80",
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
+      "https://images.unsplash.com/photo-1558618666-8ab136f44863?w=800&q=80"
+    ],
+    'Legal': [
+      "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80",
+      "https://images.unsplash.com/photo-1521791136064-5986c4eb7646?w=800&q=80",
+      "https://images.unsplash.com/photo-1479142506502-19b3a3b7ff33?w=800&q=80"
+    ],
+    'Real Estate': [
+      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80",
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80"
+    ],
+    'Healthcare': [
+      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80",
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&q=80",
+      "https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80"
+    ],
+    'E-commerce': [
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+      "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&q=80",
+      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80"
+    ],
+    'Plumbing': [
+      "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800&q=80",
+      "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=800&q=80",
+      "https://images.unsplash.com/photo-1623874228601-f4193c2c1b6a?w=800&q=80"
+    ],
+    'Roofing': [
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
+      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80"
+    ],
+    'Electrical': [
+      "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80",
+      "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=800&q=80",
+      "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=800&q=80"
+    ],
+    'Landscaping': [
+      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
+      "https://images.unsplash.com/photo-1441154724675-d40b2d95d1c3?w=800&q=80",
+      "https://images.unsplash.com/photo-1558904541-efa843a96f01?w=800&q=80"
+    ],
+    'Pest Control': [
+      "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=80",
+      "https://images.unsplash.com/photo-1595706494932-b9b5c3a3b530?w=800&q=80",
+      "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=800&q=80"
+    ],
+    'Cleaning': [
+      "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80",
+      "https://images.unsplash.com/photo-1563453392212-326dd043650d?w=800&q=80",
+      "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=800&q=80"
+    ],
+    'Dental': [
+      "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=80",
+      "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80",
+      "https://images.unsplash.com/photo-1571772996211-2f02c9727629?w=800&q=80"
+    ],
+    'SaaS': [
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80"
+    ],
+    'Excursions': [
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+      "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80",
+      "https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=800&q=80"
+    ],
+    'General': [
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+      "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=800&q=80",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
+    ],
+    'Case Study': [
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
+      "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
+    ]
   };
   
-  return images[industry] || "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80";
+  const industryImages = images[industry] || images['General'];
+  // Rotate through images based on week number
+  const imageIndex = Math.floor(Math.random() * industryImages.length);
+  return industryImages[imageIndex];
 };
 
 const getTagsByIndustry = (industry: string): string[] => {
