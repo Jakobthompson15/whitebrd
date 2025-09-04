@@ -72,9 +72,11 @@ export default function About() {
               className="bg-gray-50 p-8 rounded-lg"
             >
               <div className="flex items-center mb-6">
-                <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center text-white font-marker text-2xl">
-                  J
-                </div>
+                <img 
+                  src="/images/team/jamie.png" 
+                  alt="Jamie - Co-Founder"
+                  className="w-20 h-20 rounded-full object-cover border-2 border-black"
+                />
                 <div className="ml-4">
                   <h3 className="font-marker text-2xl">Jamie</h3>
                   <p className="text-gray-600">Co-Founder & Growth Strategist</p>
@@ -114,9 +116,11 @@ export default function About() {
               className="bg-gray-50 p-8 rounded-lg"
             >
               <div className="flex items-center mb-6">
-                <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center text-white font-marker text-2xl">
-                  J
-                </div>
+                <img 
+                  src="/images/team/jakob.jpg" 
+                  alt="Jakob - Co-Founder"
+                  className="w-20 h-20 rounded-full object-cover border-2 border-black"
+                />
                 <div className="ml-4">
                   <h3 className="font-marker text-2xl">Jakob</h3>
                   <p className="text-gray-600">Co-Founder & Technical Marketing Expert</p>
@@ -219,53 +223,61 @@ export default function About() {
       </section>
 
       {/* Values Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black text-white">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-marker text-4xl text-center mb-12">What Drives Us</h2>
+          <h2 className="font-marker text-4xl text-center mb-12 text-black">What Drives Us</h2>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
-              className="text-center"
+              className="bg-white p-6 rounded-lg shadow-lg border-2 border-black hover:shadow-xl transition-shadow"
             >
-              <div className="font-marker text-6xl mb-4">🎯</div>
-              <h3 className="font-marker text-xl mb-2">Results Obsessed</h3>
-              <p className="text-gray-300">We measure success in your revenue, not our retainers</p>
+              <div className="text-center">
+                <div className="font-marker text-4xl mb-4">🎯</div>
+                <h3 className="font-marker text-xl mb-3 text-black">Results Obsessed</h3>
+                <p className="text-gray-600 font-hand">We measure success in your revenue, not our retainers</p>
+              </div>
             </motion.div>
             
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="text-center"
+              className="bg-white p-6 rounded-lg shadow-lg border-2 border-black hover:shadow-xl transition-shadow"
             >
-              <div className="font-marker text-6xl mb-4">🚀</div>
-              <h3 className="font-marker text-xl mb-2">Speed Matters</h3>
-              <p className="text-gray-300">Fast execution, rapid testing, quick wins</p>
+              <div className="text-center">
+                <div className="font-marker text-4xl mb-4">🚀</div>
+                <h3 className="font-marker text-xl mb-3 text-black">Speed Matters</h3>
+                <p className="text-gray-600 font-hand">Fast execution, rapid testing, quick wins</p>
+              </div>
             </motion.div>
             
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.9 }}
-              className="text-center"
+              className="bg-white p-6 rounded-lg shadow-lg border-2 border-black hover:shadow-xl transition-shadow"
             >
-              <div className="font-marker text-6xl mb-4">💡</div>
-              <h3 className="font-marker text-xl mb-2">Always Innovating</h3>
-              <p className="text-gray-300">If it worked yesterday, we're already improving it</p>
+              <div className="text-center">
+                <div className="font-marker text-4xl mb-4">💡</div>
+                <h3 className="font-marker text-xl mb-3 text-black">Always Innovating</h3>
+                <p className="text-gray-600 font-hand">If it worked yesterday, we're already improving it</p>
+              </div>
             </motion.div>
             
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.0 }}
-              className="text-center"
+              className="bg-white p-6 rounded-lg shadow-lg border-2 border-black hover:shadow-xl transition-shadow"
             >
-              <div className="font-marker text-6xl mb-4">🤝</div>
-              <h3 className="font-marker text-xl mb-2">True Partnership</h3>
-              <p className="text-gray-300">Your success is our success, period</p>
+              <div className="text-center">
+                <div className="font-marker text-4xl mb-4">🤝</div>
+                <h3 className="font-marker text-xl mb-3 text-black">True Partnership</h3>
+                <p className="text-gray-600 font-hand">Your success is our success, period</p>
+              </div>
             </motion.div>
           </div>
         </div>

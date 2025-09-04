@@ -9,7 +9,7 @@ import { Calendar, Clock, Search, ArrowRight, User } from 'lucide-react';
 import { allBlogPosts as blogPosts, type BlogPost } from '@/data/blog-posts';
 import { SEO, createArticleSchema } from '@/components/seo';
 
-const categories = ["All", "HVAC Marketing", "Legal Marketing", "Real Estate Marketing", "Healthcare Marketing", "E-commerce Marketing", "General Marketing", "Case Studies"];
+const categories = ["All", "HVAC Marketing", "Legal Marketing", "Real Estate Marketing", "Healthcare Marketing", "E-commerce Marketing", "Plumbing Marketing", "Roofing Marketing", "Electrical Marketing", "Landscaping Marketing", "Pest Control Marketing", "Cleaning Marketing", "Dental Marketing", "SaaS Marketing", "Excursions Marketing", "General Marketing", "Case Studies"];
 
 export default function Blog() {
   const [searchTerm, setSearchTerm] = useState("");

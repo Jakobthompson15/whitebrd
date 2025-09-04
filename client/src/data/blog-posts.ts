@@ -569,7 +569,7 @@ export const blogPosts: BlogPost[] = [
 
 // Generate additional posts for a full month rotation
 const generateAdditionalPosts = (): BlogPost[] => {
-  const industries = ['HVAC', 'Legal', 'Real Estate', 'Healthcare', 'E-commerce', 'General', 'Case Study'];
+  const industries = ['HVAC', 'Legal', 'Real Estate', 'Healthcare', 'E-commerce', 'Plumbing', 'Roofing', 'Electrical', 'Landscaping', 'Pest Control', 'Cleaning', 'Dental', 'SaaS', 'Excursions', 'General', 'Case Study'];
   const additionalPosts: BlogPost[] = [];
   
   // Add more posts for the remaining days of the month
@@ -634,6 +634,51 @@ const getPostTitleByIndustry = (industry: string, week: number): string => {
       "Small Business Marketing: Low-Budget, High-Impact Strategies", 
       "Content Marketing ROI: Measuring What Matters"
     ],
+    'Plumbing': [
+      "Emergency Plumbing Marketing: Dominate 2AM Search Results",
+      "Plumbing SEO: Local Rankings That Drive Service Calls",
+      "Recurring Revenue for Plumbers: Maintenance Contract Marketing"
+    ],
+    'Roofing': [
+      "Storm Damage Marketing: Ethical Lead Generation for Roofers",
+      "Roofing SEO: Rank for High-Value Commercial Projects",
+      "Insurance Claim Marketing: Help Homeowners Navigate Claims"
+    ],
+    'Electrical': [
+      "Electrical Marketing: Safety, Trust, and High-Ticket Projects",
+      "Emergency Electrician SEO: 24/7 Lead Generation",
+      "Commercial Electrical Marketing: Land Major Contracts"
+    ],
+    'Landscaping': [
+      "Landscaping Marketing: From Lawn Care to Luxury Design",
+      "Seasonal Marketing for Landscapers: Year-Round Revenue",
+      "Visual Marketing: Showcase Your Landscape Transformations"
+    ],
+    'Pest Control': [
+      "Pest Control Marketing: Crisis Response and Prevention",
+      "Recurring Pest Control: Build Subscription Revenue",
+      "Emergency Pest Marketing: High-Intent Search Capture"
+    ],
+    'Cleaning': [
+      "Cleaning Service Marketing: Trust and Recurring Revenue",
+      "Commercial Cleaning: Land Long-Term Contracts",
+      "Residential Cleaning SEO: Build Loyal Customer Base"
+    ],
+    'Dental': [
+      "Dental Marketing: Beyond Insurance to Premium Care",
+      "Cosmetic Dentistry: Attract High-Value Cases",
+      "Dental SEO: Overcome Anxiety, Build Trust"
+    ],
+    'SaaS': [
+      "SaaS Marketing: Trials to Paid Conversions",
+      "Content Marketing for SaaS: Educate and Convert",
+      "SaaS SEO: Rank for Solution-Focused Keywords"
+    ],
+    'Excursions': [
+      "Tour Marketing: Direct Bookings Over OTA Fees",
+      "Local Tourism SEO: Capture Destination Searches",
+      "Experience Marketing: Sell Memories, Not Services"
+    ],
     'Case Study': [
       "HVAC Success Story: 250% Revenue Growth in 12 Months",
       "Real Estate Case Study: Agent Goes from 12 to 80 Sales Annually",
@@ -692,6 +737,15 @@ const getAuthorByIndustry = (industry: string): string => {
     'Real Estate': "Jennifer Martinez",
     'Healthcare': "Dr. Michael Rodriguez",
     'E-commerce': "Alex Thompson",
+    'Plumbing': "Tony Castellano",
+    'Roofing': "Amanda Hayes",
+    'Electrical': "Marcus Johnson",
+    'Landscaping': "Rachel Green",
+    'Pest Control': "Steve Wilson",
+    'Cleaning': "Maria Santos",
+    'Dental': "Dr. Lisa Park",
+    'SaaS': "Kevin Chen",
+    'Excursions': "Carlos Rivera",
     'General': "David Kim",
     'Case Study': "Lisa Rodriguez"
   };
@@ -706,6 +760,15 @@ const getImageByIndustry = (industry: string): string => {
     'Real Estate': "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80", 
     'Healthcare': "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80",
     'E-commerce': "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+    'Plumbing': "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800&q=80",
+    'Roofing': "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+    'Electrical': "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80",
+    'Landscaping': "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
+    'Pest Control': "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=80",
+    'Cleaning': "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80",
+    'Dental': "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=80",
+    'SaaS': "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    'Excursions': "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
     'General': "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
     'Case Study': "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
   };
@@ -720,6 +783,15 @@ const getTagsByIndustry = (industry: string): string[] => {
     'Real Estate': ["Real Estate Marketing", "Realtor Tips", "Property Marketing", "Real Estate SEO"], 
     'Healthcare': ["Healthcare Marketing", "Medical SEO", "Patient Acquisition", "HIPAA Compliance"],
     'E-commerce': ["E-commerce Marketing", "Online Sales", "Digital Commerce", "Conversion Optimization"],
+    'Plumbing': ["Plumbing Marketing", "Emergency Services", "Home Services", "Local SEO"],
+    'Roofing': ["Roofing Marketing", "Storm Damage", "Home Services", "Insurance Claims"],
+    'Electrical': ["Electrical Marketing", "Emergency Services", "Commercial Electrical", "Safety Marketing"],
+    'Landscaping': ["Landscaping Marketing", "Lawn Care", "Outdoor Services", "Seasonal Marketing"],
+    'Pest Control': ["Pest Control Marketing", "Emergency Pest", "Recurring Services", "Health & Safety"],
+    'Cleaning': ["Cleaning Services", "Commercial Cleaning", "Residential Cleaning", "Trust Marketing"],
+    'Dental': ["Dental Marketing", "Cosmetic Dentistry", "Patient Acquisition", "Healthcare SEO"],
+    'SaaS': ["SaaS Marketing", "Software Marketing", "Subscription Growth", "B2B Marketing"],
+    'Excursions': ["Tour Marketing", "Experience Marketing", "Travel SEO", "Local Tourism"],
     'General': ["Digital Marketing", "Small Business", "Marketing Strategy", "Business Growth"],
     'Case Study': ["Case Studies", "Success Stories", "Marketing Results", "Client Success"]
   };
@@ -734,6 +806,15 @@ const getKeywordsByIndustry = (industry: string): string[] => {
     'Real Estate': ["real estate marketing", "realtor marketing", "property marketing", "real estate SEO"],
     'Healthcare': ["healthcare marketing", "medical marketing", "patient acquisition", "medical SEO"], 
     'E-commerce': ["ecommerce marketing", "online store marketing", "digital commerce", "ecommerce SEO"],
+    'Plumbing': ["plumbing marketing", "plumber advertising", "emergency plumbing SEO", "plumbing contractor marketing"],
+    'Roofing': ["roofing marketing", "roofer advertising", "storm damage marketing", "roofing contractor SEO"],
+    'Electrical': ["electrician marketing", "electrical contractor SEO", "emergency electrical marketing", "electrical services advertising"],
+    'Landscaping': ["landscaping marketing", "lawn care marketing", "landscape design SEO", "outdoor services advertising"],
+    'Pest Control': ["pest control marketing", "exterminator advertising", "pest management SEO", "bug control marketing"],
+    'Cleaning': ["cleaning service marketing", "commercial cleaning SEO", "janitorial service advertising", "house cleaning marketing"],
+    'Dental': ["dental marketing", "dentist advertising", "cosmetic dentistry marketing", "dental practice SEO"],
+    'SaaS': ["SaaS marketing", "software marketing", "B2B SaaS SEO", "subscription software advertising"],
+    'Excursions': ["tour marketing", "excursion advertising", "tourism SEO", "travel experience marketing"],
     'General': ["digital marketing", "small business marketing", "online marketing", "marketing strategy"],
     'Case Study': ["marketing case studies", "digital marketing results", "marketing success stories"]
   };
