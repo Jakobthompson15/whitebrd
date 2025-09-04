@@ -782,8 +782,8 @@ const getImageByIndustry = (industry: string): string => {
     ],
     'Plumbing': [
       "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800&q=80",
-      "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=800&q=80",
-      "https://images.unsplash.com/photo-1623874228601-f4193c2c1b6a?w=800&q=80"
+      "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=80",
+      "https://images.unsplash.com/photo-1558618666-8ab136f44863?w=800&q=80"
     ],
     'Roofing': [
       "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
@@ -797,18 +797,18 @@ const getImageByIndustry = (industry: string): string => {
     ],
     'Landscaping': [
       "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
-      "https://images.unsplash.com/photo-1441154724675-d40b2d95d1c3?w=800&q=80",
-      "https://images.unsplash.com/photo-1558904541-efa843a96f01?w=800&q=80"
+      "https://images.unsplash.com/photo-1574865902419-8b833bb4a022?w=800&q=80",
+      "https://images.unsplash.com/photo-1589923188900-85dae523342b?w=800&q=80"
     ],
     'Pest Control': [
-      "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=80",
-      "https://images.unsplash.com/photo-1595706494932-b9b5c3a3b530?w=800&q=80",
-      "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=800&q=80"
+      "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+      "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=800&q=80",
+      "https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=800&q=80"
     ],
     'Cleaning': [
       "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80",
-      "https://images.unsplash.com/photo-1563453392212-326dd043650d?w=800&q=80",
-      "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=800&q=80"
+      "https://images.unsplash.com/photo-1627638393097-f3ecdacbc211?w=800&q=80",
+      "https://images.unsplash.com/photo-1613545325268-9265e34cb20a?w=800&q=80"
     ],
     'Dental': [
       "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=80",
