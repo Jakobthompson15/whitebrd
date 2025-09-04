@@ -130,7 +130,7 @@ export function HeroSection() {
             <div>Businesses Served</div>
           </div>
           <div className="text-center">
-            <div className="font-bold text-2xl text-white">$50M+</div>
+            <div className="font-bold text-2xl text-white">$2M+</div>
             <div>Revenue Generated</div>
           </div>
           <div className="text-center">
