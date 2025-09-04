@@ -791,9 +791,9 @@ const getImageByIndustry = (industry: string): string => {
       "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80"
     ],
     'Electrical': [
-      "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80",
-      "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=800&q=80",
-      "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=800&q=80"
+      "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=80",
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
+      "https://images.unsplash.com/photo-1558618666-8ab136f44863?w=800&q=80"
     ],
     'Landscaping': [
       "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
@@ -811,9 +811,9 @@ const getImageByIndustry = (industry: string): string => {
       "https://images.unsplash.com/photo-1613545325268-9265e34cb20a?w=800&q=80"
     ],
     'Dental': [
-      "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=80",
-      "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&q=80",
-      "https://images.unsplash.com/photo-1571772996211-2f02c9727629?w=800&q=80"
+      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80",
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&q=80",
+      "https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80"
     ],
     'SaaS': [
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
