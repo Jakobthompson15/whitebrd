@@ -3,14 +3,11 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
-import { insertContactSchema, insertNewsletterSchema, type InsertContact, type InsertNewsletter } from '@shared/schema';
-import { z } from 'zod';
+import { insertNewsletterSchema, type InsertNewsletter } from '@shared/schema';
 import { apiRequest } from '@/lib/queryClient';
 import { useToast } from '@/hooks/use-toast';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
 
 export function ConnectSection() {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
@@ -18,43 +15,11 @@ export function ConnectSection() {
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
-  // Contact form
-  const contactForm = useForm<InsertContact>({
-    resolver: zodResolver(insertContactSchema),
-    defaultValues: {
-      name: '',
-      email: '',
-      message: ''
-    }
-  });
-
   // Newsletter form
   const newsletterForm = useForm<InsertNewsletter>({
     resolver: zodResolver(insertNewsletterSchema),
     defaultValues: {
       email: ''
-    }
-  });
-
-  // Contact mutation
-  const contactMutation = useMutation({
-    mutationFn: async (data: InsertContact) => {
-      const response = await apiRequest('POST', '/api/contact', data);
-      return response.json();
-    },
-    onSuccess: (data) => {
-      toast({
-        title: "Audit Request Received!",
-        description: "We'll analyze your digital presence and contact you within 24 hours with your personalized report.",
-      });
-      contactForm.reset();
-    },
-    onError: (error) => {
-      toast({
-        title: "Submission Failed",
-        description: "Please check your information and try again, or email us directly.",
-        variant: "destructive",
-      });
     }
   });
 
@@ -80,10 +45,6 @@ export function ConnectSection() {
     }
   });
 
-  const onContactSubmit = (data: InsertContact) => {
-    contactMutation.mutate(data);
-  };
-
   const onNewsletterSubmit = (data: InsertNewsletter) => {
     newsletterMutation.mutate(data);
   };
@@ -102,98 +63,52 @@ export function ConnectSection() {
             Ready to Grow?
           </span>
           <h2 className="font-marker text-4xl sm:text-5xl lg:text-6xl mb-6 tracking-tight">
-            Get Your Free Marketing Audit
+            Schedule Your Free Marketing Audit
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Discover exactly how to dominate your market and generate more qualified demand for your business — from services and professional firms to SaaS, retail, and e‑commerce
+            Book a 30-minute call to discover exactly how to dominate your market and generate more qualified demand for your business
           </p>
         </motion.div>
         
         <div ref={formsRef} className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
+          {/* Calendar Booking */}
           <motion.div 
             className="bg-white text-black p-8 border-2 border-white"
             initial={{ opacity: 0, y: 30 }}
             animate={formsVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <h3 className="text-2xl font-bold mb-6">Get Your Free Audit</h3>
-            <p className="text-gray-600 mb-6">
-              Fill out the form below and we'll analyze your current digital presence and show you exactly how to get more customers.
+            <h3 className="text-2xl font-bold mb-6">Schedule Your Free Audit</h3>
+            <p className="text-gray-600 mb-8">
+              Book a 30-minute strategy call where we'll analyze your current digital presence live and show you exactly how to get more customers.
             </p>
-            <form onSubmit={contactForm.handleSubmit(onContactSubmit)} className="space-y-6">
-              <div>
-                <Label htmlFor="name" className="block text-sm font-medium mb-2">Business Name *</Label>
-                <Input
-                  id="name"
-                  type="text"
-                  placeholder="Your Company Name"
-                  {...contactForm.register('name', { 
-                    required: "Business name is required",
-                    minLength: { value: 2, message: "Business name must be at least 2 characters" }
-                  })}
-                  className={`w-full px-4 py-3 border-2 bg-white text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent ${
-                    contactForm.formState.errors.name ? 'border-red-500' : 'border-gray-300'
-                  }`}
-                />
-                {contactForm.formState.errors.name && (
-                  <p className="text-red-500 text-sm mt-1">{contactForm.formState.errors.name.message}</p>
-                )}
-              </div>
-              <div>
-                <Label htmlFor="email" className="block text-sm font-medium mb-2">Email Address *</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="your@email.com"
-                  {...contactForm.register('email', { 
-                    required: "Email is required",
-                    pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: "Please enter a valid email address"
-                    }
-                  })}
-                  className={`w-full px-4 py-3 border-2 bg-white text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent ${
-                    contactForm.formState.errors.email ? 'border-red-500' : 'border-gray-300'
-                  }`}
-                />
-                {contactForm.formState.errors.email && (
-                  <p className="text-red-500 text-sm mt-1">{contactForm.formState.errors.email.message}</p>
-                )}
-              </div>
-              <div>
-                <Label htmlFor="message" className="block text-sm font-medium mb-2">Tell us about your business *</Label>
-                <Textarea
-                  id="message"
-                  rows={4}
-                  placeholder="What services do you offer? What's your biggest challenge with getting new customers?"
-                  {...contactForm.register('message', { 
-                    required: "Please tell us about your business",
-                    minLength: { value: 10, message: "Please provide more details (at least 10 characters)" }
-                  })}
-                  className={`w-full px-4 py-3 border-2 bg-white text-black focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent resize-none ${
-                    contactForm.formState.errors.message ? 'border-red-500' : 'border-gray-300'
-                  }`}
-                />
-                {contactForm.formState.errors.message && (
-                  <p className="text-red-500 text-sm mt-1">{contactForm.formState.errors.message.message}</p>
-                )}
-              </div>
+            
+            <div className="space-y-4">
               <Button 
-                type="submit" 
-                className="w-full bg-black text-white py-4 text-lg font-semibold hover:bg-gray-800 transition-all duration-200 border-2 border-black disabled:opacity-50 disabled:cursor-not-allowed"
-                disabled={contactMutation.isPending}
+                onClick={() => window.open('https://meetings-na2.hubspot.com/jakob-thompson?uuid=ac532047-5668-4f28-85e8-c4c73d0a3a15', '_blank')}
+                className="w-full bg-black text-white py-4 text-lg font-semibold hover:bg-gray-800 transition-all duration-200 border-2 border-black"
               >
-                {contactMutation.isPending ? (
-                  <div className="flex items-center justify-center">
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-                    Sending Your Request...
-                  </div>
-                ) : (
-                  'Get My Free Audit'
-                )}
+                📅 Schedule Now
               </Button>
-            </form>
+              
+              <div className="text-center text-gray-500">
+                <span className="text-sm">or</span>
+              </div>
+              
+              <Button 
+                onClick={() => window.open('tel:8436243329', '_self')}
+                className="w-full bg-white text-black py-4 text-lg font-semibold hover:bg-gray-50 transition-all duration-200 border-2 border-black"
+              >
+                📞 Call Now: (843) 624-3329
+              </Button>
+            </div>
+            
+            <div className="mt-6 p-4 bg-gray-50 rounded border">
+              <p className="text-sm text-gray-600 text-center">
+                <strong>Available:</strong> Monday - Friday, 9 AM - 6 PM EST<br/>
+                <strong>Response time:</strong> Same day booking confirmation
+              </p>
+            </div>
           </motion.div>
           
           {/* Value Proposition */}
@@ -204,15 +119,15 @@ export function ConnectSection() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           >
             <div>
-              <h3 className="font-lato-bold text-2xl mb-6 tracking-wide">What You'll Get:</h3>
+              <h3 className="font-lato-bold text-2xl mb-6 tracking-wide">What You'll Get in Our 30-Minute Call:</h3>
               <div className="space-y-4">
                 <div className="flex items-start">
                   <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center mt-1 mr-4 flex-shrink-0">
                     <span className="text-black text-sm font-bold">✓</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Complete Digital Audit</h4>
-                    <p className="text-gray-300 text-sm">Analysis of your website, Google Business Profile, and online presence</p>
+                    <h4 className="font-semibold mb-1">Live Website Review</h4>
+                    <p className="text-gray-300 text-sm">Real-time analysis of your website, Google rankings, and online presence</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -220,8 +135,8 @@ export function ConnectSection() {
                     <span className="text-black text-sm font-bold">✓</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Competitor Analysis</h4>
-                    <p className="text-gray-300 text-sm">See what your competitors are doing and how to beat them</p>
+                    <h4 className="font-semibold mb-1">Real-Time Competitor Analysis</h4>
+                    <p className="text-gray-300 text-sm">We'll show you what your competitors are doing and how to beat them</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -229,8 +144,8 @@ export function ConnectSection() {
                     <span className="text-black text-sm font-bold">✓</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Custom Strategy</h4>
-                    <p className="text-gray-300 text-sm">Personalized plan to dominate your local market</p>
+                    <h4 className="font-semibold mb-1">Personalized Growth Roadmap</h4>
+                    <p className="text-gray-300 text-sm">Custom 90-day plan to dominate your market and grow revenue</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -238,8 +153,8 @@ export function ConnectSection() {
                     <span className="text-black text-sm font-bold">✓</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1">Revenue Projections</h4>
-                    <p className="text-gray-300 text-sm">Realistic estimates of additional revenue you could generate</p>
+                    <h4 className="font-semibold mb-1">Revenue Opportunity Assessment</h4>
+                    <p className="text-gray-300 text-sm">Realistic projections of additional revenue you could capture</p>
                   </div>
                 </div>
               </div>

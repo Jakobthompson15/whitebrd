@@ -22,11 +22,11 @@ export function Footer() {
             <div className="space-y-2 text-gray-300">
               <p className="flex items-center">
                 <span className="w-2 h-2 bg-white rounded-full mr-3"></span>
-                hello@whitebrdco.com
+                info@whitebrd.co
               </p>
               <p className="flex items-center">
                 <span className="w-2 h-2 bg-white rounded-full mr-3"></span>
-                +1 (555) 123-4567
+                (843) 624-3329
               </p>
               <p className="flex items-center">
                 <span className="w-2 h-2 bg-white rounded-full mr-3"></span>
@@ -51,7 +51,7 @@ export function Footer() {
                 Our Services
               </button>
               <button 
-                onClick={() => scrollToSection('work')}
+                onClick={() => scrollToSection('about')}
                 className="block text-gray-300 hover:text-white transition-colors duration-200"
               >
                 Our Story

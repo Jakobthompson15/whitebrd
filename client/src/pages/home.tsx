@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { Navigation } from '@/components/navigation';
 import { HeroSection } from '@/components/hero-section';
 import { ServicesSection } from '@/components/services-section';
-import { WorkSection } from '@/components/work-section';
 import { ConnectSection } from '@/components/connect-section';
 import { Footer } from '@/components/footer';
 import { SEO, organizationSchema } from '@/components/seo';
@@ -35,7 +34,6 @@ export default function Home() {
       <Navigation />
       <HeroSection />
       <ServicesSection />
-      <WorkSection />
       <ConnectSection />
       <Footer />
     </div>
