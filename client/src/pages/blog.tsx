@@ -8,6 +8,7 @@ import { Footer } from '@/components/footer';
 import { Calendar, Clock, Search, ArrowRight, User } from 'lucide-react';
 import { allBlogPosts as blogPosts, type BlogPost } from '@/data/blog-posts';
 import { SEO, createArticleSchema } from '@/components/seo';
+import { BlogImage } from '@/components/blog-image';
 
 const categories = ["All", "HVAC Marketing", "Legal Marketing", "Real Estate Marketing", "Healthcare Marketing", "E-commerce Marketing", "Plumbing Marketing", "Roofing Marketing", "Electrical Marketing", "Landscaping Marketing", "Pest Control Marketing", "Cleaning Marketing", "Dental Marketing", "SaaS Marketing", "Excursions Marketing", "General Marketing", "Case Studies"];
 
@@ -60,7 +61,7 @@ export default function Blog() {
               ← Back to Blog
             </Button>
             
-            <img
+            <BlogImage
               src={selectedPost.image}
               alt={selectedPost.title}
               className="w-full h-96 object-cover rounded-lg mb-8"
@@ -156,7 +157,7 @@ export default function Blog() {
                 onClick={() => setSelectedPost(post)}
               >
                 <div className="h-48 overflow-hidden">
-                  <img
+                  <BlogImage
                     src={post.image}
                     alt={post.title}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"

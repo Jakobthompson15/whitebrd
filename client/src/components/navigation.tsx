@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useLocation } from 'wouter';
-import logoPath from '@assets/ChatGPT Image Jun 23 2025_1750696864790.png';
+// Use a clean public logo asset to avoid odd placeholder images
+
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,8 +32,8 @@ export function Navigation() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <img 
-              src={logoPath} 
-              alt="Whitebrd Co." 
+              src="/images/logo.png" 
+              alt="WHITEBRD" 
               className="h-16 w-auto md:h-20"
             />
           </div>

@@ -69,7 +69,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "8 min read",
     category: "HVAC Marketing",
     industry: "HVAC",
-    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80",
+    image: "https://via.placeholder.com/800x400/4F46E5/FFFFFF?text=HVAC+Marketing",
     tags: ["HVAC Marketing", "Local SEO", "Home Services", "Lead Generation"],
     keywords: ["HVAC digital marketing", "heating cooling marketing", "HVAC SEO", "air conditioning marketing", "HVAC lead generation"],
     metaTitle: "HVAC Digital Marketing: 7 Strategies That Generate 300% More Leads",
@@ -140,7 +140,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "7 min read",
     category: "Legal Marketing",
     industry: "Legal",
-    image: "https://images.unsplash.com/photo-1521791136064-5986c4eb7646?w=800&q=80",
+    image: "https://via.placeholder.com/800x400/059669/FFFFFF?text=Legal+Marketing",
     tags: ["Law Firm Marketing", "Personal Injury SEO", "Legal Lead Generation", "Attorney Marketing"],
     keywords: ["law firm marketing", "personal injury attorney marketing", "legal SEO", "attorney lead generation", "law firm advertising"],
     metaTitle: "Law Firm Marketing: How Personal Injury Attorneys Get 50+ Cases Monthly",
@@ -223,7 +223,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "9 min read",
     category: "Real Estate Marketing",
     industry: "Real Estate", 
-    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
+    image: "https://via.placeholder.com/800x400/DC2626/FFFFFF?text=Real+Estate",
     tags: ["Real Estate Marketing", "Realtor Lead Generation", "Real Estate SEO", "Property Marketing"],
     keywords: ["real estate marketing", "realtor marketing", "real estate lead generation", "real estate agent marketing", "property marketing"],
     metaTitle: "Real Estate Marketing: Generate 100+ Qualified Leads Per Month",
@@ -292,7 +292,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "6 min read", 
     category: "Healthcare Marketing",
     industry: "Healthcare",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&q=80",
+    image: "https://via.placeholder.com/800x400/0891B2/FFFFFF?text=Healthcare",
     tags: ["Healthcare Marketing", "Medical SEO", "Patient Acquisition", "Medical Practice Growth"],
     keywords: ["medical practice marketing", "healthcare marketing", "medical SEO", "patient acquisition", "dental marketing"],
     metaTitle: "Medical Practice Marketing: Get 200+ New Patients Monthly",
@@ -375,7 +375,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read",
     category: "E-commerce Marketing", 
     industry: "E-commerce",
-    image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&q=80",
+    image: "https://via.placeholder.com/800x400/7C3AED/FFFFFF?text=E-Commerce",
     tags: ["E-commerce Marketing", "Online Retail", "Digital Commerce", "Sales Growth"],
     keywords: ["ecommerce marketing", "online store marketing", "ecommerce SEO", "digital commerce", "online retail growth"],
     metaTitle: "E-commerce Marketing: Scale Your Online Store to 7-Figures in 12 Months",
@@ -456,7 +456,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "12 min read",
     category: "General Marketing",
     industry: "General",
-    image: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=800&q=80",
+    image: "https://via.placeholder.com/800x400/EA580C/FFFFFF?text=Local+SEO",
     tags: ["Local SEO", "Digital Marketing", "Small Business", "Search Marketing"],
     keywords: ["local SEO", "local search optimization", "Google Business Profile", "local marketing", "small business SEO"],
     metaTitle: "Local SEO Checklist: 15 Steps to Dominate Your Market in 2025",
@@ -559,7 +559,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "10 min read", 
     category: "Case Studies",
     industry: "Case Study",
-    image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80",
+    image: "https://via.placeholder.com/800x400/0369A1/FFFFFF?text=Case+Study",
     tags: ["Case Study", "Legal Marketing", "Lead Generation", "Digital Marketing Results"],
     keywords: ["law firm marketing case study", "legal marketing results", "personal injury lawyer marketing", "digital marketing success story"],
     metaTitle: "Case Study: How We Increased a Law Firm's Leads by 400% in 6 Months",
@@ -756,84 +756,84 @@ const getAuthorByIndustry = (industry: string): string => {
 const getImageByIndustry = (industry: string): string => {
   const images: Record<string, string[]> = {
     'HVAC': [
-      "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80",
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
-      "https://images.unsplash.com/photo-1558618666-8ab136f44863?w=800&q=80"
+      "https://via.placeholder.com/800x400/4F46E5/FFFFFF?text=HVAC+Services",
+      "https://via.placeholder.com/800x400/6366F1/FFFFFF?text=Heating+Cooling",
+      "https://via.placeholder.com/800x400/818CF8/FFFFFF?text=HVAC+Marketing"
     ],
     'Legal': [
-      "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80",
-      "https://images.unsplash.com/photo-1521791136064-5986c4eb7646?w=800&q=80",
-      "https://images.unsplash.com/photo-1479142506502-19b3a3b7ff33?w=800&q=80"
+      "https://via.placeholder.com/800x400/059669/FFFFFF?text=Legal+Services",
+      "https://via.placeholder.com/800x400/047857/FFFFFF?text=Law+Firm",
+      "https://via.placeholder.com/800x400/065F46/FFFFFF?text=Attorney+Marketing"
     ],
     'Real Estate': [
-      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80",
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
-      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80"
+      "https://via.placeholder.com/800x400/DC2626/FFFFFF?text=Real+Estate",
+      "https://via.placeholder.com/800x400/B91C1C/FFFFFF?text=Property+Marketing",
+      "https://via.placeholder.com/800x400/991B1B/FFFFFF?text=Realtor+Services"
     ],
     'Healthcare': [
-      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80",
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&q=80",
-      "https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80"
+      "https://via.placeholder.com/800x400/0891B2/FFFFFF?text=Healthcare",
+      "https://via.placeholder.com/800x400/0C7489/FFFFFF?text=Medical+Practice",
+      "https://via.placeholder.com/800x400/0E7490/FFFFFF?text=Patient+Care"
     ],
     'E-commerce': [
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
-      "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&q=80",
-      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80"
+      "https://via.placeholder.com/800x400/7C3AED/FFFFFF?text=E-Commerce",
+      "https://via.placeholder.com/800x400/9333EA/FFFFFF?text=Online+Store",
+      "https://via.placeholder.com/800x400/A855F7/FFFFFF?text=Digital+Sales"
     ],
     'Plumbing': [
-      "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800&q=80",
-      "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=80",
-      "https://images.unsplash.com/photo-1558618666-8ab136f44863?w=800&q=80"
+      "https://via.placeholder.com/800x400/1E40AF/FFFFFF?text=Plumbing+Services",
+      "https://via.placeholder.com/800x400/1E3A8A/FFFFFF?text=Plumber+Marketing",
+      "https://via.placeholder.com/800x400/1F2937/FFFFFF?text=Emergency+Plumbing"
     ],
     'Roofing': [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
-      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80"
+      "https://via.placeholder.com/800x400/92400E/FFFFFF?text=Roofing+Services",
+      "https://via.placeholder.com/800x400/78350F/FFFFFF?text=Roof+Repair",
+      "https://via.placeholder.com/800x400/451A03/FFFFFF?text=Roofing+Marketing"
     ],
     'Electrical': [
-      "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=80",
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
-      "https://images.unsplash.com/photo-1558618666-8ab136f44863?w=800&q=80"
+      "https://via.placeholder.com/800x400/FCD34D/333333?text=Electrical+Services",
+      "https://via.placeholder.com/800x400/FDE047/333333?text=Electrician+Marketing",
+      "https://via.placeholder.com/800x400/FACC15/333333?text=Electrical+Repair"
     ],
     'Landscaping': [
-      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80",
-      "https://images.unsplash.com/photo-1574865902419-8b833bb4a022?w=800&q=80",
-      "https://images.unsplash.com/photo-1589923188900-85dae523342b?w=800&q=80"
+      "https://via.placeholder.com/800x400/16A34A/FFFFFF?text=Landscaping",
+      "https://via.placeholder.com/800x400/15803D/FFFFFF?text=Lawn+Care",
+      "https://via.placeholder.com/800x400/14532D/FFFFFF?text=Garden+Services"
     ],
     'Pest Control': [
-      "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
-      "https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?w=800&q=80",
-      "https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=800&q=80"
+      "https://via.placeholder.com/800x400/7F1D1D/FFFFFF?text=Pest+Control",
+      "https://via.placeholder.com/800x400/991B1B/FFFFFF?text=Exterminator",
+      "https://via.placeholder.com/800x400/450A0A/FFFFFF?text=Bug+Control"
     ],
     'Cleaning': [
-      "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80",
-      "https://images.unsplash.com/photo-1627638393097-f3ecdacbc211?w=800&q=80",
-      "https://images.unsplash.com/photo-1613545325268-9265e34cb20a?w=800&q=80"
+      "https://via.placeholder.com/800x400/06B6D4/FFFFFF?text=Cleaning+Services",
+      "https://via.placeholder.com/800x400/0891B2/FFFFFF?text=House+Cleaning",
+      "https://via.placeholder.com/800x400/0284C7/FFFFFF?text=Commercial+Cleaning"
     ],
     'Dental': [
-      "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80",
-      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&q=80",
-      "https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80"
+      "https://via.placeholder.com/800x400/10B981/FFFFFF?text=Dental+Services",
+      "https://via.placeholder.com/800x400/059669/FFFFFF?text=Dentist+Marketing",
+      "https://via.placeholder.com/800x400/047857/FFFFFF?text=Dental+Practice"
     ],
     'SaaS': [
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80"
+      "https://via.placeholder.com/800x400/6366F1/FFFFFF?text=SaaS+Marketing",
+      "https://via.placeholder.com/800x400/4F46E5/FFFFFF?text=Software+Sales",
+      "https://via.placeholder.com/800x400/4338CA/FFFFFF?text=B2B+SaaS"
     ],
     'Excursions': [
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
-      "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80",
-      "https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=800&q=80"
+      "https://via.placeholder.com/800x400/F97316/FFFFFF?text=Tour+Services",
+      "https://via.placeholder.com/800x400/EA580C/FFFFFF?text=Excursions",
+      "https://via.placeholder.com/800x400/DC2626/FFFFFF?text=Travel+Experiences"
     ],
     'General': [
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-      "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=800&q=80",
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
+      "https://via.placeholder.com/800x400/6B7280/FFFFFF?text=Digital+Marketing",
+      "https://via.placeholder.com/800x400/4B5563/FFFFFF?text=Marketing+Strategy",
+      "https://via.placeholder.com/800x400/374151/FFFFFF?text=Business+Growth"
     ],
     'Case Study': [
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
-      "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80",
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
+      "https://via.placeholder.com/800x400/0369A1/FFFFFF?text=Case+Study",
+      "https://via.placeholder.com/800x400/075985/FFFFFF?text=Success+Story",
+      "https://via.placeholder.com/800x400/0C4A6E/FFFFFF?text=Client+Results"
     ]
   };
   

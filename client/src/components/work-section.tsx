@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
-import jamieImage from '@assets/image_1749697502488.png';
-import jakobEmilyImage from '@assets/Emily and Jakob Gallery_1749697525226.jpg';
-import logoPath from '@assets/ChatGPT Image Jun 9 2025 from Google Business_1749695415413.png';
+// Use team images from public folder for clarity and consistency
+const jamieImage = "/images/team/jamie.png";
+const jakobEmilyImage = "/images/team/jakob.jpg";
 
 export function WorkSection() {
   const { ref: beliefsRef, isVisible: beliefsVisible } = useScrollAnimation();

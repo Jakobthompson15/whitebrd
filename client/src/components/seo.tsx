@@ -19,7 +19,7 @@ interface SEOProps {
 const DEFAULT_TITLE = 'Whitebrd Co. - Digital Marketing Agency | SEO & Web Design';
 const DEFAULT_DESCRIPTION = 'Whitebrd Co. is a full-service digital marketing agency specializing in SEO, web design, and growth strategies for HVAC, plumbing, roofing, legal, dental, SaaS, and e-commerce businesses. Get found online and grow your revenue.';
 const DEFAULT_KEYWORDS = 'digital marketing agency, SEO services, web design, local SEO, content marketing, PPC advertising, HVAC marketing, plumbing marketing, roofing marketing, legal marketing, dental marketing, SaaS marketing, e-commerce marketing, website development, online marketing, search engine optimization';
-const DEFAULT_OG_IMAGE = '/images/whitebrd-og-image.png';
+const DEFAULT_OG_IMAGE = '/images/whitebrd-og-image.svg';
 const SITE_URL = 'https://whitebrd.com';
 
 export function SEO({
@@ -122,7 +122,7 @@ export const organizationSchema = {
   "@type": "MarketingAgency",
   "name": "Whitebrd Co.",
   "url": "https://whitebrd.com",
-  "logo": "https://whitebrd.com/images/logo.png",
+  "logo": "https://whitebrd.com/images/logo.svg",
   "description": "Full-service digital marketing agency specializing in SEO, web design, and growth strategies for service businesses.",
   "address": {
     "@type": "PostalAddress",
@@ -236,12 +236,12 @@ export const createArticleSchema = (article: {
     "name": "Whitebrd Co.",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://whitebrd.com/images/logo.png"
+      "url": "https://whitebrd.com/images/logo.svg"
     }
   },
   "datePublished": article.datePublished || new Date().toISOString(),
   "dateModified": article.dateModified || new Date().toISOString(),
-  "image": article.image || "https://whitebrd.com/images/default-blog-image.png",
+  "image": article.image || "https://whitebrd.com/images/default-blog-image.svg",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": article.url || window.location.href
