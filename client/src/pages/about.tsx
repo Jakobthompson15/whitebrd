@@ -8,25 +8,25 @@ export default function About() {
   return (
     <div className="min-h-screen bg-white text-black">
       <SEO
-        title="About Us - The Whitebrd Story | Digital Marketing Agency"
-        description="Meet Jamie and Jakob, the founders of Whitebrd Co. Two marketing experts with over 14 years combined experience, driven to help businesses from startups to enterprises achieve explosive growth."
-        keywords="about whitebrd, digital marketing agency founders, marketing experts, Jamie Jakob, business growth specialists, marketing agency story"
-        canonicalUrl="https://whitebrd.com/about"
-        ogTitle="Meet the Whitebrd Founders - Jamie & Jakob"
-        ogDescription="Two marketing experts united by one mission: helping businesses dominate their markets through strategic digital marketing."
+        title="About Whitebrd Co | Digital Marketing Company National"
+        description="Learn about Whitebrd Co, a national digital marketing company delivering SEO, PPC, and content marketing services. Discover our story today!"
+        keywords="about whitebrd, digital marketing company, digital marketing agency, national marketing agency, SEO services, PPC services, content marketing, marketing experts, business growth specialists"
+        canonicalUrl="https://whitebrd.co/about"
+        ogTitle="About Whitebrd Co | Digital Marketing Company National"
+        ogDescription="Learn about Whitebrd Co, a national digital marketing company delivering proven results through SEO, PPC, and strategic marketing."
       />
       <Navigation />
 
       {/* Hero Section */}
       <section className="pt-24 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-6xl mx-auto text-center">
-          <motion.h1 
+          <motion.h1
             className="font-marker text-5xl sm:text-6xl mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Our Story
+            About Whitebrd Co – National Digital Marketing Experts
           </motion.h1>
           <motion.p 
             className="text-xl text-gray-700 max-w-3xl mx-auto font-hand"

@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -8,6 +8,8 @@ export function Navigation() {
   const [location, setLocation] = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const servicesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,8 +34,19 @@ export function Navigation() {
 
     window.addEventListener('scroll', handleScroll);
     handleScroll();
-    
+
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (servicesRef.current && !servicesRef.current.contains(event.target as Node)) {
+        setServicesOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
@@ -51,17 +64,28 @@ export function Navigation() {
   const handleNavigation = (path: string) => {
     setLocation(path);
     setIsMenuOpen(false);
+    setServicesOpen(false);
   };
 
   const isActive = (section: string) => {
     return location === '/' && activeSection === section;
   };
 
+  const serviceLinks = [
+    { name: 'SEO Services', path: '/seo-services' },
+    { name: 'Website Design', path: '/website-design' },
+    { name: 'PPC Management', path: '/ppc-management' },
+    { name: 'Content Marketing', path: '/content-marketing' },
+    { name: 'Social Media Management', path: '/social-media-management' },
+    { name: 'Technical SEO', path: '/seo-tech' },
+    { name: 'Google Ads', path: '/google-ads' }
+  ];
+
   return (
-    <motion.nav 
+    <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200' 
+        scrolled
+          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200'
           : 'bg-white border-b border-black'
       }`}
       initial={{ y: -100 }}
@@ -70,144 +94,186 @@ export function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {/* Logo with hover effect */}
-          <motion.div 
-            className="flex-shrink-0"
+          {/* Logo */}
+          <motion.div
+            className="flex-shrink-0 cursor-pointer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => handleNavigation('/')}
           >
-            <img 
-              src="/images/logo.png" 
-              alt="WHITEBRD" 
+            <img
+              src="/images/logo.png"
+              alt="WHITEBRD"
               className={`transition-all duration-300 ${
                 scrolled ? 'h-12 md:h-16' : 'h-16 md:h-20'
               }`}
               style={{ filter: scrolled ? 'none' : 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))' }}
             />
           </motion.div>
-          
+
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-2">
-              {[
-                { name: 'Home', action: () => location === '/' ? scrollToSection('home') : handleNavigation('/'), section: 'home' },
-                { name: 'Industries', action: () => handleNavigation('/industries'), section: null },
-                { name: 'Our Services', action: () => location === '/' ? scrollToSection('services') : handleNavigation('/'), section: 'services' },
-                { name: 'Our Story', action: () => handleNavigation('/about'), section: null },
-                { name: 'Blog', action: () => handleNavigation('/blog'), section: null },
-                { name: "Let's Connect", action: () => location === '/' ? scrollToSection('connect') : handleNavigation('/'), section: 'connect' }
-              ].map((item, index) => (
+              {/* Home */}
+              <motion.button
+                onClick={() => location === '/' ? scrollToSection('home') : handleNavigation('/')}
+                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-black transition-colors rounded-lg"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Home
+              </motion.button>
+
+              {/* Services Dropdown */}
+              <div className="relative" ref={servicesRef}>
                 <motion.button
-                  key={item.name}
-                  onClick={item.action}
-                  className={`relative px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg ${
-                    item.section && isActive(item.section)
-                      ? 'text-white'
-                      : 'text-gray-700 hover:text-black'
-                  }`}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  onClick={() => setServicesOpen(!servicesOpen)}
+                  className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-black transition-colors rounded-lg flex items-center gap-1"
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  {item.section && isActive(item.section) && (
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-gray-800 to-black rounded-lg"
-                      layoutId="activeNav"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                  <span className={`relative z-10 ${
-                    item.section && isActive(item.section) ? '' : 'hover:text-black'
-                  }`}>
-                    {item.name}
-                  </span>
-                  {!item.section && !isActive(item.section || '') && (
-                    <motion.div
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-black origin-left"
-                      initial={{ scaleX: 0 }}
-                      whileHover={{ scaleX: 1 }}
-                      transition={{ duration: 0.2 }}
-                    />
-                  )}
+                  Services
+                  <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
                 </motion.button>
-              ))}
+
+                <AnimatePresence>
+                  {servicesOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden"
+                    >
+                      {serviceLinks.map((service) => (
+                        <button
+                          key={service.path}
+                          onClick={() => handleNavigation(service.path)}
+                          className="block w-full text-left px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-black transition-colors"
+                        >
+                          {service.name}
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Industries */}
+              <motion.button
+                onClick={() => handleNavigation('/industries')}
+                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-black transition-colors rounded-lg"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Industries
+              </motion.button>
+
+              {/* About */}
+              <motion.button
+                onClick={() => handleNavigation('/about')}
+                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-black transition-colors rounded-lg"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                About
+              </motion.button>
+
+              {/* Blog */}
+              <motion.button
+                onClick={() => handleNavigation('/blog')}
+                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-black transition-colors rounded-lg"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Blog
+              </motion.button>
+
+              {/* Contact */}
+              <motion.button
+                onClick={() => handleNavigation('/contact')}
+                className="px-4 py-2 bg-black text-white font-medium rounded-lg hover:bg-gray-800 transition-colors"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Contact Us
+              </motion.button>
             </div>
           </div>
-          
+
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <motion.button 
+            <motion.button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+              className="p-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <AnimatePresence mode="wait">
-                {isMenuOpen ? (
-                  <motion.div
-                    key="close"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <X className="h-6 w-6" />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="menu"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Menu className="h-6 w-6" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </motion.button>
           </div>
         </div>
       </div>
-      
+
       {/* Mobile Navigation */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div 
-            className="md:hidden border-t border-gray-200 bg-white/95 backdrop-blur-md"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
+            className="md:hidden bg-white border-t border-gray-200"
           >
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {[
-                { name: 'Home', action: () => location === '/' ? scrollToSection('home') : handleNavigation('/'), section: 'home' },
-                { name: 'Industries', action: () => handleNavigation('/industries'), section: null },
-                { name: 'Our Services', action: () => location === '/' ? scrollToSection('services') : handleNavigation('/'), section: 'services' },
-                { name: 'Our Story', action: () => handleNavigation('/about'), section: null },
-                { name: 'Blog', action: () => handleNavigation('/blog'), section: null },
-                { name: "Let's Connect", action: () => location === '/' ? scrollToSection('connect') : handleNavigation('/'), section: 'connect' }
-              ].map((item, index) => (
-                <motion.button
-                  key={item.name}
-                  onClick={item.action}
-                  className={`block w-full text-left px-3 py-3 text-base font-medium rounded-lg transition-all duration-200 ${
-                    item.section && isActive(item.section)
-                      ? 'bg-gradient-to-r from-gray-800 to-black text-white'
-                      : 'text-gray-700 hover:bg-gray-100 hover:text-black'
-                  }`}
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: index * 0.05 }}
-                  whileHover={{ x: 5 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  {item.name}
-                </motion.button>
-              ))}
+            <div className="px-4 py-4 space-y-2">
+              <button
+                onClick={() => location === '/' ? scrollToSection('home') : handleNavigation('/')}
+                className="block w-full text-left px-4 py-2 text-gray-700 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+              >
+                Home
+              </button>
+
+              {/* Mobile Services */}
+              <div className="space-y-1">
+                <div className="px-4 py-2 text-gray-900 font-semibold">Services</div>
+                {serviceLinks.map((service) => (
+                  <button
+                    key={service.path}
+                    onClick={() => handleNavigation(service.path)}
+                    className="block w-full text-left px-8 py-2 text-sm text-gray-700 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+                  >
+                    {service.name}
+                  </button>
+                ))}
+              </div>
+
+              <button
+                onClick={() => handleNavigation('/industries')}
+                className="block w-full text-left px-4 py-2 text-gray-700 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+              >
+                Industries
+              </button>
+
+              <button
+                onClick={() => handleNavigation('/about')}
+                className="block w-full text-left px-4 py-2 text-gray-700 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+              >
+                About
+              </button>
+
+              <button
+                onClick={() => handleNavigation('/blog')}
+                className="block w-full text-left px-4 py-2 text-gray-700 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+              >
+                Blog
+              </button>
+
+              <button
+                onClick={() => handleNavigation('/contact')}
+                className="block w-full text-left px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
+              >
+                Contact Us
+              </button>
             </div>
           </motion.div>
         )}

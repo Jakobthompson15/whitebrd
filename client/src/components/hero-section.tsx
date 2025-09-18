@@ -47,11 +47,20 @@ export function HeroSection() {
           </motion.span>
         </motion.div>
         
-        <motion.h1 
-          className="font-marker text-5xl sm:text-6xl lg:text-8xl mb-6 tracking-tight leading-tight"
+        <motion.h1
+          className="font-marker text-4xl sm:text-5xl lg:text-6xl mb-4 tracking-tight leading-tight text-white"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+        >
+          Full-Service Digital Marketing Agency in the USA
+        </motion.h1>
+
+        <motion.div
+          className="font-marker text-5xl sm:text-6xl lg:text-8xl mb-6 tracking-tight leading-tight"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
         >
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-white animate-gradient">
             Dominate Your Market
@@ -60,7 +69,7 @@ export function HeroSection() {
           <span className="text-white">
             Online and Offline
           </span>
-        </motion.h1>
+        </motion.div>
         
         <motion.h2 
           className="text-2xl sm:text-3xl lg:text-4xl mb-8 text-gray-200 font-bold relative inline-block"

@@ -1369,6 +1369,111 @@ export const industries: Industry[] = [
       }
     ]
   },
+  {
+    slug: "nursing-homes",
+    name: "Nursing Homes",
+    heroTitle: "Nursing Home Marketing Built on Trust & Care",
+    heroSubtitle: "Compassionate occupancy growth and family confidence",
+    description:
+      "Nursing home marketing requires the highest level of sensitivity and trust. Families making care decisions are often overwhelmed, emotional, and researching during crisis situations. Our nursing home marketing strategy positions you as the compassionate, professional choice for families seeking the best possible care for their loved ones. We understand the unique challenges of senior care marketing – from reputation management to regulatory compliance – and create digital strategies that build trust, demonstrate quality of care, and maintain consistently high occupancy rates.",
+    keyServices: [
+      "Local SEO + reputation",
+      "Family‑focused content",
+      "Virtual tours + trust",
+      "Compliance + reviews",
+    ],
+    cta: "Request a nursing home audit",
+    metaTitle: "Nursing Home Marketing Agency | SEO & Web Design for Senior Care",
+    metaDescription: "Digital marketing for nursing homes and senior care facilities. Build trust with families, showcase quality care, and maintain high occupancy rates.",
+    heroImage: "/images/industries/nursing-homes.png",
+    heroImagePrompt: "Warm, welcoming nursing home common area with elderly residents engaged in activities with caring staff, bright natural lighting, conveying comfort and professional care",
+    seoContent: {
+      title: "Nursing Home SEO That Builds Trust When Families Need It Most",
+      description: "Families researching nursing homes are often in emotional, time-sensitive situations. Our SEO strategy ensures you're found when adult children search 'nursing homes near me' at 2 AM or when social workers need immediate placement options. We build comprehensive visibility that captures urgent needs while addressing the thorough research process families undergo when selecting long-term care.",
+      benefits: [
+        "Crisis Search Capture: Rank for urgent searches like 'nursing home placement near me', 'immediate care facility', and 'emergency nursing home admission' when families need help fast",
+        "Specialized Care Authority: Create detailed pages for memory care, rehabilitation, hospice, and specialized services, capturing families with specific medical needs",
+        "Insurance & Payment SEO: Build content for Medicare, Medicaid, and private pay options with clear explanations that help families understand coverage and costs",
+        "Quality Rating Content: Develop content that explains CMS ratings, inspection results, and quality measures in family-friendly language that builds confidence",
+        "Local Area Domination: Target '[city] nursing homes', 'senior care near [landmark]', and hospital discharge searches that capture referral sources",
+        "Family Resource Hub: Create comprehensive guides about care transitions, what to expect, and how to choose facilities that demonstrate expertise",
+        "Medical Condition SEO: Rank for 'dementia care facilities', 'stroke recovery nursing home', and condition-specific searches that match your specializations",
+        "Virtual Tour Authority: Optimize for 'virtual nursing home tours' and 'online facility visits' that became crucial during and after COVID-19"
+      ]
+    },
+    designContent: {
+      title: "Nursing Home Web Design That Comforts Families & Builds Confidence",
+      description: "Families choosing nursing homes are making one of life's most difficult decisions. Your website must immediately convey warmth, professionalism, and quality of care while providing the detailed information families need to feel confident. Our design approach balances emotional comfort with practical information, creating experiences that ease family anxiety while demonstrating your commitment to excellent care.",
+      features: [
+        "Virtual Tour Integration: Comprehensive 360-degree tours of common areas, dining rooms, therapy spaces, and resident rooms that let families explore remotely",
+        "Staff Credentials Showcase: Detailed profiles of nursing staff, medical team, and administrators with certifications and experience that build trust",
+        "Care Plan Transparency: Clear explanations of daily routines, meal programs, activity schedules, and medical care protocols that set proper expectations",
+        "Family Communication Portals: Dedicated sections for family updates, visit scheduling, and care plan access that demonstrate ongoing communication",
+        "Resident Life Galleries: Photo and video showcases of activities, events, and daily life that show the vibrant community aspect of care",
+        "Admission Guidance Hub: Step-by-step guides for admission process, what to bring, room setup, and transition tips that ease family stress",
+        "Quality Metrics Display: Clear presentation of star ratings, inspection results, and quality outcomes in accessible formats",
+        "Emergency Contact Systems: 24/7 contact options, emergency protocols, and family notification procedures prominently displayed",
+        "Testimonial Integration: Video testimonials from families, resident stories, and staff interviews that provide authentic social proof"
+      ]
+    },
+    useCases: [
+      {
+        title: "Emergency Placement Needs",
+        description: "When hospital discharge planners or families need immediate placement, your site must clearly show availability, admission process, and rapid response capabilities."
+      },
+      {
+        title: "Memory Care Specialization",
+        description: "Families dealing with dementia need specialized care information, security features, and staff training credentials that demonstrate expertise in memory care."
+      },
+      {
+        title: "Rehabilitation Services",
+        description: "Post-hospital patients need short-term rehab with clear therapy programs, discharge planning, and Medicare coverage information that facilitates recovery."
+      },
+      {
+        title: "Long-Term Care Planning",
+        description: "Families planning ahead need comprehensive information about services, costs, and quality of life to make informed decisions before crisis situations."
+      },
+      {
+        title: "Hospice & End-of-Life Care",
+        description: "Families facing end-of-life decisions need compassionate hospice services with dignity, comfort measures, and family support clearly communicated."
+      }
+    ],
+    painPoints: [
+      "Intense competition from other facilities and home care options",
+      "Negative perceptions and stereotypes about nursing home care",
+      "Complex insurance and payment navigation for families",
+      "Regulatory compliance and inspection management",
+      "Staff retention and quality care consistency",
+      "Reputation management and online review challenges"
+    ],
+    process: [
+      "Senior Care Market Analysis: Research local competition, occupancy rates, demographic trends, and referral source patterns in your area",
+      "Compliance Review: Ensure all marketing materials meet CMS guidelines, state regulations, and ethical standards for healthcare advertising",
+      "Quality Showcase Development: Create content highlighting staff credentials, care protocols, and quality outcomes that differentiate your facility",
+      "Family Journey Mapping: Understand how families research, visit, and choose nursing homes to optimize touchpoints throughout the process",
+      "Trust Building Systems: Implement review generation, family communication tools, and transparency initiatives that build confidence",
+      "Referral Source Optimization: Target hospital discharge planners, social workers, and physicians with professional-focused content",
+      "Reputation Management: Monitor and respond to reviews, manage crisis communications, and showcase positive outcomes continuously"
+    ],
+    faqs: [
+      {
+        q: "How do we compete with home care and assisted living?",
+        a: "We emphasize your 24/7 medical care, specialized therapy programs, and social engagement that other care options can't provide."
+      },
+      {
+        q: "Can you help improve our online reputation?",
+        a: "Yes. We implement comprehensive reputation management including review generation, response strategies, and highlighting positive family experiences."
+      },
+      {
+        q: "How quickly will we see more inquiries?",
+        a: "Local nursing home searches can improve within 4-6 weeks. We also optimize for urgent placement needs that convert immediately."
+      },
+      {
+        q: "Do you understand nursing home regulations?",
+        a: "Absolutely. We ensure all marketing complies with CMS guidelines, state regulations, and maintains the dignity and respect required in senior care marketing."
+      }
+    ]
+  },
 ];
 
 export const industryBySlug = Object.fromEntries(
