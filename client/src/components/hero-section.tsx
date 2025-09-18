@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { VideoBackground } from './video-background';
 import { FloatingElements } from './floating-elements';
+import { AccessibleButton } from './accessible-button';
 import { useRef } from 'react';
 
 export function HeroSection() {
@@ -96,16 +97,12 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
         >
-          <motion.button 
+          <AccessibleButton
             onClick={openCalendarBooking}
-            className="bg-gradient-to-r from-black to-gray-900 text-white px-10 py-5 text-lg font-semibold rounded-lg relative overflow-hidden group cursor-pointer shadow-2xl"
-            whileHover={{ 
-              scale: 1.05,
-              boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
-              y: -2
-            }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            variant="primary"
+            size="xl"
+            className="bg-gradient-to-r from-black to-gray-900 text-white px-10 py-5 text-lg font-semibold rounded-lg relative overflow-hidden group shadow-2xl hover:shadow-3xl transform transition-all duration-300 hover:-translate-y-1"
+            aria-label="Schedule Your Free Marketing Audit - Opens calendar booking in new window"
           >
             <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
               Schedule Your Free Marketing Audit
@@ -119,7 +116,7 @@ export function HeroSection() {
               whileHover={{ x: "200%" }}
               transition={{ duration: 0.6 }}
             />
-          </motion.button>
+          </AccessibleButton>
         </motion.div>
         
         <motion.div

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
+import { LazyImage } from './lazy-image';
 // Use team images from public folder for clarity and consistency
 const jamieImage = "/images/team/jamie.png";
 const jakobEmilyImage = "/images/team/jakob.jpg";
@@ -102,10 +103,12 @@ export function WorkSection() {
             {/* Left side - Jamie */}
             <div className="space-y-8">
               <div>
-                <img 
-                  src={jamieImage} 
-                  alt="Jamie Thayne" 
+                <LazyImage
+                  src={jamieImage}
+                  alt="Jamie Thayne"
                   className="w-48 h-48 rounded-full object-cover mb-4"
+                  width={192}
+                  height={192}
                 />
                 <h3 className="text-xl font-bold text-black">Jamie Thayne</h3>
                 <p className="text-gray-600">Co-Founder</p>
@@ -119,10 +122,12 @@ export function WorkSection() {
             {/* Right side - Jakob */}
             <div className="space-y-8">
               <div>
-                <img 
-                  src={jakobEmilyImage} 
-                  alt="Jakob Thompson" 
+                <LazyImage
+                  src={jakobEmilyImage}
+                  alt="Jakob Thompson"
                   className="w-48 h-48 rounded-full object-cover mb-4"
+                  width={192}
+                  height={192}
                 />
                 <h3 className="text-xl font-bold text-black">Jakob Thompson</h3>
                 <p className="text-gray-600">Co-Founder</p>

@@ -1,3 +1,5 @@
+import nursingHomeImage from '@assets/nursinghome.jpg';
+
 export type Industry = {
   slug: string;
   name: string;
@@ -1385,7 +1387,7 @@ export const industries: Industry[] = [
     cta: "Request a nursing home audit",
     metaTitle: "Nursing Home Marketing Agency | SEO & Web Design for Senior Care",
     metaDescription: "Digital marketing for nursing homes and senior care facilities. Build trust with families, showcase quality care, and maintain high occupancy rates.",
-    heroImage: "/images/industries/nursing-homes.png",
+    heroImage: nursingHomeImage,
     heroImagePrompt: "Warm, welcoming nursing home common area with elderly residents engaged in activities with caring staff, bright natural lighting, conveying comfort and professional care",
     seoContent: {
       title: "Nursing Home SEO That Builds Trust When Families Need It Most",

@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
+import { AccessibleButton } from './accessible-button';
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -203,14 +204,15 @@ export function Navigation() {
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <motion.button
+            <AccessibleButton
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="p-3 min-h-[44px] min-w-[44px]"
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMenuOpen}
+              variant="ghost"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </motion.button>
+            </AccessibleButton>
           </div>
         </div>
       </div>
@@ -226,54 +228,60 @@ export function Navigation() {
             className="md:hidden bg-white border-t border-gray-200"
           >
             <div className="px-4 py-4 space-y-2">
-              <button
+              <AccessibleButton
                 onClick={() => location === '/' ? scrollToSection('home') : handleNavigation('/')}
-                className="block w-full text-left px-4 py-2 text-gray-700 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+                className="block w-full text-left px-4 py-3 min-h-[44px] text-gray-700 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+                variant="ghost"
               >
                 Home
-              </button>
+              </AccessibleButton>
 
               {/* Mobile Services */}
               <div className="space-y-1">
                 <div className="px-4 py-2 text-gray-900 font-semibold">Services</div>
                 {serviceLinks.map((service) => (
-                  <button
+                  <AccessibleButton
                     key={service.path}
                     onClick={() => handleNavigation(service.path)}
-                    className="block w-full text-left px-8 py-2 text-sm text-gray-700 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+                    className="block w-full text-left px-8 py-3 min-h-[44px] text-sm text-gray-700 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+                    variant="ghost"
                   >
                     {service.name}
-                  </button>
+                  </AccessibleButton>
                 ))}
               </div>
 
-              <button
+              <AccessibleButton
                 onClick={() => handleNavigation('/industries')}
-                className="block w-full text-left px-4 py-2 text-gray-700 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+                className="block w-full text-left px-4 py-3 min-h-[44px] text-gray-700 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+                variant="ghost"
               >
                 Industries
-              </button>
+              </AccessibleButton>
 
-              <button
+              <AccessibleButton
                 onClick={() => handleNavigation('/about')}
-                className="block w-full text-left px-4 py-2 text-gray-700 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+                className="block w-full text-left px-4 py-3 min-h-[44px] text-gray-700 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+                variant="ghost"
               >
                 About
-              </button>
+              </AccessibleButton>
 
-              <button
+              <AccessibleButton
                 onClick={() => handleNavigation('/blog')}
-                className="block w-full text-left px-4 py-2 text-gray-700 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+                className="block w-full text-left px-4 py-3 min-h-[44px] text-gray-700 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+                variant="ghost"
               >
                 Blog
-              </button>
+              </AccessibleButton>
 
-              <button
+              <AccessibleButton
                 onClick={() => handleNavigation('/contact')}
-                className="block w-full text-left px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
+                className="block w-full text-left px-4 py-3 min-h-[44px] bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
+                variant="primary"
               >
                 Contact Us
-              </button>
+              </AccessibleButton>
             </div>
           </motion.div>
         )}

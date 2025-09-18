@@ -147,6 +147,143 @@ body.marker-cursor-enabled * {
   pointer-events: none;
 }
 
+/* Performance Optimizations */
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  /* Disable hover effects on touch devices */
+  .touch-device *:hover {
+    transform: none !important;
+  }
+
+  /* Improve tap targets for mobile */
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Optimize font sizes for mobile */
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Optimize images for mobile */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Reduce padding/margins on mobile */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Lazy loading states */
+img[data-src] {
+  filter: blur(10px);
+  transition: filter 0.3s;
+}
+
+img.loaded {
+  filter: blur(0);
+}
+
+/* Critical CSS for above-the-fold content */
+.hero-section {
+  will-change: transform;
+}
+
+/* Optimize scrolling performance */
+.scroll-container {
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+
+/* GPU acceleration for animations */
+.animate-gpu {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Reduce repaints for fixed elements */
+.fixed {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Optimize form inputs for mobile */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea,
+select {
+  font-size: 16px; /* Prevents zoom on iOS */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+/* Improve button touch feedback */
+button,
+a.button {
+  -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+  touch-action: manipulation;
+}
+
+/* Optimize web fonts loading */
+.font-loading {
+  visibility: hidden;
+}
+
+.fonts-loaded {
+  visibility: visible;
+}
+
+/* Reduce layout shifts */
+.aspect-ratio-box {
+  position: relative;
+  width: 100%;
+}
+
+.aspect-ratio-box::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+}
+
+.aspect-ratio-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 /* Whiteboard mode text adjustments */
 body.whiteboard-mode {
   background-color: #f8f8f6;

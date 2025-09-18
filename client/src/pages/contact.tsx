@@ -3,12 +3,35 @@ import { Footer } from '@/components/footer';
 import { SEO } from '@/components/seo';
 import { motion } from 'framer-motion';
 import { FiPhone, FiMail, FiMapPin, FiClock } from 'react-icons/fi';
+import { AccessibleForm, FormField } from '@/components/accessible-form';
+import { useState } from 'react';
+import { useToast } from '@/hooks/use-toast';
 
 export default function Contact() {
+  const { toast } = useToast();
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    company: '',
+    service: '',
+    message: ''
+  });
+
   const fadeInUp = {
     initial: { opacity: 0, y: 30 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.6 }
+  };
+
+  const handleSubmit = async (data: any) => {
+    // Handle form submission
+    console.log('Form submitted:', data);
+    toast({
+      title: "Message sent!",
+      description: "We'll get back to you within 24 hours.",
+    });
   };
 
   return (
@@ -51,57 +74,94 @@ export default function Contact() {
             {/* Contact Form */}
             <motion.div {...fadeInUp} className="bg-white p-8 rounded-lg shadow-lg">
               <h2 className="text-2xl font-bold mb-6 text-gray-900">Get Your Free Marketing Consultation</h2>
-              <form className="space-y-4">
+              <AccessibleForm onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    placeholder="First Name"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                  <FormField
+                    label="First Name"
+                    name="firstName"
+                    placeholder="John"
+                    required
+                    value={formData.firstName}
+                    onChange={(value) => setFormData({...formData, firstName: value})}
+                    helpText="Your first name"
+                    autoComplete="given-name"
                   />
-                  <input
-                    type="text"
-                    placeholder="Last Name"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                  <FormField
+                    label="Last Name"
+                    name="lastName"
+                    placeholder="Doe"
+                    required
+                    value={formData.lastName}
+                    onChange={(value) => setFormData({...formData, lastName: value})}
+                    helpText="Your last name"
+                    autoComplete="family-name"
                   />
                 </div>
-                <input
+                <FormField
+                  label="Email Address"
+                  name="email"
                   type="email"
-                  placeholder="Email Address"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                  placeholder="john@example.com"
+                  required
+                  value={formData.email}
+                  onChange={(value) => setFormData({...formData, email: value})}
+                  helpText="We'll use this to contact you"
+                  autoComplete="email"
+                  inputMode="email"
                 />
-                <input
+                <FormField
+                  label="Phone Number"
+                  name="phone"
                   type="tel"
-                  placeholder="Phone Number"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                  placeholder="(555) 123-4567"
+                  value={formData.phone}
+                  onChange={(value) => setFormData({...formData, phone: value})}
+                  helpText="Optional - for urgent matters"
+                  autoComplete="tel"
+                  inputMode="tel"
                 />
-                <input
-                  type="text"
-                  placeholder="Company Name"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                <FormField
+                  label="Company Name"
+                  name="company"
+                  placeholder="Acme Corp"
+                  value={formData.company}
+                  onChange={(value) => setFormData({...formData, company: value})}
+                  autoComplete="organization"
                 />
-                <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
-                  <option>Select Service Interest</option>
-                  <option>SEO Services</option>
-                  <option>Website Design</option>
-                  <option>PPC Management</option>
-                  <option>Content Marketing</option>
-                  <option>Social Media Management</option>
-                  <option>Technical SEO</option>
-                  <option>Google Ads</option>
-                  <option>Full Digital Marketing Package</option>
-                </select>
-                <textarea
-                  placeholder="Tell us about your project and goals"
-                  rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                <div className="relative">
+                  <label htmlFor="service" className="block text-sm font-medium mb-2 text-gray-700">
+                    Service Interest
+                  </label>
+                  <select
+                    id="service"
+                    name="service"
+                    className="w-full px-4 py-3 border-2 rounded-lg transition-all duration-200 text-base leading-normal focus:outline-none focus:ring-2 focus:ring-offset-2 focus:border-blue-500 focus:ring-blue-500 border-gray-300 hover:border-gray-400"
+                    style={{ fontSize: '16px' }}
+                    value={formData.service}
+                    onChange={(e) => setFormData({...formData, service: e.target.value})}
+                  >
+                    <option value="">Select Service Interest</option>
+                    <option value="seo">SEO Services</option>
+                    <option value="website">Website Design</option>
+                    <option value="ppc">PPC Management</option>
+                    <option value="content">Content Marketing</option>
+                    <option value="social">Social Media Management</option>
+                    <option value="technical">Technical SEO</option>
+                    <option value="google">Google Ads</option>
+                    <option value="full">Full Digital Marketing Package</option>
+                  </select>
+                </div>
+                <FormField
+                  label="Tell us about your project and goals"
+                  name="message"
+                  type="textarea"
+                  placeholder="I need help with..."
+                  required
+                  value={formData.message}
+                  onChange={(value) => setFormData({...formData, message: value})}
+                  helpText="The more details, the better we can help"
                 />
-                <button
-                  type="submit"
-                  className="w-full bg-black text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
-                >
-                  Send Message
-                </button>
-              </form>
+              </AccessibleForm>
             </motion.div>
 
             {/* Contact Info & Map */}

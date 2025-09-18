@@ -6,7 +6,7 @@ import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 import { insertNewsletterSchema, type InsertNewsletter } from '@shared/schema';
 import { apiRequest } from '@/lib/queryClient';
 import { useToast } from '@/hooks/use-toast';
-import { Button } from '@/components/ui/button';
+import { AccessibleButton } from './accessible-button';
 import { Input } from '@/components/ui/input';
 import { Calendar, Phone, CheckCircle, Star, ArrowRight, Mail } from 'lucide-react';
 import { useRef } from 'react';
@@ -179,13 +179,14 @@ export function ConnectSection() {
                 animate={formsVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                <Button 
+                <AccessibleButton
                   onClick={() => window.open('https://meetings-na2.hubspot.com/jakob-thompson?uuid=ac532047-5668-4f28-85e8-c4c73d0a3a15', '_blank')}
                   className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-5 text-lg font-semibold rounded-xl shadow-lg transition-all duration-200 group"
+                  aria-label="Schedule marketing audit - opens calendar in new window"
                 >
                   <Calendar className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                   Schedule Now
-                </Button>
+                </AccessibleButton>
               </motion.div>
               
               <motion.div 
@@ -204,13 +205,14 @@ export function ConnectSection() {
                 animate={formsVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                <Button 
+                <AccessibleButton
                   onClick={() => window.open('tel:8436243329', '_self')}
                   className="w-full bg-white hover:bg-gray-50 text-gray-900 py-5 text-lg font-semibold rounded-xl border-2 border-gray-900 shadow-lg transition-all duration-200 group"
+                  aria-label="Call us at 843-624-3329"
                 >
                   <Phone className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                   Call Now: (843) 624-3329
-                </Button>
+                </AccessibleButton>
               </motion.div>
             </div>
             
@@ -298,10 +300,12 @@ export function ConnectSection() {
                   {...newsletterForm.register('email')}
                   className="w-full px-6 py-4 border-2 border-gray-600 bg-gray-700/50 text-white rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-gray-400"
                 />
-                <Button 
-                  type="submit" 
+                <AccessibleButton
+                  type="submit"
                   className="w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white py-4 font-semibold rounded-xl shadow-lg transition-all duration-200 group"
                   disabled={newsletterMutation.isPending}
+                  isLoading={newsletterMutation.isPending}
+                  aria-label="Subscribe to newsletter"
                 >
                   {newsletterMutation.isPending ? (
                     <div className="flex items-center space-x-2">
@@ -314,7 +318,7 @@ export function ConnectSection() {
                       <span>Subscribe Now</span>
                     </span>
                   )}
-                </Button>
+                </AccessibleButton>
               </form>
             </motion.div>
           </motion.div>
