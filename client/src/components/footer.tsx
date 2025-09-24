@@ -173,23 +173,25 @@ export function Footer() {
                 { name: 'Terms of Service', href: '/terms-of-service' },
                 { name: 'Cookie Policy', href: '/cookie-policy' }
               ].map((link, index) => (
-                <Link key={link.name} href={link.href}>
-                  <motion.a
-                    className="hover:text-white transition-colors duration-200 relative group cursor-pointer"
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    whileHover={{ y: -2 }}
-                  >
-                    {link.name}
-                    <motion.div
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 origin-left"
-                      initial={{ scaleX: 0 }}
-                      whileHover={{ scaleX: 1 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  </motion.a>
-                </Link>
+                <motion.div
+                  key={link.name}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ y: -2 }}
+                >
+                  <Link href={link.href}>
+                    <a className="hover:text-white transition-colors duration-200 relative group cursor-pointer inline-block">
+                      {link.name}
+                      <motion.div
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 origin-left"
+                        initial={{ scaleX: 0 }}
+                        whileHover={{ scaleX: 1 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    </a>
+                  </Link>
+                </motion.div>
               ))}
             </div>
           </div>
