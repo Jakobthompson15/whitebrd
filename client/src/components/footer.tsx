@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { Link } from 'wouter';
 
 export function Footer() {
   const scrollToSection = (sectionId: string) => {
@@ -168,27 +169,27 @@ export function Footer() {
             </motion.p>
             <div className="flex space-x-8 text-gray-400">
               {[
-                'Privacy Policy',
-                'Terms of Service', 
-                'Cookie Policy'
+                { name: 'Privacy Policy', href: '/privacy-policy' },
+                { name: 'Terms of Service', href: '/terms-of-service' },
+                { name: 'Cookie Policy', href: '/cookie-policy' }
               ].map((link, index) => (
-                <motion.a
-                  key={link}
-                  href="#"
-                  className="hover:text-white transition-colors duration-200 relative group"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ y: -2 }}
-                >
-                  {link}
-                  <motion.div 
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 origin-left"
-                    initial={{ scaleX: 0 }}
-                    whileHover={{ scaleX: 1 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </motion.a>
+                <Link key={link.name} href={link.href}>
+                  <motion.a
+                    className="hover:text-white transition-colors duration-200 relative group cursor-pointer"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    whileHover={{ y: -2 }}
+                  >
+                    {link.name}
+                    <motion.div
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 origin-left"
+                      initial={{ scaleX: 0 }}
+                      whileHover={{ scaleX: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </motion.a>
+                </Link>
               ))}
             </div>
           </div>
