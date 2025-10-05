@@ -1,266 +1,495 @@
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Navigation } from '@/components/navigation';
 import { Footer } from '@/components/footer';
 import { SEO } from '@/components/seo';
-import { motion } from 'framer-motion';
-import { FiPhone, FiMail, FiMapPin, FiClock } from 'react-icons/fi';
-import { AccessibleForm, FormField } from '@/components/accessible-form';
-import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
+import {
+  Phone, Mail, MapPin, Clock, MessageCircle, Calendar,
+  CheckCircle, Zap, Users, Target, ArrowRight
+} from 'lucide-react';
+import { Link } from 'wouter';
+
+const contactMethods = [
+  {
+    icon: Calendar,
+    title: "Schedule Free Audit",
+    description: "30-minute growth analysis",
+    action: "Book Now",
+    link: "/free-audit",
+    primary: true
+  },
+  {
+    icon: Phone,
+    title: "Call Direct",
+    description: "Mon-Fri 9am-6pm EST",
+    action: "(555) 123-4567",
+    link: "tel:5551234567"
+  },
+  {
+    icon: Mail,
+    title: "Email Us",
+    description: "Response within 2 hours",
+    action: "hello@whitebrd.co",
+    link: "mailto:hello@whitebrd.co"
+  },
+  {
+    icon: MessageCircle,
+    title: "Live Chat",
+    description: "Instant support",
+    action: "Start Chat",
+    link: "#chat"
+  }
+];
+
+const reasons = [
+  "Get a free competitive analysis",
+  "Receive a custom 90-day growth plan",
+  "Discover $10K-$100K in hidden revenue",
+  "Learn exactly how to beat competitors"
+];
 
 export default function Contact() {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    name: '',
     email: '',
     phone: '',
     company: '',
+    website: '',
     service: '',
+    budget: '',
+    timeline: '',
     message: ''
   });
 
-  const fadeInUp = {
-    initial: { opacity: 0, y: 30 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-  };
-
-  const handleSubmit = async (data: any) => {
-    // Handle form submission
-    console.log('Form submitted:', data);
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you within 24 hours.",
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
     });
   };
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast({
+          title: "Message Received!",
+          description: "We'll contact you within 2 hours during business hours.",
+        });
+
+        // Reset form
+        setFormData({
+          name: '', email: '', phone: '', company: '', website: '',
+          service: '', budget: '', timeline: '', message: ''
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: data.message || "Failed to send message. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-white text-black">
+    <div className="min-h-screen bg-white">
       <SEO
-        title="Contact Whitebrd Co | Digital Marketing Agency National"
-        description="Contact Whitebrd Co, a nationwide digital marketing agency for SEO, PPC, and web design services. Reach out to grow your business today!"
-        keywords="contact whitebrd, digital marketing agency contact, SEO services contact, PPC services contact, web design contact, marketing consultation"
+        title="Contact Whitebrd Co | Let's Unlock Growth Together"
+        description="Schedule your free 30-minute growth analysis. Available Mon-Fri 9-6pm EST. Same-day response guaranteed. Let's transform your business."
+        keywords="contact whitebrd, free marketing audit, growth analysis, digital marketing consultation, schedule strategy call"
         canonicalUrl="https://whitebrd.co/contact"
-        ogTitle="Contact Whitebrd Co | Digital Marketing Agency National"
-        ogDescription="Get in touch with Whitebrd Co for nationwide digital marketing services. Let's grow your business together."
+        ogTitle="Contact Whitebrd Co | Let's Unlock Growth Together"
+        ogDescription="Ready to dominate your market? Schedule your free growth analysis or reach out directly. We respond within 2 hours."
       />
 
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-6xl mx-auto text-center">
-          <motion.h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-gray-900"
-            {...fadeInUp}
-          >
-            Contact Whitebrd Co – Nationwide Marketing Services
-          </motion.h1>
-          <motion.p
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.6 }}
           >
-            Ready to transform your digital presence? Let's discuss how we can help your business grow with our proven marketing strategies.
-          </motion.p>
+            <Badge className="mb-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+              Let's Unlock Unfair Growth
+            </Badge>
+
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+              Ready to Dominate Your Market?
+            </h1>
+
+            <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto mb-8">
+              <span className="font-semibold">Schedule your free 30-minute growth analysis</span> and discover
+              exactly how to beat your competition and unlock hidden revenue.
+            </p>
+
+            {/* Quick Contact Options */}
+            <div className="grid md:grid-cols-4 gap-6 mt-12">
+              {contactMethods.map((method, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Link href={method.link}>
+                    <Card className={`hover:shadow-lg transition-all cursor-pointer ${
+                      method.primary ? 'border-2 border-blue-500 bg-blue-50' : ''
+                    }`}>
+                      <CardContent className="pt-6">
+                        <method.icon className={`w-8 h-8 mx-auto mb-3 ${
+                          method.primary ? 'text-blue-600' : 'text-gray-600'
+                        }`} />
+                        <h3 className="font-semibold mb-1">{method.title}</h3>
+                        <p className="text-sm text-gray-600 mb-2">{method.description}</p>
+                        <div className={`font-bold ${method.primary ? 'text-blue-600' : 'text-gray-900'}`}>
+                          {method.action}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Contact Grid */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <motion.div {...fadeInUp} className="bg-white p-8 rounded-lg shadow-lg">
-              <h2 className="text-2xl font-bold mb-6 text-gray-900">Get Your Free Marketing Consultation</h2>
-              <AccessibleForm onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <FormField
-                    label="First Name"
-                    name="firstName"
-                    placeholder="John"
-                    required
-                    value={formData.firstName}
-                    onChange={(value) => setFormData({...formData, firstName: value})}
-                    helpText="Your first name"
-                    autoComplete="given-name"
-                  />
-                  <FormField
-                    label="Last Name"
-                    name="lastName"
-                    placeholder="Doe"
-                    required
-                    value={formData.lastName}
-                    onChange={(value) => setFormData({...formData, lastName: value})}
-                    helpText="Your last name"
-                    autoComplete="family-name"
-                  />
-                </div>
-                <FormField
-                  label="Email Address"
-                  name="email"
-                  type="email"
-                  placeholder="john@example.com"
-                  required
-                  value={formData.email}
-                  onChange={(value) => setFormData({...formData, email: value})}
-                  helpText="We'll use this to contact you"
-                  autoComplete="email"
-                  inputMode="email"
-                />
-                <FormField
-                  label="Phone Number"
-                  name="phone"
-                  type="tel"
-                  placeholder="(555) 123-4567"
-                  value={formData.phone}
-                  onChange={(value) => setFormData({...formData, phone: value})}
-                  helpText="Optional - for urgent matters"
-                  autoComplete="tel"
-                  inputMode="tel"
-                />
-                <FormField
-                  label="Company Name"
-                  name="company"
-                  placeholder="Acme Corp"
-                  value={formData.company}
-                  onChange={(value) => setFormData({...formData, company: value})}
-                  autoComplete="organization"
-                />
-                <div className="relative">
-                  <label htmlFor="service" className="block text-sm font-medium mb-2 text-gray-700">
-                    Service Interest
-                  </label>
-                  <select
-                    id="service"
-                    name="service"
-                    className="w-full px-4 py-3 border-2 rounded-lg transition-all duration-200 text-base leading-normal focus:outline-none focus:ring-2 focus:ring-offset-2 focus:border-blue-500 focus:ring-blue-500 border-gray-300 hover:border-gray-400"
-                    style={{ fontSize: '16px' }}
-                    value={formData.service}
-                    onChange={(e) => setFormData({...formData, service: e.target.value})}
-                  >
-                    <option value="">Select Service Interest</option>
-                    <option value="seo">SEO Services</option>
-                    <option value="website">Website Design</option>
-                    <option value="ppc">PPC Management</option>
-                    <option value="content">Content Marketing</option>
-                    <option value="social">Social Media Management</option>
-                    <option value="technical">Technical SEO</option>
-                    <option value="google">Google Ads</option>
-                    <option value="full">Full Digital Marketing Package</option>
-                  </select>
-                </div>
-                <FormField
-                  label="Tell us about your project and goals"
-                  name="message"
-                  type="textarea"
-                  placeholder="I need help with..."
-                  required
-                  value={formData.message}
-                  onChange={(value) => setFormData({...formData, message: value})}
-                  helpText="The more details, the better we can help"
-                />
-              </AccessibleForm>
+      {/* Main Contact Form Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Left Side - Benefits */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl font-bold mb-6">
+                Why Schedule a Call?
+              </h2>
+
+              <div className="space-y-4 mb-8">
+                {reasons.map((reason, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700">{reason}</span>
+                  </div>
+                ))}
+              </div>
+
+              <Card className="mb-8">
+                <CardHeader>
+                  <CardTitle>What Happens Next?</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">
+                      1
+                    </div>
+                    <p className="text-gray-700">We'll contact you within 2 hours</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">
+                      2
+                    </div>
+                    <p className="text-gray-700">Schedule your free 30-min audit</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">
+                      3
+                    </div>
+                    <p className="text-gray-700">Get your custom growth roadmap</p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Trust Indicators */}
+              <div className="grid grid-cols-2 gap-4">
+                <Card>
+                  <CardContent className="pt-4">
+                    <Users className="w-6 h-6 text-blue-600 mb-2" />
+                    <div className="text-2xl font-bold">500+</div>
+                    <div className="text-sm text-gray-600">Businesses Helped</div>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardContent className="pt-4">
+                    <Clock className="w-6 h-6 text-green-600 mb-2" />
+                    <div className="text-2xl font-bold">2 Hour</div>
+                    <div className="text-sm text-gray-600">Response Time</div>
+                  </CardContent>
+                </Card>
+              </div>
             </motion.div>
 
-            {/* Contact Info & Map */}
-            <div className="space-y-8">
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="bg-gray-50 p-8 rounded-lg"
-              >
-                <h2 className="text-2xl font-bold mb-6 text-gray-900">Get In Touch</h2>
-                <div className="space-y-4">
-                  <div className="flex items-start">
-                    <FiPhone className="w-6 h-6 text-blue-600 mt-1 mr-4" />
-                    <div>
-                      <h3 className="font-semibold">Phone</h3>
-                      <p className="text-gray-600">+1 (888) XXX-XXXX</p>
+            {/* Right Side - Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Card className="shadow-2xl">
+                <CardHeader>
+                  <CardTitle className="text-2xl">Get in Touch</CardTitle>
+                  <CardDescription>
+                    Fill out the form or call us directly at (555) 123-4567
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="name">Full Name *</Label>
+                        <Input
+                          id="name"
+                          name="name"
+                          required
+                          value={formData.name}
+                          onChange={handleInputChange}
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="email">Email *</Label>
+                        <Input
+                          id="email"
+                          name="email"
+                          type="email"
+                          required
+                          value={formData.email}
+                          onChange={handleInputChange}
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-start">
-                    <FiMail className="w-6 h-6 text-blue-600 mt-1 mr-4" />
-                    <div>
-                      <h3 className="font-semibold">Email</h3>
-                      <p className="text-gray-600">hello@whitebrd.co</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <FiMapPin className="w-6 h-6 text-blue-600 mt-1 mr-4" />
-                    <div>
-                      <h3 className="font-semibold">Service Area</h3>
-                      <p className="text-gray-600">Nationwide - United States</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <FiClock className="w-6 h-6 text-blue-600 mt-1 mr-4" />
-                    <div>
-                      <h3 className="font-semibold">Business Hours</h3>
-                      <p className="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM EST</p>
-                      <p className="text-gray-600">Saturday - Sunday: By Appointment</p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
 
-              {/* Google Business Profile Map Embed */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="bg-white p-4 rounded-lg shadow-lg"
-              >
-                <h3 className="text-xl font-bold mb-4 text-gray-900">Find Us on Google</h3>
-                <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
-                  {/* Replace with actual Google Business Profile map embed */}
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830869428!2d-74.119763973046!3d40.69766374874431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQxJzUxLjYiTiA3NMKwMDcnMTEuMiJX!5e0!3m2!1sen!2sus!4v1234567890"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Whitebrd Co Google Business Profile"
-                    className="w-full h-full"
-                  />
-                </div>
-                <p className="text-sm text-gray-600 mt-4">
-                  * We serve clients nationwide with remote and on-site consultations available
-                </p>
-              </motion.div>
-            </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="phone">Phone *</Label>
+                        <Input
+                          id="phone"
+                          name="phone"
+                          type="tel"
+                          required
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="company">Company *</Label>
+                        <Input
+                          id="company"
+                          name="company"
+                          required
+                          value={formData.company}
+                          onChange={handleInputChange}
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <Label htmlFor="website">Website</Label>
+                      <Input
+                        id="website"
+                        name="website"
+                        type="url"
+                        placeholder="https://example.com"
+                        value={formData.website}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="service">Service Interested In *</Label>
+                      <Select
+                        value={formData.service}
+                        onValueChange={(value) => setFormData({ ...formData, service: value })}
+                      >
+                        <SelectTrigger id="service">
+                          <SelectValue placeholder="Select a service" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="local-seo">Local SEO</SelectItem>
+                          <SelectItem value="national-seo">National SEO</SelectItem>
+                          <SelectItem value="ecommerce">E-Commerce Growth</SelectItem>
+                          <SelectItem value="web-design">Web Design</SelectItem>
+                          <SelectItem value="ppc">PPC / Google Ads</SelectItem>
+                          <SelectItem value="full-service">Full Service Marketing</SelectItem>
+                          <SelectItem value="consultation">Strategy Consultation</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="budget">Monthly Budget</Label>
+                        <Select
+                          value={formData.budget}
+                          onValueChange={(value) => setFormData({ ...formData, budget: value })}
+                        >
+                          <SelectTrigger id="budget">
+                            <SelectValue placeholder="Select budget" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="0-2500">$0 - $2,500</SelectItem>
+                            <SelectItem value="2500-5000">$2,500 - $5,000</SelectItem>
+                            <SelectItem value="5000-10000">$5,000 - $10,000</SelectItem>
+                            <SelectItem value="10000+">$10,000+</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div>
+                        <Label htmlFor="timeline">Project Timeline</Label>
+                        <Select
+                          value={formData.timeline}
+                          onValueChange={(value) => setFormData({ ...formData, timeline: value })}
+                        >
+                          <SelectTrigger id="timeline">
+                            <SelectValue placeholder="Select timeline" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="immediate">Immediate</SelectItem>
+                            <SelectItem value="1-month">Within 1 Month</SelectItem>
+                            <SelectItem value="3-months">1-3 Months</SelectItem>
+                            <SelectItem value="6-months">3-6 Months</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+
+                    <div>
+                      <Label htmlFor="message">Project Details / Goals</Label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        rows={4}
+                        placeholder="Tell us about your business goals and challenges..."
+                        value={formData.message}
+                        onChange={handleInputChange}
+                      />
+                    </div>
+
+                    <Button type="submit" size="lg" className="w-full">
+                      Send Message
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+
+                    <p className="text-xs text-center text-gray-500">
+                      By submitting, you agree to receive marketing communications.
+                      We respect your privacy and will never spam you.
+                    </p>
+                  </form>
+                </CardContent>
+              </Card>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Ready to Get Started?
+      {/* Office Info Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Nationwide Coverage, Personal Touch</h2>
+            <p className="text-xl text-gray-600">
+              Serving businesses coast to coast with dedicated attention
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card>
+              <CardContent className="pt-6">
+                <MapPin className="w-8 h-8 text-blue-600 mb-4" />
+                <h3 className="font-semibold mb-2">Service Area</h3>
+                <p className="text-gray-600">Nationwide - United States</p>
+                <p className="text-sm text-gray-500 mt-2">
+                  Remote-first with on-site capabilities
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="pt-6">
+                <Clock className="w-8 h-8 text-blue-600 mb-4" />
+                <h3 className="font-semibold mb-2">Business Hours</h3>
+                <p className="text-gray-600">Monday - Friday</p>
+                <p className="text-gray-600">9:00 AM - 6:00 PM EST</p>
+                <p className="text-sm text-gray-500 mt-2">
+                  Same-day response guaranteed
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="pt-6">
+                <Zap className="w-8 h-8 text-blue-600 mb-4" />
+                <h3 className="font-semibold mb-2">Emergency Support</h3>
+                <p className="text-gray-600">For urgent matters</p>
+                <p className="text-sm text-gray-500 mt-2">
+                  Priority support for active clients 24/7
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-white mb-4">
+            Get Growth Tips & Industry Insights
           </h2>
-          <p className="text-xl mb-8 opacity-90">
-            Schedule a free consultation and discover how we can help your business grow.
+          <p className="text-xl text-white/90 mb-8">
+            Join 5,000+ business owners getting actionable marketing strategies weekly
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://meetings-na2.hubspot.com/jakob-thompson"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-white text-blue-600 px-8 py-4 text-lg font-semibold rounded-lg hover:bg-gray-100 transition-colors"
-            >
-              Schedule Consultation
-            </a>
-            <a
-              href="tel:+18881234567"
-              className="inline-block bg-transparent border-2 border-white text-white px-8 py-4 text-lg font-semibold rounded-lg hover:bg-white hover:text-blue-600 transition-colors"
-            >
-              Call Now: (888) XXX-XXXX
-            </a>
+
+          <div className="max-w-md mx-auto">
+            <form className="flex gap-4">
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                className="bg-white"
+                required
+              />
+              <Button type="submit" className="bg-white text-blue-600 hover:bg-gray-100">
+                Subscribe
+              </Button>
+            </form>
+            <p className="text-xs text-white/70 mt-4">
+              No spam, ever. Unsubscribe anytime.
+            </p>
           </div>
         </div>
       </section>

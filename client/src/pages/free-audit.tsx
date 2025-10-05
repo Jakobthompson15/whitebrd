@@ -73,13 +73,49 @@ export default function FreeAudit() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData);
+    try {
+      const response = await fetch('/api/audit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    toast({
-      title: "Audit Request Received!",
-      description: "We'll contact you within 2 hours to schedule your free strategy session.",
-    });
+      const data = await response.json();
+
+      if (response.ok) {
+        toast({
+          title: "Audit Request Received!",
+          description: "We'll contact you within 2 hours to schedule your free strategy session.",
+        });
+
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          website: '',
+          industry: '',
+          monthlyBudget: '',
+          goals: ''
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: data.message || "Failed to submit audit request. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast({
+        title: "Error",
+        description: "Failed to submit audit request. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

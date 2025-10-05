@@ -2,283 +2,357 @@ import { Navigation } from '@/components/navigation';
 import { Footer } from '@/components/footer';
 import { SEO } from '@/components/seo';
 import { motion } from 'framer-motion';
-import { Briefcase, TrendingUp, Users, Target, Rocket, Heart } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import {
+  Briefcase, TrendingUp, Users, Target, Rocket, Heart,
+  Zap, Shield, Award, CheckCircle, DollarSign, Code
+} from 'lucide-react';
+import { Link } from 'wouter';
+
+const values = [
+  {
+    icon: TrendingUp,
+    title: "Results Obsessed",
+    description: "Your revenue > our retainers. We measure success by your growth, not vanity metrics."
+  },
+  {
+    icon: Zap,
+    title: "Speed & Innovation",
+    description: "Fast wins, rapid testing, never settling. We move at startup speed with enterprise reliability."
+  },
+  {
+    icon: Shield,
+    title: "True Partnership",
+    description: "Your goals = our mission. We're not vendors, we're growth partners invested in your success."
+  },
+  {
+    icon: Award,
+    title: "Excellence Always",
+    description: "Continuous improvement, cutting-edge strategies, and obsessive attention to what works."
+  }
+];
+
+const timeline = [
+  {
+    year: "2010-2015",
+    title: "The Foundation Years",
+    description: "Jamie & Jakob cut their teeth in digital marketing, learning what works (and what doesn't) across dozens of industries."
+  },
+  {
+    year: "2016-2020",
+    title: "Building & Scaling",
+    description: "Built and sold our own businesses, learned the hard lessons, celebrated the wins."
+  },
+  {
+    year: "2021-2023",
+    title: "The Whitebrd Vision",
+    description: "Combined our expertise to help others achieve the growth we experienced firsthand."
+  },
+  {
+    year: "2024-Present",
+    title: "Scaling Impact",
+    description: "500+ businesses transformed, $50M+ in client revenue generated, and we're just getting started."
+  }
+];
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-white text-black">
+    <div className="min-h-screen bg-white">
       <SEO
-        title="About Whitebrd Co | Digital Marketing Company National"
-        description="Learn about Whitebrd Co, a national digital marketing company delivering SEO, PPC, and content marketing services. Discover our story today!"
-        keywords="about whitebrd, digital marketing company, digital marketing agency, national marketing agency, SEO services, PPC services, content marketing, marketing experts, business growth specialists"
+        title="About Whitebrd Co | Your Growth-Obsessed Marketing Partners"
+        description="Founded by entrepreneurs who've built and sold businesses. We become obsessed with your success. 500+ businesses transformed, $50M+ revenue generated."
+        keywords="about whitebrd, digital marketing agency, marketing partners, growth marketing, Jamie Jakob founders, business growth, revenue focused marketing"
         canonicalUrl="https://whitebrd.co/about"
-        ogTitle="About Whitebrd Co | Digital Marketing Company National"
-        ogDescription="Learn about Whitebrd Co, a national digital marketing company delivering proven results through SEO, PPC, and strategic marketing."
+        ogTitle="About Whitebrd Co | Your Growth-Obsessed Marketing Partners"
+        ogDescription="We've been in your shoes. Built businesses, scaled them, failed, and succeeded. Now we use what we've learned to catapult YOUR business higher."
       />
+
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-6xl mx-auto text-center">
-          <motion.h1
-            className="font-marker text-5xl sm:text-6xl mb-6"
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50" />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            About Whitebrd Co – National Digital Marketing Experts
-          </motion.h1>
-          <motion.p 
-            className="text-xl text-gray-700 max-w-3xl mx-auto font-hand"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            Two marketers. One mission. Unlimited potential for your business.
-          </motion.p>
+            <Badge className="mb-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+              The Whitebrd Story
+            </Badge>
+
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+              We've Been in Your Shoes
+            </h1>
+
+            <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto mb-8">
+              <span className="font-semibold">Built businesses from scratch. Scaled them. Failed. Succeeded.</span> Our obsession:
+              use what we've learned to catapult YOUR business higher, faster.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/free-audit">
+                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                  Let's Talk Growth
+                </Button>
+              </Link>
+              <Link href="/case-studies">
+                <Button size="lg" variant="outline">
+                  See Our Impact
+                </Button>
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Mission Statement */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* Why Whitebrd Exists */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-black text-white p-8 rounded-lg shadow-xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            <h2 className="font-marker text-3xl mb-4">Why Whitebrd Exists</h2>
-            <p className="text-lg font-hand leading-relaxed">
-              We've been in your shoes. We've built businesses from scratch, scaled them through sheer determination, 
-              and learned what actually works in the trenches. Now, we're obsessed with one thing: 
-              taking everything we've learned and using it to catapult your business to heights you didn't think were possible.
-            </p>
+            <Card className="shadow-2xl border-2 border-gray-200">
+              <CardContent className="p-12">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
+                  Why Whitebrd Exists
+                </h2>
+
+                <div className="prose prose-lg max-w-none text-gray-700">
+                  <p className="text-xl mb-6 text-center italic">
+                    "We've been where you are. We've felt the pressure, the uncertainty, the exhilaration of growth.
+                    We've made the mistakes, learned the lessons, and discovered what actually moves the needle."
+                  </p>
+
+                  <p className="mb-4">
+                    <strong>Not agency robots:</strong> We become obsessed with your success. Whether you're a law firm fighting for
+                    market share, a SaaS startup ready to scale, a dentist wanting a full calendar, or a home services pro
+                    ready to dominate your city—we celebrate your wins and lose sleep over your setbacks.
+                  </p>
+
+                  <p className="text-lg font-semibold text-center mt-8 text-blue-600">
+                    We don't rest until growth is unlocked.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
           </motion.div>
         </div>
       </section>
 
       {/* Founders Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-marker text-4xl text-center mb-16">Meet the Founders</h2>
-          
+      <section className="py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Meet the Founders</h2>
+            <p className="text-xl text-gray-600">
+              Two entrepreneurs. Complementary skills. One obsession: your growth.
+            </p>
+          </div>
+
           <div className="grid md:grid-cols-2 gap-12">
-            {/* Jamie's Story */}
+            {/* Jamie */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-gray-50 p-8 rounded-lg"
+              transition={{ duration: 0.6 }}
             >
-              <div className="flex items-center mb-6">
-                <img 
-                  src="/images/team/jamie.png" 
-                  alt="Jamie - Co-Founder"
-                  className="w-20 h-20 rounded-full object-cover border-2 border-black"
-                />
-                <div className="ml-4">
-                  <h3 className="font-marker text-2xl">Jamie</h3>
-                  <p className="text-gray-600">Co-Founder & Growth Strategist</p>
-                </div>
-              </div>
-              
-              <div className="space-y-4 text-gray-700">
-                <p className="font-hand text-lg">
-                  With over 6 years in the marketing trenches, Jamie isn't your typical marketer. 
-                  He's a growth architect who's orchestrated campaigns that have generated over <strong>$2M+ in revenue</strong> across 
-                  every industry imaginable.
-                </p>
-                
-                <p className="font-hand text-lg">
-                  From scrappy startups operating out of garages to Fortune 500 enterprises with boardrooms bigger than most offices, 
-                  Jamie has an almost obsessive drive to unlock growth potential wherever it exists. He doesn't just run campaigns; 
-                  he engineers revenue machines.
-                </p>
-                
-                <p className="font-hand text-lg">
-                  His philosophy? <em>"Every business has a growth ceiling they haven't discovered yet. I'm here to blow right through it."</em>
-                </p>
-                
-                <div className="pt-4 flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-black text-white text-sm rounded-full">6+ Years Experience</span>
-                  <span className="px-3 py-1 bg-black text-white text-sm rounded-full">$2M+ Generated</span>
-                  <span className="px-3 py-1 bg-black text-white text-sm rounded-full">All Industries</span>
-                </div>
-              </div>
+              <Card className="h-full hover:shadow-2xl transition-shadow">
+                <CardHeader>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                      J
+                    </div>
+                    <div>
+                      <CardTitle className="text-2xl">Jamie</CardTitle>
+                      <Badge>Growth Strategist</Badge>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <p className="text-gray-700">
+                      <strong>The revenue engineer.</strong> Jamie has generated $2M+ in revenue for clients across every vertical
+                      imaginable. From law firms to e-commerce brands, Jamie knows how to find the growth levers and pull them hard.
+                    </p>
+
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-500" />
+                        <span className="text-sm">Master of conversion optimization</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-500" />
+                        <span className="text-sm">Data-driven growth strategist</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-500" />
+                        <span className="text-sm">Multi-industry expertise</span>
+                      </div>
+                    </div>
+
+                    <p className="italic text-gray-600">
+                      "Every business has untapped revenue. My job is to find it and unlock it."
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
 
-            {/* Jakob's Story */}
+            {/* Jakob */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="bg-gray-50 p-8 rounded-lg"
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="flex items-center mb-6">
-                <img 
-                  src="/images/team/jakob.jpg" 
-                  alt="Jakob - Co-Founder"
-                  className="w-20 h-20 rounded-full object-cover border-2 border-black"
-                />
-                <div className="ml-4">
-                  <h3 className="font-marker text-2xl">Jakob</h3>
-                  <p className="text-gray-600">Co-Founder & Technical Marketing Expert</p>
-                </div>
-              </div>
-              
-              <div className="space-y-4 text-gray-700">
-                <p className="font-hand text-lg">
-                  At just 15 years old, Jakob didn't wait for permission to become an entrepreneur. 
-                  He launched a pressure washing business with his best friend, learning business the hard way—through pure hustle.
-                </p>
-                
-                <p className="font-hand text-lg">
-                  When his partner left for other ventures, most would have quit. Not Jakob. 
-                  He doubled down, leveraging his <strong>software engineering skills</strong>, mastering <strong>social media marketing</strong>, 
-                  and yes—literally <strong>knocking on doors</strong> to grow the business. The result? A successful exit that proved 
-                  his methodology works.
-                </p>
-                
-                <p className="font-hand text-lg">
-                  Now with 8 years of marketing expertise, Jakob combines technical precision with street-smart marketing tactics. 
-                  His mission is simple: <em>"I built and sold a business from nothing. Now I'm obsessed with helping others do the same—but faster."</em>
-                </p>
-                
-                <div className="pt-4 flex flex-wrap gap-2">
-                  <span className="px-3 py-1 bg-black text-white text-sm rounded-full">8 Years Marketing</span>
-                  <span className="px-3 py-1 bg-black text-white text-sm rounded-full">Built & Sold Business</span>
-                  <span className="px-3 py-1 bg-black text-white text-sm rounded-full">Software Engineer</span>
-                </div>
-              </div>
+              <Card className="h-full hover:shadow-2xl transition-shadow">
+                <CardHeader>
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-20 h-20 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                      J
+                    </div>
+                    <div>
+                      <CardTitle className="text-2xl">Jakob</CardTitle>
+                      <Badge>Technical Marketing Expert</Badge>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <p className="text-gray-700">
+                      <strong>The builder who sold.</strong> Jakob built and sold a business from the ground up. Equal parts
+                      technical wizard and marketing strategist, he brings the rare combination of code + hustle to every project.
+                    </p>
+
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-500" />
+                        <span className="text-sm">Exited founder (built & sold)</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-500" />
+                        <span className="text-sm">Technical SEO & development</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="w-4 h-4 text-green-500" />
+                        <span className="text-sm">Systems & automation expert</span>
+                      </div>
+                    </div>
+
+                    <p className="italic text-gray-600">
+                      "I've been through the entire journey. Now I help others skip the painful parts."
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Combined Force Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-center"
-          >
-            <h2 className="font-marker text-4xl mb-6">Together, We're Unstoppable</h2>
-            <p className="text-xl text-gray-700 font-hand mb-8">
-              Jamie's strategic brilliance + Jakob's technical execution = Your business's unfair advantage
-            </p>
-            
-            <div className="grid md:grid-cols-3 gap-8 mt-12">
-              <div className="bg-white p-6 rounded-lg shadow-lg">
-                <TrendingUp className="w-12 h-12 mx-auto mb-4 text-black" />
-                <h3 className="font-marker text-xl mb-2">14+ Years Combined</h3>
-                <p className="text-gray-600">Battle-tested experience across every market condition</p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow-lg">
-                <Target className="w-12 h-12 mx-auto mb-4 text-black" />
-                <h3 className="font-marker text-xl mb-2">$2M+ Generated</h3>
-                <p className="text-gray-600">Proven track record of driving real revenue</p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow-lg">
-                <Rocket className="w-12 h-12 mx-auto mb-4 text-black" />
-                <h3 className="font-marker text-xl mb-2">All Business Sizes</h3>
-                <p className="text-gray-600">From solo entrepreneurs to enterprise corporations</p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Our Promise Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-          >
-            <Heart className="w-16 h-16 mx-auto mb-6 text-red-500" />
-            <h2 className="font-marker text-4xl mb-6">Our Promise to You</h2>
-            <p className="text-xl text-gray-700 font-hand leading-relaxed">
-              We don't just manage marketing campaigns. We become obsessed with your success. 
-              We celebrate your wins, lose sleep over your challenges, and won't rest until we've 
-              unlocked growth you didn't know was possible. Whether you're a small business fighting 
-              to compete or an enterprise looking to dominate—we're in your corner, ready to fight.
-            </p>
-            
-            <div className="mt-12">
-              <a 
-                href="/#connect"
-                className="inline-block bg-black text-white px-8 py-4 font-marker text-xl hover:bg-gray-800 transition-colors"
-              >
-                Let's Build Something Amazing Together
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Values Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-marker text-4xl text-center mb-12 text-black">What Drives Us</h2>
-          
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Our Core Values</h2>
+            <p className="text-xl text-white/90">
+              The principles that drive every decision, every strategy, every success
+            </p>
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              className="bg-white p-6 rounded-lg shadow-lg border-2 border-black hover:shadow-xl transition-shadow"
-            >
-              <div className="text-center">
-                <div className="font-marker text-4xl mb-4">🎯</div>
-                <h3 className="font-marker text-xl mb-3 text-black">Results Obsessed</h3>
-                <p className="text-gray-600 font-hand">We measure success in your revenue, not our retainers</p>
-              </div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="bg-white p-6 rounded-lg shadow-lg border-2 border-black hover:shadow-xl transition-shadow"
-            >
-              <div className="text-center">
-                <div className="font-marker text-4xl mb-4">🚀</div>
-                <h3 className="font-marker text-xl mb-3 text-black">Speed Matters</h3>
-                <p className="text-gray-600 font-hand">Fast execution, rapid testing, quick wins</p>
-              </div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.9 }}
-              className="bg-white p-6 rounded-lg shadow-lg border-2 border-black hover:shadow-xl transition-shadow"
-            >
-              <div className="text-center">
-                <div className="font-marker text-4xl mb-4">💡</div>
-                <h3 className="font-marker text-xl mb-3 text-black">Always Innovating</h3>
-                <p className="text-gray-600 font-hand">If it worked yesterday, we're already improving it</p>
-              </div>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.0 }}
-              className="bg-white p-6 rounded-lg shadow-lg border-2 border-black hover:shadow-xl transition-shadow"
-            >
-              <div className="text-center">
-                <div className="font-marker text-4xl mb-4">🤝</div>
-                <h3 className="font-marker text-xl mb-3 text-black">True Partnership</h3>
-                <p className="text-gray-600 font-hand">Your success is our success, period</p>
-              </div>
-            </motion.div>
+            {values.map((value, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className="h-full bg-white/10 backdrop-blur-md border-white/20 text-white hover:bg-white/20 transition-all">
+                  <CardContent className="pt-6">
+                    <value.icon className="w-12 h-12 mb-4 text-white" />
+                    <h3 className="text-lg font-semibold mb-2">{value.title}</h3>
+                    <p className="text-white/80 text-sm">{value.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline Section */}
+      <section className="py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Journey</h2>
+            <p className="text-xl text-gray-600">
+              From learning to leading, every step made us who we are
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            {timeline.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className={`hover:shadow-lg transition-all ${index % 2 === 0 ? 'md:ml-0' : 'md:ml-auto'} md:w-3/4`}>
+                  <CardContent className="p-6">
+                    <Badge className="mb-2">{item.year}</Badge>
+                    <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                    <p className="text-gray-600">{item.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Ready to Write Your Success Story?
+          </h2>
+          <p className="text-xl text-gray-700 mb-8">
+            Let's become obsessed with your growth together. Your next chapter starts here.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/free-audit">
+              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700">
+                Get Your Free Growth Analysis
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button size="lg" variant="outline">
+                Let's Talk Strategy
+              </Button>
+            </Link>
+          </div>
+
+          <div className="mt-12 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-blue-600">500+</div>
+              <div className="text-sm text-gray-600">Businesses Transformed</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-purple-600">$50M+</div>
+              <div className="text-sm text-gray-600">Revenue Generated</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-green-600">98%</div>
+              <div className="text-sm text-gray-600">Client Retention</div>
+            </div>
           </div>
         </div>
       </section>

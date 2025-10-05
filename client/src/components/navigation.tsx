@@ -73,13 +73,18 @@ export function Navigation() {
   };
 
   const serviceLinks = [
-    { name: 'SEO Services', path: '/seo-services' },
-    { name: 'Website Design', path: '/website-design' },
-    { name: 'PPC Management', path: '/ppc-management' },
-    { name: 'Content Marketing', path: '/content-marketing' },
-    { name: 'Social Media Management', path: '/social-media-management' },
-    { name: 'Technical SEO', path: '/seo-tech' },
-    { name: 'Google Ads', path: '/google-ads' }
+    { name: 'Local SEO', path: '/services/local-seo' },
+    { name: 'National SEO', path: '/services/national-seo' },
+    { name: 'E-Commerce SEO', path: '/services/ecommerce-seo' },
+    { name: 'Multi-Location SEO', path: '/services/multi-location-seo' },
+    { name: 'Web Design', path: '/services/web-design' },
+    { name: 'PPC / Google Ads', path: '/services/ppc-google-ads' },
+    { name: 'Review Management', path: '/services/review-management' },
+    { name: 'Conversion Optimization', path: '/services/conversion-optimization' },
+    { name: 'Content Marketing', path: '/services/content-marketing' },
+    { name: 'Social Media', path: '/services/social-media' },
+    { name: 'Technical SEO', path: '/services/technical-seo' },
+    { name: 'Custom Industry Solutions', path: '/services/custom-solutions' }
   ];
 
   return (
@@ -144,7 +149,7 @@ export function Navigation() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden"
+                      className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden max-h-96 overflow-y-auto"
                     >
                       {serviceLinks.map((service) => (
                         <button
@@ -170,6 +175,16 @@ export function Navigation() {
                 Industries
               </motion.button>
 
+              {/* Case Studies */}
+              <motion.button
+                onClick={() => handleNavigation('/case-studies')}
+                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-black transition-colors rounded-lg"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Case Studies
+              </motion.button>
+
               {/* About */}
               <motion.button
                 onClick={() => handleNavigation('/about')}
@@ -193,11 +208,21 @@ export function Navigation() {
               {/* Contact */}
               <motion.button
                 onClick={() => handleNavigation('/contact')}
-                className="px-4 py-2 bg-black text-white font-medium rounded-lg hover:bg-gray-800 transition-colors"
+                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-black transition-colors rounded-lg"
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Contact Us
+                Contact
+              </motion.button>
+
+              {/* Free Audit CTA */}
+              <motion.button
+                onClick={() => handleNavigation('/free-audit')}
+                className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg"
+                whileHover={{ y: -2, scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Free Marketing Audit
               </motion.button>
             </div>
           </div>
@@ -260,6 +285,14 @@ export function Navigation() {
               </AccessibleButton>
 
               <AccessibleButton
+                onClick={() => handleNavigation('/case-studies')}
+                className="block w-full text-left px-4 py-3 min-h-[44px] text-gray-700 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+                variant="ghost"
+              >
+                Case Studies
+              </AccessibleButton>
+
+              <AccessibleButton
                 onClick={() => handleNavigation('/about')}
                 className="block w-full text-left px-4 py-3 min-h-[44px] text-gray-700 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
                 variant="ghost"
@@ -277,10 +310,18 @@ export function Navigation() {
 
               <AccessibleButton
                 onClick={() => handleNavigation('/contact')}
-                className="block w-full text-left px-4 py-3 min-h-[44px] bg-black text-white rounded-lg hover:bg-gray-800 transition-colors"
+                className="block w-full text-left px-4 py-3 min-h-[44px] text-gray-700 hover:text-black hover:bg-gray-50 rounded-lg transition-colors"
+                variant="ghost"
+              >
+                Contact
+              </AccessibleButton>
+
+              <AccessibleButton
+                onClick={() => handleNavigation('/free-audit')}
+                className="block w-full text-left px-4 py-3 min-h-[44px] bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all"
                 variant="primary"
               >
-                Contact Us
+                Free Marketing Audit
               </AccessibleButton>
             </div>
           </motion.div>
