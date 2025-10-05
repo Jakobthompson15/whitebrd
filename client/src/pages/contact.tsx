@@ -30,15 +30,15 @@ const contactMethods = [
     icon: Phone,
     title: "Call Direct",
     description: "Mon-Fri 9am-6pm EST",
-    action: "(555) 123-4567",
-    link: "tel:5551234567"
+    action: "(843) 624-3329",
+    link: "tel:8436243329"
   },
   {
     icon: Mail,
     title: "Email Us",
     description: "Response within 2 hours",
-    action: "hello@whitebrd.co",
-    link: "mailto:hello@whitebrd.co"
+    action: "info@whitebrd.co",
+    link: "mailto:info@whitebrd.co"
   },
   {
     icon: MessageCircle,
@@ -265,7 +265,7 @@ export default function Contact() {
                 <CardHeader>
                   <CardTitle className="text-2xl">Get in Touch</CardTitle>
                   <CardDescription>
-                    Fill out the form or call us directly at (555) 123-4567
+                    Fill out the form or call us directly at (843) 624-3329
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
