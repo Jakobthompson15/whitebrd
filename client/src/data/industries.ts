@@ -1476,6 +1476,113 @@ export const industries: Industry[] = [
       }
     ]
   },
+  {
+    slug: "construction",
+    name: "Construction",
+    heroTitle: "Construction Marketing That Builds Your Pipeline",
+    heroSubtitle: "Win bigger projects and keep your crews busy year-round",
+    description:
+      "Construction companies face unique marketing challenges – from long sales cycles and relationship-based bidding to seasonal fluctuations and fierce local competition. Whether you're a general contractor, commercial builder, residential remodeler, or specialized trade contractor, you need more than a basic website to compete for profitable projects. Our construction-focused digital marketing transforms your online presence into a project-generating machine that showcases your portfolio, establishes credibility, and captures both homeowner and commercial leads. We understand that your reputation is built on every completed project, and we help translate your craftsmanship into digital authority that wins bids and fills your schedule with qualified opportunities.",
+    keyServices: [
+      "Local SEO + project showcase",
+      "Portfolio + case studies",
+      "Bid request optimization",
+      "Review + credibility building",
+    ],
+    cta: "Get my construction marketing audit",
+    metaTitle: "Construction Marketing Agency | SEO & Web Design for Contractors & Builders",
+    metaDescription: "Digital marketing for construction companies, general contractors, and builders. Showcase projects, win bids, and fill your pipeline with qualified leads.",
+    heroImage: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600&q=80",
+    heroImagePrompt: "Professional construction site with workers in hard hats and safety vests working on modern building, cranes and equipment visible, conveying professionalism and quality workmanship",
+    seoContent: {
+      title: "Construction SEO That Captures Projects at Every Stage",
+      description: "Construction buyers research extensively before contacting contractors – from homeowners planning renovations to property developers seeking commercial builders. Our SEO strategy positions you throughout the customer journey, from early research ('cost to build addition') to ready-to-hire searches ('general contractor near me'). We understand the difference between residential and commercial construction marketing, and tailor strategies that capture your ideal project types.",
+      benefits: [
+        "Project-Type Authority: Rank for specific project types you specialize in – 'custom home builder', 'commercial renovation contractor', 'historic restoration', or 'industrial construction' with detailed service pages",
+        "Geographic Domination: Build location-specific pages for every city and county you serve, ensuring you appear when property owners and developers search for local contractors",
+        "Cost-Estimating Content: Create guides like 'cost to build [project type]' that capture early-stage researchers and position you as the knowledgeable expert before they request bids",
+        "Problem-Solution Expertise: Develop content addressing common concerns – 'how to choose a general contractor', 'building permit requirements', 'construction timeline expectations' that build trust",
+        "Material & Method Pages: Rank for searches about specific materials (steel frame, ICF, timber frame) and methods (green building, modular construction) that match your expertise",
+        "Commercial B2B SEO: Target property managers, developers, and facilities managers with content about commercial construction, project management, and minimal business disruption",
+        "License & Certification Visibility: Highlight bonding, insurance, certifications (LEED, OSHA) that differentiate you and build credibility in search results",
+        "Portfolio SEO: Optimize project galleries and case studies so completed work ranks for visual searches and demonstrates capabilities to potential clients"
+      ]
+    },
+    designContent: {
+      title: "Construction Web Design That Converts Browsers Into Bidders",
+      description: "Your website is often the first project you show potential clients. It needs to immediately convey professionalism, showcase quality work, and make it effortless to request bids. Our construction website design balances stunning portfolio presentations with practical functionality – from project galleries that demonstrate capabilities to bid request forms that qualify leads before they reach your estimator.",
+      features: [
+        "Project Portfolio Showcases: Professionally designed galleries organized by project type, displaying before/after photos, project details, and client testimonials that prove capabilities",
+        "Interactive Project Estimators: Tools that provide ballpark estimates for common projects, helping qualify leads while demonstrating transparency about costs",
+        "Bid Request Optimization: Strategic forms that gather essential project details (scope, timeline, budget, plans) so you can provide accurate quotes faster",
+        "Process Transparency: Visual timelines showing your construction process from design to completion, setting proper expectations and demonstrating organization",
+        "License & Insurance Proof: Prominent display of contractor licenses, insurance certificates, bonding information, and certifications that build immediate trust",
+        "Crew & Team Profiles: Showcase your project managers, foremen, and key team members with experience and specializations to humanize your company",
+        "Material Selection Guides: Interactive tools helping clients understand material options, sustainability choices, and budget implications",
+        "Client Portal Access: Dedicated areas for current clients to view progress photos, schedules, change orders, and communicate with project teams",
+        "Subcontractor Showcase: Display your reliable subcontractor network and specialized trade partners that ensure quality across all aspects",
+        "Safety & Compliance Emphasis: Highlight your safety record, OSHA compliance, and risk management that appeals to commercial clients and HOAs"
+      ]
+    },
+    useCases: [
+      {
+        title: "Residential Remodeling Leads",
+        description: "Capture homeowners researching kitchen remodels, bathroom renovations, additions, and whole-home projects with detailed portfolio content and transparent pricing."
+      },
+      {
+        title: "Custom Home Building",
+        description: "Win custom home projects with comprehensive build process information, lot-specific considerations, design-build capabilities, and completed home showcases."
+      },
+      {
+        title: "Commercial Construction Bids",
+        description: "Target developers and property managers with commercial portfolio work, project management credentials, minimal-disruption approaches, and completion timelines."
+      },
+      {
+        title: "Specialized Trade Projects",
+        description: "Establish authority in specialized areas like historic restoration, green building, accessibility modifications, or unique construction methods."
+      },
+      {
+        title: "Property Development Partnerships",
+        description: "Attract developers and investors with content about multi-unit expertise, budget management, timeline adherence, and successful development projects."
+      }
+    ],
+    painPoints: [
+      "Seasonal slowdowns and inconsistent project pipeline",
+      "Price-shopping clients who choose lowest bid regardless of quality",
+      "Lengthy sales cycles from first contact to project start",
+      "Competition from unlicensed contractors and handymen",
+      "Difficulty showcasing quality and craftsmanship digitally",
+      "Payment delays and cash flow management challenges",
+      "Finding and retaining skilled labor"
+    ],
+    process: [
+      "Construction Market Analysis: Research local competition, project types in demand, commercial development activity, and residential construction trends",
+      "Portfolio Optimization: Professionally photograph and document your best projects with details that demonstrate capabilities and quality",
+      "Service Architecture: Create detailed pages for each construction service, project type, and specialized capability you offer",
+      "Local Visibility: Optimize Google Business Profile with project photos, reviews, and service area coverage for local search dominance",
+      "Lead Qualification Systems: Implement bid request forms and estimators that pre-qualify leads and gather essential project information",
+      "Trust Building: Generate reviews, showcase certifications, display completed projects, and highlight your safety record and insurance",
+      "Ongoing Growth: Monitor bid requests, expand service visibility, launch seasonal campaigns, and continuously showcase new completed projects"
+    ],
+    faqs: [
+      {
+        q: "How quickly will we see more qualified bid requests?",
+        a: "Local construction searches can improve within 6-8 weeks as we optimize your portfolio and service pages. We can also implement PPC for immediate project lead generation."
+      },
+      {
+        q: "Can you help us target commercial projects specifically?",
+        a: "Absolutely. We create separate strategies for commercial vs residential, targeting property managers, developers, and facilities managers with B2B-focused content."
+      },
+      {
+        q: "How do we showcase completed projects effectively?",
+        a: "We'll optimize your project portfolio with professional photos, detailed descriptions, client testimonials, and project specs that demonstrate your capabilities."
+      },
+      {
+        q: "Will this help us compete with larger construction companies?",
+        a: "Yes. We emphasize your local expertise, personalized service, quality craftsmanship, and community reputation that larger companies can't match."
+      }
+    ]
+  },
 ];
 
 export const industryBySlug = Object.fromEntries(
