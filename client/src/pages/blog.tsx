@@ -43,7 +43,7 @@ export default function Blog() {
           title={selectedPost.metaTitle || `${selectedPost.title} | Whitebrd Blog`}
           description={selectedPost.metaDescription || selectedPost.excerpt}
           keywords={selectedPost.keywords.join(', ')}
-          canonicalUrl={`https://whitebrd.com/blog/${selectedPost.slug}`}
+          canonicalUrl={`https://whitebrd.co/blog/${selectedPost.slug}`}
           ogTitle={selectedPost.title}
           ogDescription={selectedPost.excerpt}
           ogImage={selectedPost.image}
@@ -109,7 +109,7 @@ export default function Blog() {
         title="Digital Marketing Blog - Expert Insights | Whitebrd Co."
         description="Expert digital marketing insights, strategies, and tips for HVAC, plumbing, roofing, legal, dental, real estate, SaaS, and e-commerce businesses. Get more leads and grow your business with proven marketing tactics."
         keywords="digital marketing blog, SEO tips, web design insights, content marketing, lead generation, HVAC marketing, plumbing marketing, roofing marketing, legal marketing, dental marketing, real estate marketing, SaaS marketing, e-commerce marketing"
-        canonicalUrl="https://whitebrd.com/blog"
+        canonicalUrl="https://whitebrd.co/blog"
         ogTitle="Digital Marketing Blog - Whitebrd Co."
         ogDescription="Expert insights and strategies to grow your service business online"
       />

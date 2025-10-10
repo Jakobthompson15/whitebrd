@@ -23,7 +23,7 @@ export default function IndustryPage({ slug }: Props) {
     description: ind.description,
     provider: "Whitebrd Co.",
     areaServed: "United States",
-    url: `https://whitebrd.com/industries/${slug}`
+    url: `https://whitebrd.co/industries/${slug}`
   });
 
   // Create FAQ schema if FAQs exist
@@ -60,10 +60,10 @@ export default function IndustryPage({ slug }: Props) {
         title={ind.metaTitle || `${ind.name} Marketing Agency | Whitebrd Co.`}
         description={ind.metaDescription || ind.description.slice(0, 160)}
         keywords={`${ind.name.toLowerCase()} marketing, ${ind.name.toLowerCase()} SEO, ${ind.name.toLowerCase()} web design, ${ind.name.toLowerCase()} digital marketing, ${ind.keyServices.join(', ').toLowerCase()}, local SEO, lead generation, conversion optimization`}
-        canonicalUrl={`https://whitebrd.com/industries/${slug}`}
+        canonicalUrl={`https://whitebrd.co/industries/${slug}`}
         ogTitle={`${ind.heroTitle} | Whitebrd Co.`}
         ogDescription={ind.heroSubtitle}
-        ogImage={ind.heroImage ? (ind.heroImage.startsWith('http') ? ind.heroImage : `https://whitebrd.com${ind.heroImage}`) : undefined}
+        ogImage={ind.heroImage ? (ind.heroImage.startsWith('http') ? ind.heroImage : `https://whitebrd.co${ind.heroImage}`) : undefined}
         structuredData={combinedSchema}
       />
       <Navigation />

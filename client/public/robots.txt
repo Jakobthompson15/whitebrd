@@ -1,12 +1,12 @@
 # Robots.txt for Whitebrd Co.
-# https://whitebrd.com/
+# https://whitebrd.co/
 
 # Allow all crawlers
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://whitebrd.com/sitemap.xml
+Sitemap: https://whitebrd.co/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1

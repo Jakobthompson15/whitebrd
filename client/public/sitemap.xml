@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
   <url>
-    <loc>https://whitebrd.com/</loc>
+    <loc>https://whitebrd.co/</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -10,21 +10,21 @@
 
   <!-- Main Pages -->
   <url>
-    <loc>https://whitebrd.com/about</loc>
+    <loc>https://whitebrd.co/about</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://whitebrd.com/industries</loc>
+    <loc>https://whitebrd.co/industries</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://whitebrd.com/blog</loc>
+    <loc>https://whitebrd.co/blog</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -32,91 +32,91 @@
 
   <!-- Industry Pages (High Priority for SEO) -->
   <url>
-    <loc>https://whitebrd.com/industries/hvac</loc>
+    <loc>https://whitebrd.co/industries/hvac</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://whitebrd.com/industries/plumbing</loc>
+    <loc>https://whitebrd.co/industries/plumbing</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://whitebrd.com/industries/electrical</loc>
+    <loc>https://whitebrd.co/industries/electrical</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://whitebrd.com/industries/roofing</loc>
+    <loc>https://whitebrd.co/industries/roofing</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://whitebrd.com/industries/landscaping</loc>
+    <loc>https://whitebrd.co/industries/landscaping</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://whitebrd.com/industries/pest-control</loc>
+    <loc>https://whitebrd.co/industries/pest-control</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://whitebrd.com/industries/cleaning</loc>
+    <loc>https://whitebrd.co/industries/cleaning</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://whitebrd.com/industries/dental</loc>
+    <loc>https://whitebrd.co/industries/dental</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://whitebrd.com/industries/legal</loc>
+    <loc>https://whitebrd.co/industries/legal</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://whitebrd.com/industries/real-estate</loc>
+    <loc>https://whitebrd.co/industries/real-estate</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://whitebrd.com/industries/excursions</loc>
+    <loc>https://whitebrd.co/industries/excursions</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://whitebrd.com/industries/ecommerce</loc>
+    <loc>https://whitebrd.co/industries/ecommerce</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://whitebrd.com/industries/saas</loc>
+    <loc>https://whitebrd.co/industries/saas</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>

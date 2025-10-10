@@ -13,7 +13,7 @@ export default function IndustriesIndex() {
         title="Industries We Serve - Digital Marketing for Every Business | Whitebrd Co."
         description="Specialized digital marketing solutions for HVAC, plumbing, roofing, electrical, landscaping, pest control, cleaning, dental, legal, real estate, SaaS, and e-commerce businesses. Industry-specific strategies that drive results."
         keywords="HVAC marketing, plumbing marketing, roofing marketing, electrical marketing, landscaping marketing, pest control marketing, cleaning service marketing, dental marketing, legal marketing, real estate marketing, SaaS marketing, e-commerce marketing, local SEO, service business marketing"
-        canonicalUrl="https://whitebrd.com/industries"
+        canonicalUrl="https://whitebrd.co/industries"
         ogTitle="Digital Marketing Solutions by Industry - Whitebrd Co."
         ogDescription="Specialized marketing strategies for service businesses, SaaS companies, and e-commerce brands. Choose your industry for a tailored approach."
       />
