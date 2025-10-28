@@ -18,7 +18,9 @@ const stats = [
   { icon: Users, value: "500+", label: "Businesses Served" },
   { icon: DollarSign, value: "$50M+", label: "Revenue Generated" },
   { icon: Award, value: "14+", label: "Years Experience" },
-  { icon: TrendingUp, value: "98%", label: "Client Retention" }
+  { icon: TrendingUp, value: "98%", label: "Client Retention" },
+  { icon: Target, value: "150%", label: "Avg Visibility Increase" },
+  { icon: Zap, value: "30 Days", label: "Time to Results" }
 ];
 
 const services = [
@@ -184,7 +186,7 @@ export default function Home() {
 
             {/* Quick Stats */}
             <motion.div
-              className="grid grid-cols-2 md:grid-cols-4 gap-6"
+              className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
