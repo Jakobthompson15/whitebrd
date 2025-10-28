@@ -184,13 +184,13 @@ export default function Home() {
 
             {/* Quick Stats */}
             <motion.div
-              className="grid grid-cols-2 md:grid-cols-4 gap-6 relative z-20"
+              className="grid grid-cols-2 md:grid-cols-4 gap-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               {stats.map((stat, index) => (
-                <Card key={index} className="border-2 hover:shadow-lg transition-shadow bg-white">
+                <Card key={index} className="border-2 hover:shadow-lg transition-shadow bg-white relative z-30">
                   <CardContent className="pt-6">
                     <stat.icon className="w-8 h-8 text-blue-600 mx-auto mb-2" />
                     <div className="text-3xl font-bold text-gray-900">{stat.value}</div>
