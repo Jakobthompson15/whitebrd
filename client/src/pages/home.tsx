@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Navigation } from '@/components/navigation';
 import { Footer } from '@/components/footer';
 import { SEO, organizationSchema } from '@/components/seo';
+import { VideoBackground } from '@/components/video-background';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -145,8 +146,8 @@ export default function Home() {
 
       {/* Hero Section */}
       <section id="home" className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <VideoBackground />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
           <div className="text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -157,12 +158,12 @@ export default function Home() {
                 🚀 500+ Businesses Transformed • $50M+ Revenue Generated
               </Badge>
 
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">
                 Strategic Digital Marketing
                 <span className="block text-4xl md:text-6xl mt-2">for Unstoppable Growth</span>
               </h1>
 
-              <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto mb-8">
+              <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto mb-8">
                 <span className="font-semibold">Dominate Your Market Online & Offline.</span> We obsess over your revenue,
                 not vanity metrics. From local businesses to national brands, we deliver results that matter.
               </p>
